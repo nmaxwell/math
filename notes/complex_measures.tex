@@ -31,6 +31,7 @@
 \newcommand{\st}[0]{ \textrm{ s.t. } }
 \newcommand{\fall}[0] { \textrm{ for all } }
 \newcommand{\wrt}[0] { \textrm{ w.r.t. } }
+\newcommand{\aew}[0] { \textrm{a.e.} }
 
 \newcommand{\nats}[0] { \mathbb{N}}
 \newcommand{\reals}[0] { \mathbb{R}}
@@ -90,7 +91,15 @@ Nicholas Maxwell\\
 \addvspace{5pt} \hrule
 \end{flushleft}	
 
-For $\A$ a sigma algebra, $E \in \A$, define $\partset{E, \A} := \{ \{ E_k \in \A; k \in \nats \}; E = \cup_k E_k, E_i \cap E_j = \phi \;  \forall i \not = j \}$. Always $ \{ \phi, E \} \in \partset{E, \A}$, so $\partset{E, \A}$ is never empty, and also $\partset{\phi, \A} = \{ \phi \}$. \\
+For $\A$ a $\sigma$-algebra, $E \in \A$, define $\partset{E, \A} \defeq \{ \{ E_k \in \A; k \in \nats \}; E = \cup_k E_k, E_i \cap E_j = \phi \;  \forall i \not = j \}$. Always $ \{ \phi, E \} \in \partset{E, \A}$, so $\partset{E, \A}$ is never empty, and also $\partset{\phi, \A} = \{ \phi \}$.    \\
+
+For $\A$ a $\sigma$-algebra, define 
+
+
+\noindent
+$S^\pm(\A) \defeq \{ \sum_{k=1}^n c_k \, \cf{E_k}; \{c_k \in\reals; c_i \not = c_j \, \forall i \not = j\}, \{E_k \in \A; E_i \cap E_j = \phi \, \forall i \not = j \}, n \in \nats \}$ \\
+\noindent
+$S^{+}(\A) \defeq \{ \sum_{k=1}^n c_k \, \cf{E_k}; \{c_k \in [0, \infty], c_i \not = c_j \, \forall i \not = j\}, \{E_k \in \A; E_i \cap E_j = \phi \, \forall i \not = j \}, n \in \nats \}$ \\
 
 
 
@@ -371,12 +380,12 @@ Proof: ADD \\
 
 
 
-If $(X, \A, \mu)$ a measure space, $f \in L^1(\A,\mu)$, then $\nu \in \M(\A)$ and $\nu \ll \mu$, where
+If $(X, \A, \mu)$ a measure space, $[f] \in L^1(\A,\mu)$, then $\nu \in \M(\A)$ and $\nu \ll \mu$, where
 
 $$ \nu(E) = \int_E f \, d\mu \; \fall E \in \A.$$
 
 \noindent
-Proof: First, $|f \cf{E}| \le |f| \rimply f \cf{E} \in  L^1(\A,\mu)$ so $|\nu(E)| < \infty \fall E \in \A$, and so $\nu$ is finite and well defined. $\nu(\phi) = \int_X \cf{\phi} f \, d\nu = \int_X 0 \, d\nu = 0$. If $\{ E_k \}_{k \in \nats} \in \A$, disjoint, $E  = \cup_{k \in \nats} E_k$, then $\nu(E) = \int_X \cf{E} f \, d\mu = \int_X ( \sum_{k \in \nats} \cf{E_k} ) f \, d\mu$. Now, let $h_n(x) = \sum_{k=1}^n \cf{E_k}(x) f(x)$, then each $h_n$ is $\A$-measurable, $\lim_{n \rarw \infty} h_n(x) f(x) = \cf{E}(x) f(x)$, which is $\A$-measurable, and $|h_n(x)| \le |f(x)|$, and $|f| \in L^1(\A, \mu)$. So by LDCT, $\nu(E) = \int_X ( \sum_{k \in \nats} \cf{E_k} ) f \, d\mu  =  \sum_{k \in \nats} \int_{E_k}  f \, d\mu = \sum_{k \in \nats} \nu(E_k)$, so $\nu \in \M(\A)$. Next, $f(x) \le \sup \{ f(x); x \in E \} \fall x \in E \rimply \nu(E) = \int_E f \, d\mu \le \sup \{ f(x); x \in E \} \int_E \, d\mu = \sup \{ f(x); x \in E \} \mu(E)$, so $\mu(E) = 0 \rimply \nu(E) = 0$, so $\nu \ll \mu$.
+Proof: First, $|f \cf{E}| \le |f| \rimply f \cf{E} \in  L^1(\A,\mu)$ so $|\nu(E)| < \infty \fall E \in \A$, if $w \in [f]$ arbitrarily, then $\int_E f \, d\mu = \int_E w \, d\mu  \; \fall E \in \A $, because $f = w$ $\mu$-a.e., so $\nu$ is independent of the choice of functions in $[f]$, and so $\nu$ is finite and well defined. $\nu(\phi) = \int_X \cf{\phi} f \, d\nu = \int_X 0 \, d\nu = 0$. If $\{ E_k \}_{k \in \nats} \in \A$, disjoint, $E  = \cup_{k \in \nats} E_k$, then $\nu(E) = \int_X \cf{E} f \, d\mu = \int_X ( \sum_{k \in \nats} \cf{E_k} ) f \, d\mu$. Now, let $h_n(x) = \sum_{k=1}^n \cf{E_k}(x) f(x)$, then each $h_n$ is $\A$-measurable, $\lim_{n \rarw \infty} h_n(x) f(x) = \cf{E}(x) f(x)$, which is $\A$-measurable, and $|h_n(x)| \le |f(x)|$, and $|f| \in L^1(\A, \mu)$. So by LDCT, $\nu(E) = \int_X ( \sum_{k \in \nats} \cf{E_k} ) f \, d\mu  =  \sum_{k \in \nats} \int_{E_k}  f \, d\mu = \sum_{k \in \nats} \nu(E_k)$, so $\nu \in \M(\A)$. Next, $f(x) \le \sup \{ f(x); x \in E \} \fall x \in E \rimply \nu(E) = \int_E f \, d\mu \le \sup \{ f(x); x \in E \} \int_E \, d\mu = \sup \{ f(x); x \in E \} \mu(E)$, so $\mu(E) = 0 \rimply \nu(E) = 0$, so $\nu \ll \mu$.
 
 
 
@@ -401,7 +410,7 @@ For all $\nu \in \M(X, \A)$, there exist unique $\nu_a, \nu_s \in \M(X, \A)$ suc
 b) Radon-Nikodym Theorem (RNT): \\
 
 \noindent 
-For all $\nu \in \M(X, \A)$ such that $\nu \ll \mu$, there exists a unique $h \in L^1(\mu)$ such that $ \nu(E) = \int_E h \, d\mu $, $E \in \A$. \\
+For all $\nu \in \M(X, \A)$ such that $\nu \ll \mu$, there exists a unique $[h] \in L^1(\mu)$ such that $ \nu(E) = \int_E h \, d\mu $, $E \in \A$. \\
 
 \vspace{10pt}
 
@@ -412,10 +421,17 @@ Remarks:  \\
 In the LDT, we can apply the RNT to $\nu_s$, and if $\nu \ll \mu$, then $\nu_s = 0$. \\
 
 \noindent
-In the LDT, $\nu \in \M^+(X, \A) \rimply \nu_a, \nu_s \in \M^+(X, \A)$. \\
+In the LDT and RNT, $\nu \ge 0$, then $h, \nu_a, \nu_s \ge 0$ $\mu$-a.e. \\
 
 \noindent
-In the RNT, if $\nu \in \M^+(X, \A)$, then $h \ge 0$ $\mu$-a.e. \\
+In the LDT and RNT, if $\nu \in \M^+(\A)$, then these results hold with $\nu_a, \nu_s \in \M^+(X, \A)$, but  $h: X \rarw [0, \infty]$, $\A$-measurable, might not be integrable, but will be the (infinite) sum of locally integrable functions. \\
+
+\noindent
+Notation: \\
+
+
+\noindent
+Given $\nu \in \M(X, \A)$, write $\frac{d\nu}{d\mu}$ for the $\mu$-integrable function such that $\nu_a(E) = \int_E \frac{d\nu}{d\mu} \, d\mu$, where $\nu_a$ is the part in the LDT such that $\nu_a \ll \nu$, then $d\nu =\frac{d\nu}{d\mu} d\mu$. $\frac{d\nu}{d\mu}$ is called the Radon-Nikodym derivative of $\nu$ with respect to $\mu$. More generally, take $d\nu = w \, d\mu$ to mean $\nu(E) = \int_E w \, d\mu$ for all $E \in \A$. \\
 
 
 %\noindent
@@ -526,10 +542,102 @@ not finished.
 
 
 
+\break
+
+ 
+
+%Theorem 6.12 in Rudin: f
+For $\nu \in \M(\A)$, $\mu \in \M^+(\A)$ $\sigma$-finite, and $d\nu = w \, d\mu$, then $d|\nu| = |w| \, d\mu$, or in other words, $\frac{d|\nu|}{\\d\mu} = |\frac{d\nu}{d\mu}|$. \\
+
+\noindent
+Proof: Need to show that $|\nu|(E) = \int_E |w| \, d\mu$ for all $E \in \A$. Notice $|\nu(E)| = |\int_E w \, d\mu| \le \int_E |w| \, d\mu$. So by definition, $|\nu| \le |\lambda|$, with $\lambda$ defined by $d\lambda = |w| \, d\mu$. For the reverse inequality, let $A = \{x \in X; w(x) \not = 0 \}$, then $A \in \A$ because $[w] \in L^1(\mu)$ so $w$ is $\A$-measurable. Define $K(x) = |w(x)| \div w(x),$ for $x \in \A$, and $K(x) = 0$ else, then $K$ is measruable, beasue $ |w(x)| \div w(x) $ is measurable $\wrt \A_A$, . Then $|K| \le 1$ and so there exists a sequence of simple functions $s_n \nearrow K$ pointwise, $|s_n| \le |K| \le 1$. Then $s_n(x) w(x) \rarw K(x) w(x) = |w(x)|$. By LDCT, $\int_E s_n h \, d\mu \rarw \int_E |w| \, d\mu$. Suppose $s_n = \sum_{k=1}^m c_k \cf{E_k}$ in its standard representation, then $|c_k| \le 1$ and 
+
+$$
+|\int_E s_n w \, d\mu | = |\sum_{k=1}^m c_k \int_{E \cap E_k} w \, d\mu| \le \sum_{k=1}^m |c_k| |\nu(E \cap E_k)|  \le \sum_{k=1}^m 1 \cdot| |\nu(E \cap E_k)| = |\nu|(E \cap (\cup_k E_k)) \le |\nu|(E),
+$$
+
+\noindent
+so $\int_E |w| \, d\mu \le |\nu|(E)$. $\Box$\\
+
+For $\nu \in \M(\A)$, $\mu \in \M^+(\A)$ $\sigma$-finite, and $d\nu = w \, d\mu$, then $d\nu_k = w_k \, d\mu_k$, where $\nu = \sum_{k=0}^3 \, i^k \, \nu_k$, $w = \sum_{k=0}^3 \, i^k \, w_k$, and each $\nu_k , w_k \ge 0$. \\
+
+\noindent
+Proof: The Jordan decomposition of $\nu$ and the decomposition of $w$ into positive, negative, real and imaginary parts take the same form, then use the  previous theorem and the linearity of the integral. \\
+
+For $\nu \in \M(\A)$, $\mu \in \M^+(\A)$ $\sigma$-finite, then $d\nu = w \, d\mu$ $\lrimply$ $\int_x f \, d\nu = \int_X fw \, d\mu \fall f \in L^1(X, |\nu|)$.
+
+\noindent
+Proof: ADD. 
+
+
+For $\nu \in \M(\A)$ there is a $[w_\nu] \in L^1(\A, |\nu|)$ such that $d\nu = w_\nu \, d|\nu|$.
+
+\noindent
+Proof: 
 
 
 
 
+
+
+
+
+\break
+
+Counter example to show that in the RNT, the positive measure needs to be $\sigma$-finite. Let $\mu$ be the counting measure on $(\reals, \pset{\reals})$, then $L^1(\reals, \mu) = \ell^1(\reals)$, and for any $\nu \in \M(\reals)$, $E$ $\nu$-measurable, $\mu(E) = 0 \rimply \sum_{x \in E} \, 1 = 0 \rimply E = \phi \rimply \nu(E) = 0$, so $\nu \ll \mu$. Then, let $(\reals, \overline{\mathcal{L}}, \overline{\lambda})$ be the complete Lebesgue measure space on $\reals$. For all $h \in \ell^1(\reals)$, let $\nu_h(E) = \int_E h \, d\nu$. Now we've seen that $h(x) = 0$ for all but countably many $x \in \reals$, which means that $\nu_h$ is concentrated on a countable set in $\reals$, $A_h$, and $A_h \in \overline{\mathcal{L}}$ by completeness, with $\overline{\lambda}(A_h) = 0$. Finally, the RNT would say that for any $\gamma \in \M(\reals, \overline{\mathcal{L}})$, there exists an $h \in \ell^1(\reals)$ such that $\gamma(E) = \nu_h(E)$ for all $E \in \overline{\mathcal{L}}$, but then there exists an $A \subset \reals$ such that $\gamma$ is concentrated on $A$; choose $\gamma(E) = \int_E w \, d\overline{\lambda}$ for all $E \in \overline{\mathcal{L}}$, some $[w] \in L^1(\overline{\lambda})$, so $\gamma$ is concetrated on a $\overline{\lambda}$-null set, because that set is countable, and $\gamma \ll \overline{\lambda}$, so $\gamma$ is concentrated on a $\gamma$-null set, so $\gamma$=0, a contratdiction for any $[w] \not = 0$. \\
+
+
+
+
+
+Let $\M_{\mu-a.c.} = \{ \nu \in \M(\A); \nu \ll \mu \}$, $\M_{\mu-a.c.}$ is a subspace of the Banach space $\M(\A)$.\\
+
+\noindent Let $0(E) = 0 \fall E \in \A$, then $0 \ll \mu$ trivially, so $ 0 \in \M_{\mu-a.c.}$. Let $\nu, \sigma \in \M_{\mu-a.c.}$, $c \in \mathbb{F}$, then $\lambda \defeq \nu + c \cdot \sigma \in \M(\A)$, and suppose $E \in \A$, $\mu(E) = 0$, then $\nu(E) = 0 = \sigma(0) = c \cdot \sigma(0)$, so $\lambda(E) = 0$ and so $\lambda \in \M_{\mu-a.c.}$. $\M_{\mu-a.c.}$ inherits its norm from $\M(\A)$. Suppose $(\nu_k)_{k \in \nats}$ is sequence in $\M_{\mu-a.c.}$, then $\nu = \lim_{k \rarw \infty} \nu_k \in \M(\A)$, because $\M(\A)$ is a Banach space. Suppose $E \in \A$, $\mu(E) = 0$, then each $\nu_k \in \M_{\mu-a.c.} \rimply \nu_k(0) = 0$, and then $\nu(E) = \lim 0 = 0$, so $\nu \in \M_{\mu-a.c.}$, and so $\M_{\mu-a.c.} $ is a complete metric space, and thus a Banach subspace.\\
+
+
+
+$(X, A, \mu)$ a measure space, then the map $\Phi: L^1(\A, \mu) \rarw \M_{\mu-a.c.}$ defined by $\Phi([w])(E) = \int_E w\, d\mu$, is linear, bijective, and $|| \Phi([w]) || = ||[w]||$. So $\M_{\mu-a.c.}$ and $L^1(\A, \mu)$ are isometrically isomorphic. The linearity of $\Phi$ does not depend of $\mu$ being $\sigma$-finite.\\
+
+\noindent
+Proof: First, for any $[w] \in L^1(\A, \mu)$, then for any $E \in \A$, let $\nu(E) = \int_E w \, d\mu$. We have already shown that $\nu$ is well defined, and $\nu \in \M(\A)$, so $\Phi$ is well defined. \\
+
+\noindent
+Lemma: For $(X, \A, \mu)$ a measure space, $f,g: X \rarw \reals$, $\A$-measurable. Then $ \int_A f \,d\mu = \int_A g \, d\mu$ for all $A \in \A \rimply f = g$, $\mu-$a.e. Proof: let $h = f - g$, $A^+ = h^{-1}( [0,\infty] )$, $A^- = h^{-1}( [-\infty,0) )$. Then $h \ge 0$ on $A^+$ so $\int_{A^+} h \,d\mu = 0$ $\rimply h=0$ $\mu$-a.e. on $A^+$ by the vanishing principle. Similarly, $h^- = 0$ $\mu$-a.e. on $A^-$. \\
+
+\noindent
+Next, $\Phi([f]) = \Phi([g]) \rimply \int_E f \, d\mu = \int_E g \, d\mu$ for all $E \in \A \rimply f=g \; \;\mu-\aew \rimply f,g \in [g] = [f]$, so $\Phi$ is injective, using the lemma. If $\nu \in \M_{\mu-a.c.}$, then the RNT says that there is a unique $[h] \in L^1(\A, \mu)  \st \nu(E) = \int_E h \, d\mu  \fall E \in \A $, hence $\Phi$ is surjective. \\
+
+\noindent
+Linearity:$\fall f,g \in L^1(\A, \mu), c \in \mathbb{F}$,  $\Phi([f] + c \cdot [g])(E) = \int_E \left( f + c \cdot g \right) \, d\mu = \int_E f d\mu + c \cdot \int_E g  \, d\mu \; \; \forall E \in \A$, and 
+ $\Phi([f]) + c \cdot \Phi([g]) = \int_E f d\mu + c \cdot \int_E g  \, d\mu \; \; \forall E \in \A$, so 
+ $ \Phi([f] + c \cdot [g])(E) = \Phi([f]) + c \cdot \Phi([g])$. \\
+ 
+\noindent
+Lastly, let $ \nu = \Phi([f])$, then $||\Phi([f])|| = |\nu|(X) = \int_X |f| \, d\nu = ||f||_1$, by Rudin 6.13. $\Box$ \\
+
+
+
+
+
+
+$(X, A)$ a measurable space, $\nu,\sigma,\mu \in \M(\A)^+$, $\sigma$-finite.
+
+\begin{enumerate}
+\item
+$\nu \ll \mu, f: X \rarw [0,\infty]$ $\A$-measurable, then $\int_X f \, d\nu = \int_X f \frac{d\nu}{d\mu} \, d\mu$.
+\item
+$\nu \ll \mu, \sigma \ll \mu$ then $\frac{d}{d\mu}( \nu + \sigma ) = \frac{d\nu}{d\mu} +  \frac{d\nu}{d\mu}$.
+\end{enumerate}
+
+\noindent
+Proof: 1) 
+For  $f = \sum_{k=1}^n c_k \, \cf{E_k} \in S^+(\A)$, $\int_X f \,d\nu = \int_X  \sum_{k=1}^n c_k \, \cf{E_k} \,d\nu =  \sum_{k=1}^n c_k \, \nu(E_k) = \sum_{k=1}^n c_k \, \int_{E_k} \frac{d\nu}{d\mu} \,d\mu =  \int_{X} \sum_{k=1}^n c_k \, \cf{E_k} \frac{d\nu}{d\mu} \,d\mu =  \int_X f \frac{d\nu}{d\mu} \, d\mu$, by linearity of the intergral and by the RNT. For $f:X \rarw [0,\infty]$ $\A$-measurable, let $\{s_k\} \subset S^+(\A)$, $s_1 \le s_2 \le ... \le f$, $\lim_n s_n = f$. By LMCT, $ \int_X f \, d\nu = \lim_n \int_X  s_n \, d\nu =  \lim_n \int_X  s_n \frac{d\nu}{d\mu} \, d\mu = \int_X  \lim_n  \left( s_n \frac{d\nu}{d\mu} \right) \, d\mu = \int_X \left( \lim_n s_n  \right) \frac{d\nu}{d\mu} \, d\mu = \int_X f \frac{d\nu}{d\mu} \, d\mu$, again by LMCT, and by the linearity of $\lim$, i.e. for all $x \in X$, $\frac{d\nu}{d\mu}(x)$ is just a positive real number, so the conditions for LMCT carry over from $\{ s_n(x) \}$ to $\{ s_n(x) \frac{d\nu}{d\mu}(x) \}$. If $\mu$ is the zero measure then so is $\nu$, and then the above integrals are 0 for all $f$.   \\
+
+\noindent
+Proof: 2) Let $m = \nu + \sigma$, we showed that $\M_{\mu-a.c.}$ is a linear subspace of $\M(\A)$, so $m \ll \mu$
+
+\noindent
+Proof: 3) 
 
 
 
