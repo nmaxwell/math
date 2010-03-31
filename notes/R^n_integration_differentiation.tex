@@ -77,6 +77,7 @@
 \newcommand{ \eqdef }[0] { \equalscolon }
 %\newcommand{ \cf }[1] { \chi_{_{#1}} }
 \newcommand{ \cf }[1] { \mathbf{1}_{#1} }
+\newcommand{ \Var } { \textrm{Var} }
 
 
 \begin{document}
@@ -90,8 +91,45 @@ Nicholas Maxwell\\
 \addvspace{5pt} \hrule
 \end{flushleft}	
 
-A measure defined on a Borel $\sigma$-algebra is called a Borel measure. 
+A measure defined on a Borel $\sigma$-algebra is called a Borel measure. Write $\M(\reals^n)$ for the Borel measures on $\reals^n$. If $E \subset \reals^n$, then $\M(E)$ are the borel measures on $E$, but $\M(E) \subset \M(\reals^n)$, by zero padding. \\
 
+Definition: a positive finite measure $\mu$ on $\reals^n$ is regular if
+
+\begin{enumerate}
+\item
+$\mu(E) = \inf \{ \mu(U) ; U \textrm{ open}, U \supset E \}$
+\item
+$\mu(E) = \sup \{ \mu(K) ; K \textrm{ compact}, K \subset E \}$
+\end{enumerate}
+
+Every positive finite measure on $\reals^n$ is regular. For every measure $\nu \in \M(\reals^n), \fall E \in \Bl(\reals^n)$, there exists a sequence of open sets $U_k \supset E$, and compact sets $K_n \subset E$ such that $\nu(U_n) \rarw \nu(E)$ and $\nu(K_n) \rarw \nu(E)$.
+
+\noindent
+Proof: ADD \\
+
+Definition: we say a measure $\nu \in \M(\reals^n)$ is regular if each positive $\nu_k$ in the Jordan decomposition $\nu = \sum_{k=0}^3 i^k \, \nu_k$ is regular. By the last result, every $\nu \in \M(\reals^n)$ is regular and then the condition about sequences of sets holds. \\
+
+If $\nu \in \M(\reals)$, we define its distribution function by $F_\nu (x) = \nu((\infty,x])$. $\nu \mapsto F_\nu$ is injective and linear on $\M(\reals)$. \\
+
+Def: $F: \reals \rarw \reals$ is of bounded variation, BV, or say $F \in BV$, if $\Var(F) < \infty$, where $\Var(F) \defeq \sup\{ V_F(x); x \in \reals \}$, and 
+
+$$
+V_F(x) \defeq \sup \left\{  \sum_{k=1}^n |F(x_k) - F(x_{k-1})| ; \;  x_0    < x_1 < ... < x_n=x, \{ x_k \} \in \reals, n \in \nats \right\}.
+$$
+
+Def: $F: \reals \rarw \reals$ is in $NBV$ if $F \in BV$, $F$ is right continuous at all $x \in \reals$, and $\lim_{x \rarw -\infty} F(x) = 0$; normalized $BV$.\\
+
+If $\nu \in \M(\reals, \Bl(\reals))$, then $F_\nu \in NBV$. \\
+
+\noindent
+Proof: ADD \\
+
+Properties of $BV$,
+
+\begin{enumerate}
+\item
+If $F: \reals \rarw \reals$, $c \in \reals$, then $V_{F_G}(x) \le V_F(x) + V_F(x)$ and $V_{cF}(x) = |c| V_F(x)$. Hence $BV$ is a vector space and if $F,G \in BV$, then $\Var(F+G) \le \Var(F) + \Var(G)$ and $\Var(cF) = |c| \Var(F)$
+\end{enumerate}
 
 
 

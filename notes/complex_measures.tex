@@ -398,7 +398,7 @@ Proof: First, $|f \cf{E}| \le |f| \rimply f \cf{E} \in  L^1(\A,\mu)$ so $|\nu(E)
 
 \break
 
-(Rudin 6.10) $(X, \A)$ a measurable space, $\mu \in \M^+(X, \A)$, $\sigma$-finite. \\
+Rudin 6.10: $(X, \A)$ a measurable space, $\mu \in \M^+(X, \A)$, $\sigma$-finite. \\
 
 \noindent 
 a) Lebesgue Decomposition Theorem (LDT): \\
@@ -431,7 +431,7 @@ Notation: \\
 
 
 \noindent
-Given $\nu \in \M(X, \A)$, write $\frac{d\nu}{d\mu}$ for the $\mu$-integrable function such that $\nu_a(E) = \int_E \frac{d\nu}{d\mu} \, d\mu$, where $\nu_a$ is the part in the LDT such that $\nu_a \ll \nu$, then $d\nu =\frac{d\nu}{d\mu} d\mu$. $\frac{d\nu}{d\mu}$ is called the Radon-Nikodym derivative of $\nu$ with respect to $\mu$. More generally, take $d\nu = w \, d\mu$ to mean $\nu(E) = \int_E w \, d\mu$ for all $E \in \A$. \\
+Given $\nu \in \M(X, \A)$, write $\frac{d\nu}{d\mu}$ for the $\mu$-integrable function such that $\nu_a(E) = \int_E \frac{d\nu}{d\mu} \, d\mu$, for all $E \in \A$, where $\nu_a$ is the part in the LDT such that $\nu_a \ll \nu$, then $d\nu =\frac{d\nu}{d\mu} d\mu$. $\frac{d\nu}{d\mu}$ is called the Radon-Nikodym derivative of $\nu$ with respect to $\mu$. More generally, take $d\nu = w \, d\mu$ to mean $\nu(E) = \int_E w \, d\mu$ for all $E \in \A$. \\
 
 
 %\noindent
@@ -544,10 +544,14 @@ not finished.
 
 \break
 
- 
+Folland 1.29: $(X ,\A, \mu)$ a $\sigma$-finite measure space, for $w: X \rarw [0,\infty]$, $\A$-measurable and $\nu$ as $d\nu = w \, d\mu $, then $\nu \in \M^+(\A)$, and for all $f:X \rarw [0, \infty]$ $\A$-measurable, $\int_X f\, d\nu = \int_X fw \, d\mu$. \\
 
-%Theorem 6.12 in Rudin: f
-For $\nu \in \M(\A)$, $\mu \in \M^+(\A)$ $\sigma$-finite, and $d\nu = w \, d\mu$, then $d|\nu| = |w| \, d\mu$, or in other words, $\frac{d|\nu|}{\\d\mu} = |\frac{d\nu}{d\mu}|$. \\
+\noindent
+Proof: let $\{E_k\} \in \partset{E, \A}$. Notice that $\cf{E} w = \sum_{kj=1}^\infty \cf{E_k} w$, by Beppi-Levi, $\nu(E) = \sum_{k=1}^\infty \nu(E_k)$, and $\nu(\phi) = \int_X \cf{\phi} w \, d\mu = 0$, so $\nu \in \M^+(\A)$. Then letting $f = \cf{E}, E \in \A$ the formula  holds, thus for simple functions, and thus for general $f:X \rarw [0, \infty]$ using LMCT.\\
+
+
+
+Folland 6.13: for $\nu \in \M(\A)$, $\mu \in \M^+(\A)$ $\sigma$-finite, and $d\nu = w \, d\mu$, then $d|\nu| = |w| \, d\mu$, or in other words, $\frac{d|\nu|}{\\d\mu} = |\frac{d\nu}{d\mu}|$. \\
 
 \noindent
 Proof: Need to show that $|\nu|(E) = \int_E |w| \, d\mu$ for all $E \in \A$. Notice $|\nu(E)| = |\int_E w \, d\mu| \le \int_E |w| \, d\mu$. So by definition, $|\nu| \le |\lambda|$, with $\lambda$ defined by $d\lambda = |w| \, d\mu$. For the reverse inequality, let $A = \{x \in X; w(x) \not = 0 \}$, then $A \in \A$ because $[w] \in L^1(\mu)$ so $w$ is $\A$-measurable. Define $K(x) = |w(x)| \div w(x),$ for $x \in \A$, and $K(x) = 0$ else, then $K$ is measruable, beasue $ |w(x)| \div w(x) $ is measurable $\wrt \A_A$, . Then $|K| \le 1$ and so there exists a sequence of simple functions $s_n \nearrow K$ pointwise, $|s_n| \le |K| \le 1$. Then $s_n(x) w(x) \rarw K(x) w(x) = |w(x)|$. By LDCT, $\int_E s_n h \, d\mu \rarw \int_E |w| \, d\mu$. Suppose $s_n = \sum_{k=1}^m c_k \cf{E_k}$ in its standard representation, then $|c_k| \le 1$ and 
@@ -564,16 +568,20 @@ For $\nu \in \M(\A)$, $\mu \in \M^+(\A)$ $\sigma$-finite, and $d\nu = w \, d\mu$
 \noindent
 Proof: The Jordan decomposition of $\nu$ and the decomposition of $w$ into positive, negative, real and imaginary parts take the same form, then use the  previous theorem and the linearity of the integral. \\
 
-For $\nu \in \M(\A)$, $\mu \in \M^+(\A)$ $\sigma$-finite, then $d\nu = w \, d\mu$ $\lrimply$ $\int_x f \, d\nu = \int_X fw \, d\mu \fall f \in L^1(X, |\nu|)$.
+For $\nu \in \M(\A)$, $\mu \in \M^+(\A)$ $\sigma$-finite, then $d\nu = w \, d\mu$ $\lrimply$ $\int_x f \, d\nu = \int_X fw \, d\mu \fall f \in L^1(X, |\nu|)$.\\
 
 \noindent
-Proof: ADD. 
+Proof: ADD. \\
 
 
-For $\nu \in \M(\A)$ there is a $[w_\nu] \in L^1(\A, |\nu|)$ such that $d\nu = w_\nu \, d|\nu|$.
+Folland 6.12: for $\nu \in \M(\A)$ there is a $[w] \in L^1(\A, |\nu|)$ such that $d\nu = w \, d|\nu|$, with $|w| = 1$. \\
 
 \noindent
-Proof: 
+Proof: ADD \\
+
+Using these results, for any $\nu \in \M(\A)$, and $w$ as $d\nu = w \, d|\nu|$, then for all $f \in L^1(\A, |\nu|)$, $\int_X f \, d\nu = \int_X f w \, d|\nu|$. This may be taking as the definition of $\int_X f \, d\nu$, by integrating $f w$ in the usual way, i.e. $|fw| = |f|$ so $fw \in L^1(\A, |\nu|)$, then apply the usual steps. \\
+
+
 
 
 
@@ -583,6 +591,19 @@ Proof:
 
 
 \break
+
+
+$\nu \in \M^\pm(X, \A)$, then by the Hahn decomposition gives $A_+, A_- \in \A$, $A_+ \cap A_- = \phi, A_+ \cup A_- = X$, $\nu_\pm(E) = \frac{1}{2} \left( |\nu|(E) \pm \nu(E) \right) =  \pm \nu( E \cap A_\pm)$, for all $E \in \A$, and $\nu_\pm$, and then $\nu_+ \perp \nu_-$. Then $\nu_\pm$ are unique positive finite measures on $\A$. \\
+
+\noindent
+Proof: $\nu_\pm$ are signed measures, need to show that they are positive. Write $w = \frac{d\nu}{d|\nu|}$, then $|w| = 1$, $w:X \rarw \{-1,1\}$, and $A_\pm = w^{-1}(\{\pm 1\})$, then 
+$\nu_\pm(E) = \frac{|\nu|(E) \pm \nu(E)}{2} = \int_E \frac{|h| \pm h}{2} \, d|\nu| = \int_E h^\pm \, d|\nu| \ge 0$ for all $E \in \A$ (integral of a positive functions wrt a positive measure). Uniqueness follows by supposing that $\tilde{A}_+, \tilde{A}_- \in \A$ another such pair, then $\nu(A_+ \cap \tilde{A}_-) = \nu_+(\tilde{A}_-)$, but $\nu_+$ is concentrated on $\tilde{A}_+$ so $\nu(A_+ \cap \tilde{A}_-) = 0$, similarly, $\nu(A_- \cap \tilde{A}_+) = 0$. \\
+
+%$\nu \in \M^\pm(\A)$, then let $\nu_+ = \frac{1}{2}( |\nu| + \nu ), \nu_- = \frac{1}{2}( |\nu| - \nu )$. $\nu_\pm(\phi) = \frac{1}{2}( |\nu|(\phi) \pm \nu(\phi) )= 0 \pm 0 = 0$. For any $E \in \A$, $\{ E_k \} \in \partset{E, \A}$, then   $\nu(E)_\pm = \frac{1}{2}( |\nu|(E) \pm \nu(E) )= \frac{1}{2}( |\nu|(\cup_k E_k) \pm \nu(\cup_k E_k) )$ = $\cup_k \frac{1}{2}|\nu|(E_k) \pm \cup_k \frac{1}{2}\nu(E_k)$ = $\cup_k \left( \frac{1}{2}|\nu|(E_k) \pm \frac{1}{2}\nu(E_k) \right)$ = $\cup_{k \in \nats} \nu(E_k)$, so $\nu_\pm \in \M^\pm(\A)$.\\
+
+
+
+
 
 Counter example to show that in the RNT, the positive measure needs to be $\sigma$-finite. Let $\mu$ be the counting measure on $(\reals, \pset{\reals})$, then $L^1(\reals, \mu) = \ell^1(\reals)$, and for any $\nu \in \M(\reals)$, $E$ $\nu$-measurable, $\mu(E) = 0 \rimply \sum_{x \in E} \, 1 = 0 \rimply E = \phi \rimply \nu(E) = 0$, so $\nu \ll \mu$. Then, let $(\reals, \overline{\mathcal{L}}, \overline{\lambda})$ be the complete Lebesgue measure space on $\reals$. For all $h \in \ell^1(\reals)$, let $\nu_h(E) = \int_E h \, d\nu$. Now we've seen that $h(x) = 0$ for all but countably many $x \in \reals$, which means that $\nu_h$ is concentrated on a countable set in $\reals$, $A_h$, and $A_h \in \overline{\mathcal{L}}$ by completeness, with $\overline{\lambda}(A_h) = 0$. Finally, the RNT would say that for any $\gamma \in \M(\reals, \overline{\mathcal{L}})$, there exists an $h \in \ell^1(\reals)$ such that $\gamma(E) = \nu_h(E)$ for all $E \in \overline{\mathcal{L}}$, but then there exists an $A \subset \reals$ such that $\gamma$ is concentrated on $A$; choose $\gamma(E) = \int_E w \, d\overline{\lambda}$ for all $E \in \overline{\mathcal{L}}$, some $[w] \in L^1(\overline{\lambda})$, so $\gamma$ is concetrated on a $\overline{\lambda}$-null set, because that set is countable, and $\gamma \ll \overline{\lambda}$, so $\gamma$ is concentrated on a $\gamma$-null set, so $\gamma$=0, a contratdiction for any $[w] \not = 0$. \\
 
@@ -626,20 +647,28 @@ $(X, A)$ a measurable space, $\nu,\sigma,\mu \in \M(\A)^+$, $\sigma$-finite.
 \item
 $\nu \ll \mu, f: X \rarw [0,\infty]$ $\A$-measurable, then $\int_X f \, d\nu = \int_X f \frac{d\nu}{d\mu} \, d\mu$.
 \item
-$\nu \ll \mu, \sigma \ll \mu$ then $\frac{d}{d\mu}( \nu + \sigma ) = \frac{d\nu}{d\mu} +  \frac{d\nu}{d\mu}$.
+$\nu \ll \mu, \sigma \ll \mu$ then $\frac{d}{d\mu}( \nu + \sigma ) = \frac{d\nu}{d\mu} +  \frac{d\nu}{d\mu}$, $\mu$-a.e.
+\item
+$\nu \ll \sigma \ll \mu$ then $\frac{d\nu}{d\sigma}\frac{d\sigma}{d\mu} = \frac{d\nu}{d\mu}$ $\mu$-a.e.
+\item
+$\nu \ll \mu$, $\mu \ll \nu$ then $\frac{d\nu}{d\mu} = \left( \frac{d\mu}{d\nu} \right)^{-1} $
 \end{enumerate}
 
 \noindent
-Proof: 1) 
-For  $f = \sum_{k=1}^n c_k \, \cf{E_k} \in S^+(\A)$, $\int_X f \,d\nu = \int_X  \sum_{k=1}^n c_k \, \cf{E_k} \,d\nu =  \sum_{k=1}^n c_k \, \nu(E_k) = \sum_{k=1}^n c_k \, \int_{E_k} \frac{d\nu}{d\mu} \,d\mu =  \int_{X} \sum_{k=1}^n c_k \, \cf{E_k} \frac{d\nu}{d\mu} \,d\mu =  \int_X f \frac{d\nu}{d\mu} \, d\mu$, by linearity of the intergral and by the RNT. For $f:X \rarw [0,\infty]$ $\A$-measurable, let $\{s_k\} \subset S^+(\A)$, $s_1 \le s_2 \le ... \le f$, $\lim_n s_n = f$. By LMCT, $ \int_X f \, d\nu = \lim_n \int_X  s_n \, d\nu =  \lim_n \int_X  s_n \frac{d\nu}{d\mu} \, d\mu = \int_X  \lim_n  \left( s_n \frac{d\nu}{d\mu} \right) \, d\mu = \int_X \left( \lim_n s_n  \right) \frac{d\nu}{d\mu} \, d\mu = \int_X f \frac{d\nu}{d\mu} \, d\mu$, again by LMCT, and by the linearity of $\lim$, i.e. for all $x \in X$, $\frac{d\nu}{d\mu}(x)$ is just a positive real number, so the conditions for LMCT carry over from $\{ s_n(x) \}$ to $\{ s_n(x) \frac{d\nu}{d\mu}(x) \}$. If $\mu$ is the zero measure then so is $\nu$, and then the above integrals are 0 for all $f$.   \\
+Proof: 1) The RNT for $\M^+$ says that $\frac{d\nu}{d\mu}$ exists and $\frac{d\nu}{d\mu}: X \rarw [0,\infty]$, is $\A$-measurable, but might not be integrable wrt $\mu$, then Folland 1.29 applies to give the result. \\
+
+% For  $f = \sum_{k=1}^n c_k \, \cf{E_k} \in S^+(\A)$, $\int_X f \,d\nu = \int_X  \sum_{k=1}^n c_k \, \cf{E_k} \,d\nu =  \sum_{k=1}^n c_k \, \nu(E_k) = \sum_{k=1}^n c_k \, \int_{E_k} \frac{d\nu}{d\mu} \,d\mu =  \int_{X} \sum_{k=1}^n c_k \, \cf{E_k} \frac{d\nu}{d\mu} \,d\mu =  \int_X f \frac{d\nu}{d\mu} \, d\mu$, by linearity of the intergral and by the RNT. For $f:X \rarw [0,\infty]$ $\A$-measurable, let $\{s_k\} \subset S^+(\A)$, $s_1 \le s_2 \le ... \le f$, $\lim_n s_n = f$. By LMCT, $ \int_X f \, d\nu = \lim_n \int_X  s_n \, d\nu =  \lim_n \int_X  s_n \frac{d\nu}{d\mu} \, d\mu = \int_X  \lim_n  \left( s_n \frac{d\nu}{d\mu} \right) \, d\mu = \int_X \left( \lim_n s_n  \right) \frac{d\nu}{d\mu} \, d\mu = \int_X f \frac{d\nu}{d\mu} \, d\mu$, again by LMCT, and by the linearity of $\lim$, i.e. for all $x \in X$, $\frac{d\nu}{d\mu}(x)$ is just a positive real number, so the conditions for LMCT carry over from $\{ s_n(x) \}$ to $\{ s_n(x) \frac{d\nu}{d\mu}(x) \}$. If $\mu$ is the zero measure then so is $\nu$, and then the above integrals are 0 for all $f$.   \\
 
 \noindent
-Proof: 2) Let $m = \nu + \sigma$, we showed that $\M_{\mu-a.c.}$ is a linear subspace of $\M(\A)$, so $m \ll \mu$
+Proof: 2) Let $m = \nu + \sigma$, we showed that $\M_{\mu-a.c.}$ is a linear subspace of $\M(\A)$, so $m \ll \mu$. Then the RNT for $\M^+$ says that $\frac{dm}{d\mu}$ exists and $\frac{dm}{d\mu}: X \rarw [0,\infty]$, is $\A$-measurable, but might not be integrable wrt $\mu$, similarly for $\frac{d\nu}{d\mu}$ and $\frac{d\sigma}{d\mu}$, and by definition $\nu(E) + \sigma(E) = m(E) = \int_E \frac{dm}{d\mu} d\mu = \int_E \frac{d\nu}{d\mu} d\mu + \int_E \frac{d\sigma}{d\mu} d\mu = \int_E \frac{d\nu}{d\mu} + \frac{d\sigma}{d\mu} d\mu \fall E \in \A$, and as usual, $\int_E \frac{dm}{d\mu} \, d\,u = \int_E \frac{d\nu}{d\mu} + \frac{d\sigma}{d\mu} d\mu \fall E \in \A \rimply \frac{dm}{d\mu} = \frac{d\nu}{d\mu} + \frac{d\sigma}{d\mu} \; \mu - \aew$.  \\
+
 
 \noindent
-Proof: 3) 
+Proof: 3)  he RNT for $\M^+$ says that $\frac{d\nu}{d\mu},\frac{d\nu}{d\sigma},\frac{d\sigma}{d\mu} $ exist and $\frac{d\nu}{d\mu},\frac{d\nu}{d\sigma},\frac{d\sigma}{d\mu}: X \rarw [0,\infty]$, are $\A$-measurable. Then applying (1) to $\cf{E}\frac{d\nu}{d\sigma}$ for all $E \in \A$, gets $ \int_E \frac{d\nu}{d\sigma} \, d\sigma = \int_E \frac{d\nu}{d\sigma} \frac{d\sigma}{d\mu} \, d\mu$ for all $E \in \A$, so again $ \frac{d\nu}{d\sigma} \frac{d\sigma}{d\mu}  = \frac{d\nu}{d\sigma}$ $\mu$-a.e..\\
 
 
+\noindent
+Proof: 4) $\mu \ll \mu$, $\nu \ll \nu$, and $\frac{d\mu}{d\mu} = 1 = \frac{d\nu}{d\nu}$ $\mu,\nu$-a.e., because for all $E \in \A$, $\mu(E) = \int_E d\mu = \int_E \frac{d\mu}{d\mu} \, d\mu \rimply \frac{d\mu}{d\mu} = 1$ $\mu-$a.e., similarly for $\nu$.  Let $A = \{ x \in X; \frac{d\nu}{d\mu} (x) = 0 \}$, then $\nu(A) = \int_A 0 \, d\mu = 0 \rimply \mu(A) = 0 = \int_A \frac{d\mu}{d\nu} \, d\nu \rimply$ $ \frac{d\mu}{d\nu} = 0$ $\nu$-a.e. on $A$, but $\nu-$a.e. on a $\nu$-null set means everywhere, and similarly, $B = \{ x \in X; \frac{d\mu}{d\nu} (x) = 0 \}$, $\mu(B) = \nu(B) = 0$. So $\frac{d\nu}{d\mu}, \frac{d\mu}{d\nu} > 0$ a.e. Then, let $\{E_k \}_{k \in \nats} \in \A$, $X = \cup_k E_k$, $\nu(E_k) < \infty, \mu(E_k) < \infty$, possible by both $\nu, \mu$ $\sigma$-finite. Then let $\nu_k(E) = \nu(E \cap E_k)$, $\mu_k(E) = \mu(E \cap E_k)$, then $\mu_k(E_k) = \int_{E_k} \frac{d\mu_k}{d\nu_k} \, d\nu_k < \infty \rimply$ $\frac{d\mu_k}{d\nu_k} < \infty$ $\nu_k$-a.e. and so $\mu_k$-a.e. by the finiteness principle, similarly for $\frac{d\nu_k}{d\mu_k}$. So on $E_k$, $\left( \frac{d\mu_k}{d\nu_k} \right) ^{-1}$ and $\left( \frac{d\mu_k}{d\nu_k} \right) ^{-1}$ are well defined, i.e., take either to be 1 on null sets where they are ill-defined, and these won't affect integrals, and hence the associted measures; trying to avoid $1/0$ and $1/\infty$. Then, by (3), $ \nu \ll \mu \ll \nu \rimply \frac{d\nu}{d\nu}= \frac{d\nu}{d\mu}\frac{d\mu}{d\nu} = 1$ a.e., and dividing gives $\frac{d\mu}{d\nu} = \left( \frac{d\nu}{d\mu} \right)^{-1}$.
 
 
 
