@@ -7,6 +7,7 @@
 \usepackage{latexsym}
 \usepackage{graphicx}
 \usepackage{colonequals}
+\usepackage{enumerate}
 
 \setlength\topmargin{-1in}
 \setlength{\oddsidemargin}{-0.5in}
@@ -79,6 +80,9 @@
 \newcommand{ \cf }[1] { \mathbf{1}_{#1} }
 \newcommand{ \Var } { \textrm{Var} }
 
+%\newcommand{\Re}[0] { \textrm{ Re } }
+%\newcommand{\Re}[0]{ \textrm{Re} }
+%\newcommand{\Im}[0]{ \textrm{Im} }
 
 \begin{document}
 
@@ -102,19 +106,22 @@ $\mu(E) = \inf \{ \mu(U) ; U \textrm{ open}, U \supset E \}$
 $\mu(E) = \sup \{ \mu(K) ; K \textrm{ compact}, K \subset E \}$
 \end{enumerate}
 
-Every positive finite measure on $\reals^n$ is regular. For every measure $\nu \in \M(\reals^n), \fall E \in \Bl(\reals^n)$, there exists a sequence of open sets $U_k \supset E$, and compact sets $K_n \subset E$ such that $\nu(U_n) \rarw \nu(E)$ and $\nu(K_n) \rarw \nu(E)$.
+Every positive finite measure on $\reals^n$ is regular. For every measure $\nu \in \M(\reals^n), \fall E \in \Bl(\reals^n)$, there exists a sequence of open sets $U_k \supset E$, and compact sets $K_n \subset E$ such that $\nu(U_n) \rarw \nu(E)$ and $\nu(K_n) \rarw \nu(E)$. \\
 
 \noindent
 Proof: ADD \\
 
-Definition: we say a measure $\nu \in \M(\reals^n)$ is regular if each positive $\nu_k$ in the Jordan decomposition $\nu = \sum_{k=0}^3 i^k \, \nu_k$ is regular. By the last result, every $\nu \in \M(\reals^n)$ is regular and then the condition about sequences of sets holds. \\
+Definition: we say a measure $\nu \in \M(\reals^n)$ is regular if each positive $\nu_k$, in the Jordan decomposition $\nu = \sum_{k=0}^3 i^k \, \nu_k$, is regular. By the last result, every $\nu \in \M(\reals^n)$ is regular and then the condition about sequences of sets holds. \\
 
 If $\nu \in \M(\reals)$, we define its distribution function by $F_\nu (x) = \nu((\infty,x])$. $\nu \mapsto F_\nu$ is injective and linear on $\M(\reals)$. \\
+
+\noindent
+Proof: ADD \\
 
 Def: $F: \reals \rarw \reals$ is of bounded variation, BV, or say $F \in BV$, if $\Var(F) < \infty$, where $\Var(F) \defeq \sup\{ V_F(x); x \in \reals \}$, and 
 
 $$
-V_F(x) \defeq \sup \left\{  \sum_{k=1}^n |F(x_k) - F(x_{k-1})| ; \;  x_0    < x_1 < ... < x_n=x, \{ x_k \} \in \reals, n \in \nats \right\}.
+V_F(x) \defeq \sup \left\{  \sum_{k=1}^n |F(x_k) - F(x_{k-1})| ; \;  x_0    < x_1 < ... < x_n=x, ( x_k ) \in \reals, n \in \nats \right\}.
 $$
 
 Def: $F: \reals \rarw \reals$ is in $NBV$ if $F \in BV$, $F$ is right continuous at all $x \in \reals$, and $\lim_{x \rarw -\infty} F(x) = 0$; normalized $BV$.\\
@@ -124,18 +131,59 @@ If $\nu \in \M(\reals, \Bl(\reals))$, then $F_\nu \in NBV$. \\
 \noindent
 Proof: ADD \\
 
+
+(Folland 3.28) If $F \in BV$ then $\lim_{x \rarw - \infty} V_F(x) = 0$ and $F \in BV \rimply V_F \in NBV$.
+
+\noindent
+Proof: ADD \\
+
+
 Properties of $BV$,
 
-\begin{enumerate}
+\begin{enumerate}[1)]
 \item
-If $F: \reals \rarw \reals$, $c \in \reals$, then $V_{F_G}(x) \le V_F(x) + V_F(x)$ and $V_{cF}(x) = |c| V_F(x)$. Hence $BV$ is a vector space and if $F,G \in BV$, then $\Var(F+G) \le \Var(F) + \Var(G)$ and $\Var(cF) = |c| \Var(F)$
+If $F,G: \reals \rarw \reals$, $c \in \reals$, then $V_{F+G}(x) \le V_F(x) + V_F(x)$ and $V_{cF}(x) = |c| V_F(x)$. Hence $BV$ is a vector space and if $F,G \in BV$, then $\Var(F+G) \le \Var(F) + \Var(G)$ and $\Var(cF) = |c| \Var(F)$. $NBV$ is a subspace of $BV$.
+\item
+If $F \in BV$, then $V_F(x)$ is an increasing function of $x$, bounded above by $\Var(F)$.
+\item
+\begin{enumerate}[a)]
+\item
+Moreover, if $x < y$, then $V_F(y)-V_F(x) = \sup \left( \left\{ \sum_{k=1}^n | F(x_k) - F(x_{k-1}) | ; x \le x_0 < x_1 < ... < x_{n} = y \right\} \right)$.
+\item
+special capse: $F(y) - F(x) \le V_F(y) - V_F(x) \le V_F(y) \le \Var(F)$.
+\item
+consequence: $F \in BV \rimply F$ is bounded.
+\end{enumerate}
+\item
+An increasing $F: \reals \rarw \reals$ is in $BV$ iff $F$ is bounded.
+\item
+$F: \reals \rarw \reals \in BV$ iff $F =  F_1-F_2$, where $F_1,F_2: \reals \rarw \reals$ are bdd and increasing.
+\item
+$F: \reals \rarw0 \complexes \in BV$ iff $\Re F, \Im F \in BV$.
+\item
+$F \in BV \rimply F$ continuous except at countable many points, and for all $x \in \reals$, $F(x+) = \lim_{t \rarw x^+} F(t)$ and $F(x-) = \lim_{t \rarw x^-} F(t)$, and $\lim_{x \rarw +\infty} F(x)$ and $\lim_{x \rarw -\infty} F(x)$ all exist and are in $\reals$.
+\item
+ $F \in BV \lrimply F = F_1 - F_2 + i F_3 - i F_4$, where $F_k : \reals \rarw \reals$, increasing, bounded, right continuous, and $\lim_{x \rarw - \infty} F_k(x) = 0$ for all $k$.
 \end{enumerate}
 
 
+\noindent
+Proof: ADD \\
 
-test test test
 
-	
+The linear map $T = \nu \mapsto F_\nu$ from $\M(\reals)$ to $NBV$ is an isomorphism. Thus it is bijective and $\Var(F_\nu) = ||\nu||$ for all $\nu \in \M(\reals)$, which implies that $NBV$ is a Banach space with norm $||F|| = \Var(F)$, $||T(\nu)|| = ||\nu||$. \\
+
+
+
+\noindent
+Proof: ADD \\
+
+
+
+
+
+
+
 
 
 \end{document}
