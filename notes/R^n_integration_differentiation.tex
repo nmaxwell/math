@@ -79,6 +79,7 @@
 %\newcommand{ \cf }[1] { \chi_{_{#1}} }
 \newcommand{ \cf }[1] { \mathbf{1}_{#1} }
 \newcommand{ \Var } { \textrm{Var} }
+\newcommand{ \Ker } { \textrm{Ker} }
 
 %\newcommand{\Re}[0] { \textrm{ Re } }
 %\newcommand{\Re}[0]{ \textrm{Re} }
@@ -116,9 +117,10 @@ Definition: we say a measure $\nu \in \M(\reals^n)$ is regular if each positive 
 If $\nu \in \M(\reals)$, we define its distribution function by $F_\nu (x) = \nu((\infty,x])$. $\nu \mapsto F_\nu$ is injective and linear on $\M(\reals)$. \\
 
 \noindent
-Proof: ADD \\
+Proof: Linearity is easy, to see that $\nu \mapsto F_\nu$ is surjective, suppose $F_\nu = 0$, this means that $F_\nu(x) = 0$ for all $x \in \reals$, so $\nu((-\infty, x]) = 0$ for all $x$, so $\nu((a,b]) = \nu((-\infty,b] \setminus (-\infty,a]) = 0 - 0 = 0$. Then because every open set in $\reals$ is a countable union of disjoint open invervals, and open intervals can written as a countable union of disjoint half open intervals, every open set in $\reals$ has $\nu$-measure zero, and then by Jordan decomposition, $\nu$ can be written as a sum of regular measures, which are then all zero measures, so $\nu$ is the zero measure. Thus Ker($\nu \mapsto F_\nu$) = 0, and so $\nu \mapsto F_\nu$ is surjective. \\
 
-Def: $F: \reals \rarw \reals$ is of bounded variation, BV, or say $F \in BV$, if $\Var(F) < \infty$, where $\Var(F) \defeq \sup\{ V_F(x); x \in \reals \}$, and 
+
+$F: \reals \rarw \reals$ is of \emph{bounded variation}, BV, or say $F \in BV$, if $\Var(F) < \infty$, where $\Var(F) \defeq \sup\{ V_F(x); x \in \reals \}$, and $V_F(x)$ is the \emph{total variation function} of $F$,
 
 $$
 V_F(x) \defeq \sup \left\{  \sum_{k=1}^n |F(x_k) - F(x_{k-1})| ; \;  x_0    < x_1 < ... < x_n=x, ( x_k ) \in \reals, n \in \nats \right\}.
@@ -129,7 +131,36 @@ Def: $F: \reals \rarw \reals$ is in $NBV$ if $F \in BV$, $F$ is right continuous
 If $\nu \in \M(\reals, \Bl(\reals))$, then $F_\nu \in NBV$. \\
 
 \noindent
-Proof: ADD \\
+Proof: Let $x_0 < x_1 < ... < x_n = x \in \reals$, then $\sum_{k=1}^n |F_\nu(x_k) - F_\nu(x_{k-1})| = \sum_{k=1}^n |\nu([x_{k-1}, x_{k}))| \le \sum_{k=1}^n |\nu|([x_{k-1}, x_{k})) = |\nu|([x_0,x_n)) \le |\nu|(\reals) = ||\nu|| < \infty$. \\
+
+
+
+
+$$
+V_{F_\nu}(x) = \sup \left\{  \sum_{k=1}^n | \nu(( x_{k-1},x_k ]) | ; \;  x_0    < x_1 < ... < x_n=x, ( x_k ) \in \reals, n \in \nats \right\} \le 
+$$
+
+$$
+\sup \left\{  \sum_{k=1}^n |\nu|(( x_{k-1},x_k ]) ; \;  x_0    < x_1 < ... < x_n=x, ( x_k ) \in \reals, n \in \nats \right\}  = V_{F_{|\nu|}}(x)  \le 
+$$
+
+$$ \sup \left\{  |\nu((-\infty,x_0])| + \sum_{k=1}^n | \nu | (( x_{k-1},x_k ]); \;  x_0    < x_1 < ... < x_n=x, ( x_k ) \in \reals, n \in \nats \right\} \le |\nu|((-\infty,x])
+$$  \\
+
+
+\noindent
+%because $|\nu|((-\infty,x])$ is the sup of such quantities, i.e. $ \{ (-\infty,x_0], ( x_{k-1},x_k ]; 1 \le k \le n \}$ are measurable , countable, disjoint partitions of $(-\infty,x]$. 
+
+so $ V_{F_\nu}(x) \le V_{F_{|\nu|}}(x)  \le  |\nu|((-\infty,x]) \le ||\nu|| < \infty$. So $V_{F_\nu}(x)$ is bounded by a constant in $x$, $||\nu||$, so $\sup(\{ V_{F_\nu}(x); x \in \reals \}) \le ||\nu||$, so $\Var{F_\nu|} \le ||\nu||$, so $F_\nu \in BV$.   \\
+
+For $x \in [-\infty,\infty)$, pick $x_n \searrow x$ , take Jordan decomposition of $\nu$, to get $\nu = \nu_+ - \nu_-$, with $\nu_\pm$ positive finite measures, then $\nu_\pm((-\infty,x_n]) \rarw \nu_\pm(\cap_{k \in \nats} (-\infty,x_k]) = \nu_\pm((-\infty,x]) $, by continuity from above, so $\nu_\pm((-\infty,x_n]) \rarw \nu((-\infty,x_n])$. Thus $\lim_n F_\nu(x_n) = F_\nu(x)$, so $F_\nu(-\infty) = 0$, and $F_\nu$ is right continuous by definition.  \\
+
+
+
+
+
+
+
 
 
 (Folland 3.28) If $F \in BV$ then $\lim_{x \rarw - \infty} V_F(x) = 0$ and $F \in BV \rimply V_F \in NBV$.
@@ -150,7 +181,7 @@ If $F \in BV$, then $V_F(x)$ is an increasing function of $x$, bounded above by 
 \item
 Moreover, if $x < y$, then $V_F(y)-V_F(x) = \sup \left( \left\{ \sum_{k=1}^n | F(x_k) - F(x_{k-1}) | ; x \le x_0 < x_1 < ... < x_{n} = y \right\} \right)$.
 \item
-special capse: $F(y) - F(x) \le V_F(y) - V_F(x) \le V_F(y) \le \Var(F)$.
+special case: $|F(y) - F(x)| \le V_F(y) - V_F(x) \le V_F(y) \le \Var(F)$.
 \item
 consequence: $F \in BV \rimply F$ is bounded.
 \end{enumerate}
@@ -159,7 +190,7 @@ An increasing $F: \reals \rarw \reals$ is in $BV$ iff $F$ is bounded.
 \item
 $F: \reals \rarw \reals \in BV$ iff $F =  F_1-F_2$, where $F_1,F_2: \reals \rarw \reals$ are bdd and increasing.
 \item
-$F: \reals \rarw0 \complexes \in BV$ iff $\Re F, \Im F \in BV$.
+$F: \reals \rarw \complexes \in BV$ iff $\Re F, \Im F \in BV$.
 \item
 $F \in BV \rimply F$ continuous except at countable many points, and for all $x \in \reals$, $F(x+) = \lim_{t \rarw x^+} F(t)$ and $F(x-) = \lim_{t \rarw x^-} F(t)$, and $\lim_{x \rarw +\infty} F(x)$ and $\lim_{x \rarw -\infty} F(x)$ all exist and are in $\reals$.
 \item
@@ -216,7 +247,7 @@ $\mu \in \M(\reals^k) \rimply M_\mu$ is lower semi continuous.
 \noindent
 Proof: ADD \\
 
-(Hardy Luttlewood theorem) If $\mu \in \M(\reals^k)$, $a < t < \infty$ then $\lambda(\{ x \in \reals^k; M_\mu(x) > t \} ) \le 3^k ||\mu|| \div t$.
+(Hardy Littlewood theorem) If $\mu \in \M(\reals^k)$, $a < t < \infty$ then $\lambda(\{ x \in \reals^k; M_\mu(x) > t \} ) \le 3^k ||\mu|| \div t$.
 
 \noindent
 Proof: ADD \\
@@ -317,7 +348,7 @@ If $[g] \in L^1([a,b], \lambda )$ resp. $[g] \in L^1(\reals, \lambda)$, let $G(x
 \item
 $F \in AC \lrimply \left( \right.$  $F$ is diff'able a.e. on $[a,b]$ and $F' \in L^1([a,b], \lambda)$ and $F(x) - F(a) = \int_z^x F'(t)\, dt$ for all $x \in [a,b]$ $\left. \right)$.
 \item
-$F \in AC \lrimply \left( \right.$  $F$ is diff'able a.e. on $\reals$ and $F' \in L^1{\reals, \lambda}$ and $F(x) - F(a) = \int_z^x F'(t)\, dt$ for all $x \in \reals$ $\left. \right)$.
+$F \in AC \lrimply \left( \right.$  $F$ is diff'able a.e. on $\reals$ and $F' \in L^1(\reals, \lambda)$ and $F(x) - F(a) = \int_z^x F'(t)\, dt$ for all $x \in \reals$ $\left. \right)$.
 \item
 $F \in NAC$ or $F \in NAC([a,b])$ then $F' = \frac{d\mu_F}{d\lambda}$.
 \end{enumerate}
@@ -379,6 +410,51 @@ Proof: ADD \\
 Remark: A function $H: \reals \rarw \reals$ such that $H'=0$ a.e. is called a \emph{singular function}. Note: take any $\mu \in \M(\reals)$, $\mu \perp \lambda$, then defining $F_\mu(x) = \mu((-\infty,x])$, as usual, then $F_\mu \in NBV$, and $F' = \frac{d\mu_a}{d\lambda} = 0$ a.e. so $F_\mu$ is singular. Conversely, If $H \in NBV$ is singular,  ADD.
 
 
+\break
+
+
+\begin{flushleft}
+Homework 5, Real Variables, Nicholas Maxwell\\
+\end{flushleft}
+
+\begin{flushleft}
+\addvspace{5pt} \hrule
+\end{flushleft}	
+
+
+$F \in BV[a,b]$ \\
+
+\noindent
+5,1) $F \in AC[a,b]$, take $F(x) = 0$ for $x \not \in [a,b]$, then $\lim_{x \rarw - \infty} F(x) = 0$, and $F$ is continuous because it's uniformly continuous, and $F \in BV[a,b]$, so $AC[a,b] \subset NBV$, and so $\mu_F \ll \lambda$ by theorem 5.1.6. $\mu_F \ll \lambda \lrimply |\mu_F| \ll \lambda$ by prop 4.1.5.e. $F$ is not nescesarily in $AC[a,b]$ because $F(a)$ is not nescesarily 0. \\
+
+\noindent
+Now that $|\mu_F| = \mu_{V_F}$. let $\alpha = \nu \mapsto |\nu|, \beta = F \mapsto V_F, \gamma = F \mapsto \mu_F$, and $\gamma$ is invertible by 5.1.4. Want to show that $\alpha \circ \gamma = \gamma \circ \beta$, but then $ \gamma^{-1} \circ ( \alpha \circ \gamma) = \beta$, which says that $|\mu_F|((-\infty,x]) = V_F(x)$ for all $x$, which is true by last lines of proof of 5.1.4.\\
+
+
+So $|\mu_F| = \mu_{V_F} \ll \lambda$. $F \in NBV \rimply V_F \in NBV$  by lemma before 8 in 5.1.3, then again theorem 5.1.6 says that $\mu_{V_F} \ll \lambda \rimply  V_F \in NAC \rimply V_F \in AC$, and so $V_F \in AC[a,b]$. $\Box$ \\
+
+\noindent
+5,2) Suppose $F \in NBV[a,b],$ $F \ge 0$ and $F$ is increasing, $F(a)=0$. Let $\mu$ be the measure associated to $F$, then by corollary 5.2.5, $F' = \frac{d \mu_{F,a}}{d \lambda}$, where $\mu_{F} = \mu_{F,a} + \mu_{F,s}$, form the Lebesgue decomposition theorem, $\mu_{F,a} \ll \lambda$. By 5.1.4, $|\frac{d \mu_{F,a}}{d \lambda}| = \frac{d |\mu_{F,a}|}{d \lambda}$, so that $\int_{[a,b]} |F'| \, d\lambda = |\mu_{F,a}|((a,b])$. Now $F \ge 0 \rimply \mu_F \ge = 0 \rimply \mu_{F,a},\mu_{F,s} \ge 0$, by the lebesgue decomposition theorem, so $\mu_{F,a} \le \mu_F \rimply |\mu_{F,a}|(a,b) \le |\mu_F |(a,b)  = V_F(a,b)$. \\
+
+\noindent
+If $F \in BV[a,b]$, then by 5.2.6, $F(x) = F(a) + G(x)$, a.e. where $G \in NBV[a,b]$, and $F'=G'$ a.e. so that $\int_{[a,b]} |F'| \, d\lambda = \int_{[a,b]} |G'| \, d\lambda$. \\
+
+
+\noindent
+5,3) In 5.2, have $\int_{[a,b]} |F'| \, d\lambda = |\mu_{F,a}|((a,b])$, and $\mu_{F} = \mu_{F,a} + \mu_{F,s}$, but $\mu_{F,s} = 0 \lrimply \mu_{F} \ll \lambda \lrimply F \in NAC[a,b]$. \\
+
+\noindent
+5,4) If $F \in BV[a,b]$, then by 5.2.6, $F(x) = F(a) + G(x)$, a.e. where $G \in NBV[a,b]$, and $F'=G'$ a.e, so assume that $F \in NBV[a,b]$. In this case there is a $\mu \in \M(\reals)$ such that $\mu((-\infty,x]) = F(x)$ for all $x$. Apply lebesgue decomposition to obtain $\mu = \mu_a + \mu_s$, 5.2.6 says that $F' = \frac{d\mu_a}{d\lambda} = D_\mu$ a.e. So $|F'| = |D_\mu|= |\frac{d\mu_a}{d\lambda}| = \frac{d|\mu_a|}{d\lambda}$ by prop 1 in 4.1.7. Then again,
+
+
+$$
+|F'| = \frac{d|\mu_a|}{d\lambda} = D_{|\mu|} = \lim_{r \rarw 0} \frac{ |\mu_a|(B(x,r))}{ \lambda(B(x,r))} = \lim_{r \rarw 0} \frac{ V_F(x-r,x+r) }{2r}  = V_F'(x) \; \; \;  \lambda-\textrm{a.e.}
+$$ $\Box$ \\
+
+%By theorem 5.2.3, $D_{\mu_s} = 0$, $D_{\mu_a} = \frac{d\mu}{d\lambda}$ a.e., and by theorem 5.2.5, $D_\mu = \frac{d\mu}{d\lambda}$
+
+\noindent
+Folland 33) $F: \reals \rarw \reals$, By 5.2.6a $F$ is differentiable a.e.. Given $a<b \in \reals$, replace $F$ with $F \cf{[a,b]}$. By problem 4, $F'$ is measurable. If $F(x) < \infty$ then $F(y) < \infty$ for all $y \in [a,x]$ by $F$ increasing; if $F(x) = \infty$ some $x \in [a,b]$ then $F(b) - F(a) = \infty >= \int_{[a,b]} F' \, d\lambda \in [-\infty,\infty]$ so the equality holds. assume $F(x) \in \reals$ for all $x \in [a,b]$. Then $F$ is bounded by $F(b)$, so by 5.1.3b $F \in BV[a,b]$. By 5.2.6c $F(x) = F(a) + G(x)$ a.e. where $G \in NBV[a,b]$, and $G' = F'$ a.e., also then by problem 5,2) $\int_{[a,b]} |F'| \le V_F(a,b) < \infty$, so $G',F' \in L^1([a,b],\lambda)$. Let $\mu$ be the measure asssociated with $F$ and $G$. This is the same measure for both $F$, $G$, because it is defined as the inf of sums of the numbers of the form $F(b_k)-F(a_k)$, but $F(b_k)-F(a_k) = G(b_k) - G(a_k)$. Now $G(a) = 0$ and $G$ is increasing, so $G(x) \ge 0$ for $x \in [a,b]$, and $G \in NBV[a,b]$, so by the arguement in problem 5,2 , $\mu_{a} \le \mu$ and $F' = \frac{d \mu_a}{d\lambda}$ a.e., so $\int_{[a,b]} F' \, d\lambda = \mu_a([a,b])$. On the other hand, $F(b) - F(a) = \mu((a,b])$, and $ \mu \ge \mu_a$ from the lebesgue decomposition, i.e. $\mu = \mu_a + \mu_s$ and all these are positive finite measures, because $G \ge 0$. This gives $F(b) - F(a) = \mu((a,b]) \ge \mu_a([a,b])  = \int_{[a,b]} F' \, d\lambda$. $a,b$ are arbitrary so this holds for all $a,b \in \reals$. $\Box$
 
 
 

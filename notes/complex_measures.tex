@@ -67,7 +67,7 @@
 \newcommand{\OR}[0]{ \; \textrm{ or } \; }
 
 \newcommand{\rimply}[0] { \Rightarrow }
-\newcommand{\limply}[0] { \Lefttarrow }
+\newcommand{\limply}[0] { \Leftarrow }
 \newcommand{\rlimply}[0] { \Leftrightarrow }
 \newcommand{\lrimply}[0] { \Leftrightarrow }
 
@@ -157,7 +157,7 @@ Briefly, ${(\dagger_1)}$ holds because this $\sup$ is an upper bound, and the ``
 
 
 
-$(X, \A)$ measurable, $\nu \in \M(X,\A)$, then $|\nu| \in \M^+(X, \A)$, and $|\nu| \le \mu$ for all $\mu  \in \M^+(X, \A)$ satisfying  $\mu(E)  \ge |\nu(E)| \fall E \in \A \; {}^{(\dagger_1)} $. \\
+(Rudin 6.2) $(X, \A)$ measurable, $\nu \in \M(X,\A)$, then $|\nu| \in \M^+(X, \A)$, and $|\nu| \le \mu$ for all $\mu  \in \M^+(X, \A)$ satisfying  $\mu(E)  \ge |\nu(E)| \fall E \in \A \; {}^{(\dagger_1)} $. \\
 
 
 Proof: \\
@@ -246,10 +246,12 @@ $\M(X, \A)$ is a complete metric space with respect to the canonical metric indu
 \noindent
 Proof: ADD \\
 
-For all $ \nu \in \M^\pm(X, \A)$, , define $\nu^+ = \frac{1}{2}(|\nu| + \nu)$, $\nu^- = \frac{1}{2}(|\nu| - \nu)$. Then $\nu^+, \nu^- \in  \M^+(X, \A)$, $\nu = \nu^+ - \nu^-$, $|\nu| = \nu^+ + \nu^-$. This is the Jordan decomposition of $\nu$, and is unique. Further, if $\nu \in \M(X, \A)$, then define $\Re(\nu)(E) = \Re(\nu(E))$, $\Im(\nu)(E) = \Im(\nu(E))$ for all $E \in \A$, then $\Re(\nu), \Im(\nu) \in \M(X, \A)$, and so $\nu = \sum_{k=0}^3 i^k \nu_k$, where each $\nu_k \in \M^+(X, \A)$, $i = \sqrt{-1}$.\\
+Jordan decomposition: For all $ \nu \in \M^\pm(X, \A)$, , define $\nu^+ = \frac{1}{2}(|\nu| + \nu)$, $\nu^- = \frac{1}{2}(|\nu| - \nu)$. Then $\nu^+, \nu^- \in  \M^+(X, \A)$, $\nu = \nu^+ - \nu^-$, $|\nu| = \nu^+ + \nu^-$. This is the Jordan decomposition of $\nu$, and is unique. Further, if $\nu \in \M(X, \A)$, then define $\Re(\nu)(E) = \Re(\nu(E))$, $\Im(\nu)(E) = \Im(\nu(E))$ for all $E \in \A$, then $\Re(\nu), \Im(\nu) \in \M(X, \A)$, and so $\nu = \sum_{k=0}^3 i^k \nu_k$, where each $\nu_k \in \M^+(X, \A)$, $i = \sqrt{-1}$.\\
 
 \noindent
-Proof: ADD \\
+Proof: ADD.
+
+%Proof: That $\nu^\pm \in \M(X, \mu)$ follows from fact that $\M(X, \mu)$ is a Banach space (is closed under $|\cdot|$ by ( and is closed under measure addition and scaling).    \\
 
 For all $f:X \rarw \complexes$, $\A$-measurable, $\nu \in \M(X, \A)$, say that $f$ is $\nu$-integrable if it is $|\nu|$-integrable, so $f \in \Ell (X, |\nu|)$. Write $\nu_0 = \Re(\nu)^+, \nu_1 = \Re(\nu)^-, \nu_2 = \Im(\nu)^+, \nu_3 = \Im(\nu)^-$, then \\
 
@@ -566,13 +568,15 @@ so $\int_E |w| \, d\mu \le |\nu|(E)$. $\Box$\\
 For $\nu \in \M(\A)$, $\mu \in \M^+(\A)$ $\sigma$-finite, and $d\nu = w \, d\mu$, then $d\nu_k = w_k \, d\mu_k$, where $\nu = \sum_{k=0}^3 \, i^k \, \nu_k$, $w = \sum_{k=0}^3 \, i^k \, w_k$, and each $\nu_k , w_k \ge 0$. \\
 
 \noindent
+$f^\pm = \frac{1}{2} f \pm  \frac{1}{2} f$, $\Re{f} = \frac{1}{2} f + \frac{1}{2} \overline{f}$, $\Im{f} = \frac{1}{2} f - \frac{1}{2} \overline{f}$. $f_0 = \Re{f}^+$, $f_1 = \Im{f}^+$, $f_2 = \Re{f}^-$, $f_3 = \Im{f}^-$. \\
+
+\noindent
 Proof: The Jordan decomposition of $\nu$ and the decomposition of $w$ into positive, negative, real and imaginary parts take the same form, then use the  previous theorem and the linearity of the integral. \\
 
 For $\nu \in \M(\A)$, $\mu \in \M^+(\A)$ $\sigma$-finite, then $d\nu = w \, d\mu$ $\lrimply$ $\int_x f \, d\nu = \int_X fw \, d\mu \fall f \in L^1(X, |\nu|)$.\\
 
 \noindent
-Proof: ADD. \\
-
+Proof: ($\limply$) For $E \in \A$, $f = \cf{E}$, then $\int_E 1 d\nu = \int_E w \, d\mu = \nu(E)$. ($\rimply$) follows by decomposition into parts and linearity and defninition of the integral.   \\
 
 Folland 6.12: for $\nu \in \M(\A)$ there is a $[w] \in L^1(\A, |\nu|)$ such that $d\nu = w \, d|\nu|$, with $|w| = 1$. \\
 
@@ -580,6 +584,40 @@ Folland 6.12: for $\nu \in \M(\A)$ there is a $[w] \in L^1(\A, |\nu|)$ such that
 Proof: ADD \\
 
 Using these results, for any $\nu \in \M(\A)$, and $w$ as $d\nu = w \, d|\nu|$, then for all $f \in L^1(\A, |\nu|)$, $\int_X f \, d\nu = \int_X f w \, d|\nu|$. This may be taking as the definition of $\int_X f \, d\nu$, by integrating $f w$ in the usual way, i.e. $|fw| = |f|$ so $fw \in L^1(\A, |\nu|)$, then apply the usual steps. \\
+
+
+Hahn decomposition: If $\nu \in \M^\pm(X, \A)$, then there exist disjoint $E^+, E^- \in \A, X = E^+ \cup E^-$, so that $\nu^+$ is concentrated on $E^+$ and $\nu^-$ on $E^-$, thus $\nu^+ \perp \nu^-$. \\
+
+Proof: There exists $w: X \rarw \{-1, 1 \}$ such that $\nu(E) = \int_E w \, d|\nu|$ for all $E \in \A$; let $E^\pm = w^{-1}(\{ \pm \})$, then $E^+ \cap E^- = 0$ and $E^+ \cup E^- = X$ by properties of inverse images. Then $\nu(A \cap E^\pm) = \int_{A \cap E^\pm} w \, d|\nu| = $
+
+
+
+
+\break
+
+Duality o $L^p$ spaces: \\
+
+\noindent
+Let $1 \le p < \infty$ and let $q$ be the H\"{o}lder conjugate index of $p$. So, $\frac{1}{p} + \frac{1}{q} = 1$, $q+p = pq$, $q = pq-p$, $p=q/(q-1) = \frac{1}{1-{\frac{1}{p}}}$, and all these are hold when switching $p$ and $q$.   \\
+
+\noindent
+There is a canonical map:
+
+$$
+\Phi: L^q(X, \mu) \rarw  (L^p(X, \mu))^*, \; \Phi \defeq g \mapsto  \left( f \mapsto \int_X fg \, d\mu  \right) \; \fall g \in L^q(X, \mu), f \in L^p(X, \mu).
+$$
+
+
+\noindent
+$\Phi$ is linear follows by linearity fo the intregral, and by H\"{o}lder's inequality, $|\Phi(g)(f) | = |\int_X fg \, d\mu| \le \int_X |fg| \, d\mu \le ||f||_p ||g||_q \le \infty$, so that $||\Phi(g)|| \le ||g||_q \fall g \in L^q(X, \mu)$ so $\Phi$ is a bounded linear functional on $L^q(X, \mu)$. \\
+
+
+If $1 < p < \infty$ then this $\Phi$ is an isometry, i.e. $||\Phi(g)|| = ||g||_q \fall g \in L^q(X, \mu)$. If $p=1$ then $\Phi$ is an isometry if $X$ is $\sigma$-finite. \\
+
+\noindent
+Proof: for the first case, $p > 1$, given $g \in L^q$ let $f = \overline{\textrm{sgn}(g)} |g|^{q-1}$, so $ f(x) = \overline{g(x)} |g(x)|^{q-2}$ if $x \not = 0$, $f(x) = 0$ otherwise, $f$ is measure by usual tricks. Then $|f(x)|^p = |g(x)|^p |g(x)|^{pq-2p} = |g(x)|^{pq-p} = |g|^q$, so $g \in L^q(x, \mu) \rimply \int_X |g|^q \, d\mu  < \infty \rimply \int_X |f|^p \, d\mu < \infty \rimply f \in L^p(X, \mu)$. 
+
+
 
 
 
