@@ -37,6 +37,7 @@
 \newcommand{\reals}[0] { \mathbb{R}}
 \newcommand{\cmplxs}[0] { \mathbb{C}}
 \newcommand{\complexes}[0] { \mathbb{C}}
+\newcommand{\scalars}[0] { \mathbb{F}}
 \newcommand{\exreals}[0] {  [-\infty,\infty] }
 \newcommand{\eps}[0] {  \epsilon }
 \newcommand{\A}[0] { \mathcal{A} }
@@ -249,7 +250,7 @@ Proof: ADD \\
 Jordan decomposition: For all $ \nu \in \M^\pm(X, \A)$, , define $\nu^+ = \frac{1}{2}(|\nu| + \nu)$, $\nu^- = \frac{1}{2}(|\nu| - \nu)$. Then $\nu^+, \nu^- \in  \M^+(X, \A)$, $\nu = \nu^+ - \nu^-$, $|\nu| = \nu^+ + \nu^-$. This is the Jordan decomposition of $\nu$, and is unique. Further, if $\nu \in \M(X, \A)$, then define $\Re(\nu)(E) = \Re(\nu(E))$, $\Im(\nu)(E) = \Im(\nu(E))$ for all $E \in \A$, then $\Re(\nu), \Im(\nu) \in \M(X, \A)$, and so $\nu = \sum_{k=0}^3 i^k \nu_k$, where each $\nu_k \in \M^+(X, \A)$, $i = \sqrt{-1}$.\\
 
 \noindent
-Proof: ADD.
+Proof: ADD. \\
 
 %Proof: That $\nu^\pm \in \M(X, \mu)$ follows from fact that $\M(X, \mu)$ is a Banach space (is closed under $|\cdot|$ by ( and is closed under measure addition and scaling).    \\
 
@@ -362,25 +363,32 @@ because $\mu(E) = \sum_{k=1}^\infty \mu(E \cap E_k)$.
 
 \vspace{20pt}
 
-(Rudin 1.40) $\mu \in \M^+(\A)$, $\mu(X) < \infty$, $f \in L^1(\mu)$, $S \subset \complexes$, closed, and define the averages
+(Rudin 1.40) $\mu \in \M^+(\A)$, $\mu(X) < \infty$, $f: X \rarw \scalars$, $f \in L^1(\mu)$, $S \subset \scalars$, closed, and define the averages
 
 $$
 A_E(f) = \frac{1}{\mu(E)}  \int_E f \, d\mu.
 $$
 
 \noindent
-If $A_E(f) \in S$ for all $E \in \A$ with $\mu(E) > 0$, then $f(x) \in S$ for a.e. $x \in X$.\\
-
+If $A_E(f) \in S$ for all $E \in \A$ with $\mu(E) > 0$, then $f(x) \in S$ for $\mu$-a.e. $x \in X$. \\
 
 \noindent
-Proof: ADD \\
+Proof: Let $r>0$ and $z \in \scalars$ such that $B_{z,r} \defeq \{ y \in \scalars; |z-y| \le r \} \subset S^c$. Let $E = f^{-1}(B_{z,r})$, suppose that $\mu(E) > 0$. Then $|A_E(f) - z| = |A_E(f) - \frac{\mu(E)}{\mu(E)} z | = | \frac{1}{\mu(E)} \int_E f \, d\mu - \frac{1}{\mu(E)} z \int_E 1 \, d\mu | = |\frac{1}{\mu(E)} \int_E (f(x) - z) \, d\mu(x)| \le \frac{1}{\mu(E)} \int_E |f(x) - z| \, d\mu(x) |\frac{1}{\mu(E)} \int_E (f(x) - z) \, d\mu(x)| \le \frac{1}{\mu(E)} \int_{ \{ x \in X; |f(x)-z| \le r \} } |f(x) - z| \, d\mu(x) \le   \frac{1}{\mu(E)} \int_E r \, d\mu(x)  = r$. So $\mu(E) > 0 \rimply |A_E(f) - z| \le r \rimply A_E(f) \in B_{z,r} \subset S^c$, but the hypothesis is that $A_E(f) \in S$ for all $E \in \A$, thus $\mu(E) = 0$. Since any open set in $\scalars$ is a union of open balls, and hence a countable union of closed balls like $B_{z,r}$, $\mu(f^{-1}(S^c)) = \mu(  f^{-1} ( \cup_{k \in \nats} B_k ) ) \le  \mu(   \sum_{k \in \nats} f^{-1} ( B_k ) )  = 0$. \\
+
+
+If $(X, \A, \mu)$ a (positive) measure space, $f,g:X \rarw \scalars \in L^1(\mu)$. If $\int_E f \, d\mu = \int_E g \, d\mu \fall E \in \A$, then $f=g$ $\mu-$a.e., this is also true for measurable $f,g:X \rarw [0, \infty]$ if $\mu$ is $\sigma$-finite. \\
+
+\noindent 
+Proof: $f,g$ integrable implies $\int_E f \, d\mu - \int_E g \, d\mu  = 0 \rimply \int_E (f - g) \, d\mu  = 0$. Let $h = f-g$, then let $A_E = \frac{1}{\mu(E)} \int_E h \, d\mu$, so $A_E = 0$ for all $E \in \A$, and $\{ 0 \}$  is a closed subset of $\scalars$ (finish) \\
+
+\noindent
+%For measurable $f,g:X \rarw [0, \infty]$, and if $X = \cup_{k \in \nats} X_k$, $\mu(X_k) < \infty$, re-apply to each $X_k$ individually with $f_k = f|_{X_k}, g_k = g|_{X_k}$ and $\A_k = A_{X_k}$. Thus we may assume that $\mu(X) < \infty$. \\
+For measurable $f,g:X \rarw [0, \infty]$, and if $X = \cup_{k \in \nats} X_k$, $\mu(X_k) < \infty$. Fix $U = E_k$, some $k$, so $\mu(U) < \infty$, let $F = U \cap f^{-1}(\{\infty\})$, then let $F'_n = F \cap g^{-1}([0,n))$. Suppose $F'_n \not = \phi$, then $\int_{F'_n} f \, d\mu = \infty$ because $f = \infty$ everywhere on $F'_n$, but $\int_{F'_n} g \, d\mu \le n \mu(F') < \infty$, but $\int_{F'_n} f \, d\mu = \int_{F'_n} g \, d\mu$, so $F'_n= \phi$ for all $n \in \nats$. Now $(g^{-1}(\{\infty\}))^c = \cup_{n=1}^\infty g^{-1}([0, n))$, $F \cap (g^{-1}(\{\infty\}))^c = \cup_{n=1}^\infty F \cap g^{-1}([0, n)) = \cup_{n=1}^\infty \phi = \phi$, but 
+$F = F \cap (g^{-1}(\{\infty\}))^c \cup F \cap (g^{-1}(\{\infty\})) = F \cap (g^{-1}(\{\infty\}))$ (finish) \\
 
 
 
-
-
-
-
+% \cap_{m=1}^\infty \cup_{n=m}^\infty g^{-1}([0, n))
 
 If $(X, \A, \mu)$ a measure space, $[f] \in L^1(\A,\mu)$, then $\nu \in \M(\A)$ and $\nu \ll \mu$, where
 
