@@ -1,0 +1,417 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{latexsym}
+\usepackage{graphicx}
+
+\setlength\topmargin{-1in}
+\setlength{\oddsidemargin}{-0.5in}
+%\setlength{\evensidemargin}{1.0in}
+
+%\setlength{\parskip}{3pt plus 2pt}
+%\setlength{\parindent}{30pt}
+%\setlength{\marginparsep}{0.75cm}
+%\setlength{\marginparwidth}{2.5cm}
+%\setlength{\marginparpush}{1.0cm}
+\setlength{\textwidth}{7.5in}
+\setlength{\textheight}{10in}
+
+
+\usepackage{listings}
+
+
+
+
+\newcommand{\pset}[1]{ \mathcal{P}(#1) }
+
+
+\newcommand{\nats}[0] { \mathbb{N}}
+\newcommand{\reals}[0] { \mathbb{R}}
+\newcommand{\exreals}[0] {  [-\infty,\infty] }
+\newcommand{\eps}[0] {  \epsilon }
+\newcommand{\A}[0] { \mathcal{A} }
+\newcommand{\B}[0] { \mathcal{B} }
+\newcommand{\C}[0] { \mathcal{C} }
+\newcommand{\D}[0] { \mathcal{D} }
+\newcommand{\E}[0] { \mathcal{E} }
+\newcommand{\F}[0] { \mathcal{F} }
+\newcommand{\G}[0] { \mathcal{G} }
+\newcommand{\cS}[0] { \mathcal{S} }
+
+\newcommand{\om}[0] { \omega }
+\newcommand{\Om}[0] { \Omega }
+
+\newcommand{\Bl}[0] { \mathcal{B} \ell }
+
+
+
+\newcommand{\IF}[0] { \; \textrm{if} \; }
+\newcommand{\THEN}[0] { \; \textrm{then} \; }
+\newcommand{\ELSE}[0] { \; \textrm{else} \; }
+\newcommand{\AND}[0]{ \; \textrm{ and } \;  }
+\newcommand{\OR}[0]{ \; \textrm{ or } \; }
+
+\newcommand{\rimply}[0] { \Rightarrow }
+\newcommand{\limply}[0] { \Lefttarrow }
+\newcommand{\rlimply}[0] { \Leftrightarrow }
+\newcommand{\lrimply}[0] { \Leftrightarrow }
+
+\newcommand{\rarw}[0] { \rightarrow }
+\newcommand{\larw}[0] { \leftarrow }
+
+\begin{document}
+
+\begin{flushleft}
+Research Documentation - Stochastic Differential Equations, Theory. \\
+Nicholas Maxwell; Dr. Bodmann\\
+\end{flushleft}
+
+\begin{flushleft}
+\addvspace{5pt} \hrule
+\end{flushleft}	
+
+
+
+%It's ok for this document to be in bad taste.
+
+	Plagiarees: (Real Analsysis, Folland), (SDE, \O ksendal), (BM and Stochastic Calc, Karatas \& Shreve), Dr. Bodmann, Dr. Blecher, Wikipedia.
+
+
+\section*{Part 1.1 - Bits from measure theory }
+
+
+
+\begin{flushleft}
+\underline{Image measures:}
+\end{flushleft}
+
+\begin{flushleft}
+Given a measure space, $(X,\A,\mu)$, a measurable space, $(Y,\B)$, and an $(\A,\B)-$measurable function, $f:X \rightarrow Y$, we may construct a measure on $(Y,\B)$,  $\mu_f := \mu \circ f^{-1}$.\\
+\end{flushleft}
+
+
+\noindent proof:\\
+
+(1) $\phi \in \B$, $\mu_f (\phi) = \mu(F^{-1}(\phi)) = \mu(\phi) = 0$. \\
+
+(2) $\{ B_k \}_{k \in \nats } \in \B $, disjoint, $B := \cup_{k \in \nats} B_k$. $A := f^{-1}(B) = \cup_{k \in \nats} A_k $, $A_k := f^{-1}(B_k)$. Then $A \in \A$ by $f$ being $(\A,\B)-$measurable, and $\{ A_k \}_{k \in \nats }$ is disjoint because, when $E_1 \cap E_2 = \phi$, $E_1, E_2 \in \B$, $ \phi = f^{-1}(E_1 \cap E_2) = f^{-1}(E_1) \cap f^{-1}(E_2)$. Then, $\mu_f ( \cup_{k \in \nats} B_k )$  = $\mu( f^{-1}( \cup_{k \in \nats} B_k ) )$ = $\mu( \cup_{k \in \nats} f^{-1}( B_k ) )$ = $\mu( \cup_{k \in \nats} A_k )$ = $ \sum_{k \in \nats } \mu( A_k ) $ = $ \sum_{k \in \nats } (\mu_f)( B_k ) $, by countable additivity of $\mu$.
+
+	
+\begin{flushleft}
+So $ (Y,\B,\mu_f)$ is a well defined measure space obtained from inverse images via $f$.
+\end{flushleft}
+
+\begin{flushleft}
+\underline{Simple functions:}
+\end{flushleft}
+
+\begin{flushleft}
+$(X,\A,\mu)$ a measuse space, $\chi_{_E}: X \rarw \{ 0, 1\}$ is the characteristic function of $E \in \pset{X}$ when $\chi_{_E}(x) = 1$ for all $x \in E$. A simple function $f: X \rarw S$ is a function which can be written as $f(x) = \sum_{k = 1}^n \, c_k \, \chi_{_{E_k}}(x)$, with $E_k \in \pset{X}, c_k \in S$. We can always choose the $ \{ E_k \}$ to be disjoint and non empty, and the $ \{ c_k \}$ to be unique and non-zero, this is called the standard representation. $f$ is measureable when the $E_k \in \A$.
+\end{flushleft}
+
+
+\begin{flushleft}
+\underline{Definition of integral:}
+\end{flushleft}
+
+\begin{flushleft}
+$(X,\A,\mu)$ a measure space. 
+\end{flushleft}
+
+1. For $f$ a positive simple function in its standard representation, define $\int_X f \, d\mu = \sum_{k=1}^n c_k \,\mu(E_k)$. \\
+
+2. For $f$ a positive measurable function, define
+
+$$
+	\int_X f \, d\mu = \sup \{ \int_X s \, d\mu; s \textrm{ a standard simple function}, s \le f \}
+$$
+
+3. For $f$ a general measurable function, write $f = f^+ - f^-, f^+ \ge 0, f^- \ge 0$, $f^+, f^-$ are always measurable when $f$ is. Then define 
+
+$$
+\int_X f \, d\mu = \int_X f^+ \, d\mu - \int_X f^- \, d\mu 
+$$
+
+This integral exists when either of the quantities on the right hand side are finite, as $\infty - \infty$ is undefined. $f$ is integrable when its integral is finite. \\
+
+4. If $f$ is complex valued, decompose it into real and imaginary parts, check that each is measurable.
+
+
+
+
+
+\begin{flushleft}
+\underline{A construction of integral:}
+\end{flushleft}
+
+$(X ,\A, \mu)$ a measure space. For $f: X \rarw [0, \infty]$, measurable, step two of the definition of the integral may be replaced by the following construciton. \\
+
+Define,
+
+$$
+E_j = f^{-1} ( \, [ j 2^{-n}, (j+1) 2^{-n} ) \, ), \; \; j \in \{ 0,1,...,n2^n-1 \}
+$$
+
+$$
+E_j = f^{-1} ( \, [ n, \infty ) \, ), \; \; j = n2^n
+$$
+
+$$
+s_n = \sum_{j=0}^{n2^n} j2^{-n} \chi_{_{E_j}} 
+$$
+
+
+$E_j \in \A$ when $f$ is $( \A, \Bl(\reals^+) )$ measurabe.  \\
+
+Clearly $s_n(x) \le n$, so then $s_n(x) \le s_{n+1}(x)$ for all $x \in X$, $n \in \nats$.\\
+
+If at some $x \in X$, $f(x) = \infty$, then $s_n(x) = n \rarw \infty$ as $n \rarw \infty$. If at some $x \in X$, $f(x) < \infty $, then take $n$ large enough so that $f(x) \le n$, then $|s_n(x) - f(x)| \le 2^{-n} \rarw 0$ as $n \rarw \infty$. So, $s_n$ converges to $f$ pointwise. If $f$ is bounded, then the infinite case does not occur, and this convergence is uniform. \\
+
+So, $\int_X f \, d\mu = \lim_{n \rarw \infty} \int_X s_n \, d\mu$ by Lebesgue's monotone convergence theorem.	
+
+
+
+
+\section*{Part 1.2 - Borel measures in $\reals^n$}
+
+A Borel measure is one whose domain is a borel sigma algebra. \\
+
+Given a finite measure space, $(\reals, \Bl(\reals), \mu )$, define $F_\mu(x) = \mu((-\infty,x])$. \\
+
+$y \ge x \rimply (-\infty,x] \subset (-\infty,y] \rimply F_\mu(x) \le F_\mu(y)$, so $F_\mu$ is monotone increasing. \\
+
+If $x_k \rarw x$ as $k \rarw \infty$, and $x_k \ge x$, 
+then $ ( -\infty, x ] = \cap_{k \in \nats} ( -\infty, x_k ] $,
+so $F_\mu(x) = \mu( \cap_{k \in \nats} ( -\infty, x_k ]  )$ = $\lim_{ k \rarw \infty } \mu( ( -\infty, x_k ] )$
+= $\lim_{ k \rarw \infty } F_\mu(x_k)$, when some $\mu( ( -\infty, x_k ] ) < \infty$, so $F_\mu$ is right continuous.  
+
+
+ADD more detail here.
+
+
+\begin{flushleft}
+\underline{Theorem (Folland 1.16):}
+\end{flushleft}
+
+If $F: \reals \rarw \reals$ is any increasing and right continuous function, there is a unique Borel measure $\mu_F$ on $\reals$ such that $\mu_F((a,b]) = F(b)-F(a)$ for all $a,b$. If $G$ is another such function, we have $\mu_F = \mu_G$ iff $F-G$ is constant. Converesely, if $\mu$ is a Borel measure on $\reals$ that is finite on all bounded Borel sets, and we define
+
+
+\begin{displaymath}
+   F_\mu(x) = \left\{
+     \begin{array}{lr}
+       \mu((0,x]), &  x>0 \\
+       0, & x = 0 \\
+       -\mu((x,0]), & x < 0
+     \end{array}
+   \right.
+\end{displaymath} 
+
+ then $F_\mu$ is increasing and right continuous and $\mu = \mu_{F_\mu}$. Also, $F_\mu(x) = \mu((-\infty,x]) - \mu((-\infty,0])$, which makes sense when $\mu$ is finite. \\
+ 
+proof: see Folland, page 35.
+
+\begin{flushleft}
+\underline{Lebesgue-Stieltjes measure:}
+\end{flushleft}
+
+$F: \reals \rarw \reals$ is any increasing and right continuous function, then
+
+$$
+	\mu(E) = \inf \left\{ \sum_{k \in \nats} ( F(b_k) - F(a_k) ); E \subset \bigcup_{ k\in \nats} (a_k,b_k] \right\}
+$$
+
+ADD more detail here.
+
+
+
+
+
+
+
+\section*{Part 1.3 - Bits from measure theoretic probability }
+
+\begin{flushleft}
+\underline{Main idea:}
+\end{flushleft}
+
+
+$ (\Om, \F, P ), \;  P(\Om)=1 $ a probability space.\\
+
+
+If picking $n$ points, $\{ \om_{n,k}\}_{k=1}^n$ ``at random'' from $\Om$, so all $ \om_{n,k} \in \Om$, then the following will be true
+
+$$
+	\lim_{n \rarw \infty } \frac{ \#\{ k \in \{ 1,2,...,n\} ; \om_{n,k} \in E \} }{n} = P(E), \; \textrm{for all} \; E \in \F,
+$$
+
+where $\#$ is the counting measure. \\
+
+\begin{flushleft}
+\underline{Nonsense:}
+\end{flushleft}
+
+ $\alpha:  \nats \rarw \Om$, $n \in \nats$, onto, but not one to one. Define $\#_n = \frac{1}{n} \# $, $N = \{ 1,2,...,n \}$. Then $(N, \pset{N}, \#_n )$ is a porobability space. Let $\alpha_n = \alpha |_N$, then this is an $\Om$ valued random varaible. Now we can define
+
+$$
+	P(E) = \lim_{n \rarw \infty} \#_n \alpha_n^{-1} (E), \; \textrm{for all} \; E \in \F
+$$
+
+
+
+
+\begin{flushleft}
+\underline{Random varaibles:}
+\end{flushleft}
+
+$(S, \cS)$ a measurable space, $X: \Om \rarw S $ is called a random variable when it is $(\F, \cS)$-measurable. \\
+
+Define $P_X: \cS \rarw [0,+\infty]$ by $P_X(E) = P( \{ \om \in \Om; X(\om) \in E \})$, this is the image measure by $X$.
+
+$$
+	P_X(S) = P( \{  \om \in \Om; X(\om) \in S \} ) = P( \Om ) = 1
+$$
+
+So the image measure induced by a random variable is a probability measure on its state space. \\
+
+$P_X$ is called the dirstribution of $X$. \\
+
+Define $F_X : \reals \rarw [0,1] = x \mapsto P_X((-\infty,x])$, this is called the cumulative distribution function.\\
+
+From wikipedia:
+
+``The probability density function of a random variable is the Radon–Nikodym derivative of the induced measure with respect to some base measure (usually the Lebesgue measure for continuous random variables).''
+
+ADD many details here
+
+
+
+\begin{flushleft}
+\underline{Expectation:}
+\end{flushleft}
+
+Define the expectation value of $X$ as $E(X) = \int_{\Om} X \, dP$, the integral of $X$.\\
+
+Suppose $X$ is a simple function, then $X(\om) = \sum_{k=1}^n \, c_k \chi_{_{E_k}} (\om)$, $c_k \in S$ , unique, and $E_k \in \F$ disjoint.\\
+
+$$
+	E(X) =  \sum_{k=1}^n \, c_k P(E_k)
+$$
+
+\begin{flushleft}
+\underline{Discrete rv:}
+\end{flushleft}
+
+A discrete random variable $X$ is one whose state space is countable. In this case there is a bijective map, $\gamma : S \rarw \nats$, and clearly the function $\gamma \circ X	$ is $( \F, \pset{\nats} )$-measurable. \\ We may write $S = \{ x_k := \gamma^{-1}(k) \}_{k=1}^\infty$, and may define $E_k :	= X^{-1}(x_k)$, $X(\omega) = \sum_{k=1}^\infty \, x_k \chi_{_{E_k}} $. \\ If we temporarily adopt the notation ``$p(x_k) = P(X = x_k)$''$ := P(E_k)$, then
+
+
+$$
+	E(X) =  \sum_{k \in \nats} \, x_k p(x_k)
+$$
+
+In this simple case $\Om$ may not really be nescesary, as $( \{x_k \}, \pset{\{x_k\}}, p)$ is a probability space in it's own right, and note, with $\beta_n := X \circ \alpha_n$, $\alpha_n$ as in the above nonsense,
+
+$$
+	p(x_k) = \lim_{n \rarw \infty} \#_n \beta_n^{-1} ( x_k ), \; \textrm{for all} \; x_k
+$$
+
+%So that we can asses the random measure of a random value by making sufficiently many observations and applying the normalized counting measure.
+
+
+
+
+
+
+\section*{Part 2.2 - Kolmogorov extension }
+
+\begin{flushleft}
+\underline{Notation and definitions:}
+\end{flushleft}
+
+\begin{flushleft}
+Throughout, $(\Om, \F, P )$ is a probability space, $T$ is an index set, and $(S, \mathcal{S} )$ is a state space. This is cosmetic, really, $T = [0, \infty )$, time, $S = \reals^d$, $\mathcal{S} = \Bl(\reals^d)$. 
+\end{flushleft}
+
+\begin{flushleft}
+We define $S^T = \{ f: T \rightarrow S \} = \prod_{t \in T} S$, and  $S^{T \times \Om} = \{ f: T \times \Om \rightarrow S \}$. 
+\end{flushleft}
+
+\begin{flushleft}
+For $A$ a set, let:\\
+$A^n := \{ a = (a_1, a_2, ..., a_n ) ; a_k \in A  \}$, for $n \in \nats$.\\
+$\tilde{A}^n := \{ a \in A^n ; a_i \not = a_j \; \forall i \not = j  \}$, for $n \in \nats$. $\tilde{A}^n \subset A^n$ \\
+$\tilde{A} := \{ a \in \tilde{A}^n; n \in \nats \}$
+\end{flushleft}
+
+\begin{flushleft}
+For $A,B$ sets, $n \in \nats$, and $f: A \rarw B$ let:\\
+$f(a) := ( f(a_1), f(a_2), ..., f(a_n) ) \in B^n$, for $a \in A^n$.  \\
+\end{flushleft}
+
+\begin{flushleft}
+For $n \in \nats$, $t \in T^n$, and $B \in \Bl(S^n)$ define an $n$-dimensional cylinder set in $S^T$ as
+$ C( B, n, t ) = \{ \om \in S^T; \om (t) \in B \} $, and then $\tilde{C} := \{ C( B, n, t ); B \in \Bl(S^n), n \in \nats, t \in T^n \}$. \\
+Then let $\B(S^T)$ be the sigma algebra generated by $\tilde{C}$.
+\end{flushleft}
+
+\begin{flushleft}
+\underline{Consistent family of measures:}
+\end{flushleft}
+
+
+
+
+
+
+\begin{flushleft}
+\underline{Extension Theorem (consistency):}
+\end{flushleft}
+
+
+
+
+
+
+
+
+
+
+\section*{Part 3 - Brownian Motion }
+
+
+
+
+\section*{Part n - Stochastic Processes }
+
+\begin{flushleft}
+\underline{Probability law of a Stochastic process:}
+\end{flushleft}
+
+%\begin{flushleft}
+%Given $(\Omega,\F,P)$ a probability space, and $T$ an index set, $(S, \A)$ a measurable space. Then $X: T \times \Omega \rightarrow S$ is a stochastic process when the $t-$section of $X$, $X_t(\omega) := X(t,\omega)$ is $(\F,\A)-$measurable for all $t \in T$. Let $S^T = \{ g: T \rightarrow S \}$. \\
+%Each stochastic process, $X$ induces a function, $\Phi_X: \Omega \rightarrow S^T$ by $\Phi_X(\omega) := t \mapsto X(t,\omega)$, so $\Phi_X (\omega)$ is the $\omega-$section of $X$. We're interested in defining a measure on a suitable sigma algebra on $S^T$, by pushing forward $P$ via $\Phi_X$.
+%\end{flushleft}
+
+
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

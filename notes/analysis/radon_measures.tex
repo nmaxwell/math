@@ -1,0 +1,54 @@
+
+\break
+
+\begin{flushleft}
+Radon measures\\
+\end{flushleft}
+
+\hrule
+
+\vspace{0.5in}
+
+
+Call $C_c(X,Y)$ the space of all continuous functions on $X$, to $Y$, if $Y$ is not specified, assume $Y = \reals$. Write $||f||_u$ for the uniform norm of $f$, i.e., $||f||_u = \SUP{ |f(x)|; x \in X }$ A linear functional $I$ on $C_c(X)$ is positive is $I(f) \ge 0$ when $f \ge 0$. If $U$ is open in $X$, and $f \in C_c(X)$, write $f \prec U$ to mean that $f(x) \in [0,1]$ and $\supp(f) \subset U$, this is a stronger statement than $0 \le f \le \cf{U}$, which only implies that $\supp(f) \subset \overline{U}$. \\
+
+
+
+Proposition (Folland 7.1), if $I$ is a positive linear functional on $C_c(X)$, for each compact $K \subset X$, there is a constant, $C_K$, such that $|I(f)| \le C_K ||f||_u$ for all $f \in C_K(X)$ such that $\supp(f) \subset K$. \\
+
+If $\mu$ is a Borel measure on $X$ such that $\mu(K) < \infty$ for every compact $K \subset X$, then $C_c(X) \subset L^1(\mu)$, so that $ f \mapsto \int f \, d\mu$ is a positive linear functional on $C_c(X)$. \\
+
+
+
+If $I$ is a positive linear functional on $C_c(X)$, there is a unique Radon measure, $\mu$ on $\Bl(X)$ such that $I(f) = \int_X f \, d\mu$ for all $f \in C_c(X)$. Moreover , $\mu$ satisfies
+
+\begin{enumerate}[a)]
+\item
+$\mu(U) = \sup \left( \{ I(f); f\in C_c(X), f \prec U  \} \right) $ for all open $U \subset X$
+\item
+$\mu(K) = \inf \left( \{ I(f); f \in C_c(X), f \ge \cf{K} \}\right) $ for all compact $K \subset X$.
+\end{enumerate}
+
+\noindent
+Proof: ADD
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
