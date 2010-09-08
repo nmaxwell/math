@@ -1,0 +1,109 @@
+
+
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+
+\usepackage{latexsym}
+\usepackage{graphicx}
+\usepackage{colonequals}
+
+\setlength\topmargin{-1in}
+\setlength{\oddsidemargin}{-0.5in}
+%\setlength{\evensidemargin}{1.0in}
+
+%\setlength{\parskip}{3pt plus 2pt}
+%\setlength{\parindent}{30pt}
+%\setlength{\marginparsep}{0.75cm}
+%\setlength{\marginparwidth}{2.5cm}
+%\setlength{\marginparpush}{1.0cm}
+\setlength{\textwidth}{7.5in}
+\setlength{\textheight}{10in}
+
+
+\usepackage{listings}
+
+
+
+
+\newcommand{\pset}[1]{ \mathcal{P}(#1) }
+\newcommand{\partset}[1]{ \mathcal{P}^{*}(#1) }
+\newcommand{\st}[0]{ \textrm{ s.t. } }
+\newcommand{\fall}[0] { \textrm{ for all } }
+\newcommand{\wrt}[0] { \textrm{ w.r.t. } }
+\newcommand{\aew}[0] { \textrm{a.e.} }
+
+\newcommand{\nats}[0] { \mathbb{N}}
+\newcommand{\reals}[0] { \mathbb{R}}
+\newcommand{\cmplxs}[0] { \mathbb{C}}
+\newcommand{\complexes}[0] { \mathbb{C}}
+\newcommand{\exreals}[0] {  [-\infty,\infty] }
+\newcommand{\eps}[0] {  \epsilon }
+\newcommand{\A}[0] { \mathcal{A} }
+\newcommand{\B}[0] { \mathcal{B} }
+\newcommand{\C}[0] { \mathcal{C} }
+\newcommand{\D}[0] { \mathcal{D} }
+\newcommand{\E}[0] { \mathcal{E} }
+\newcommand{\F}[0] { \mathcal{F} }
+\newcommand{\G}[0] { \mathcal{G} }
+\newcommand{\M}[0] { \mathcal{M} }
+\newcommand{\cS}[0] { \mathcal{S} }
+
+\newcommand{\om}[0] { \omega }
+\newcommand{\Om}[0] { \Omega }
+
+\newcommand{\Bl}[0] { \mathcal{B} \ell }
+
+\newcommand{\Ell}[0] { \mathcal{L} }
+
+
+\renewcommand{\Re}{ \operatorname{Re} }
+\renewcommand{\Im}{ \operatorname{Im} }
+
+\newcommand{\IF}[0] { \; \textrm{if} \; }
+\newcommand{\THEN}[0] { \; \textrm{then} \; }
+\newcommand{\ELSE}[0] { \; \textrm{else} \; }
+\newcommand{\AND}[0]{ \; \textrm{ and } \;  }
+\newcommand{\OR}[0]{ \; \textrm{ or } \; }
+
+\newcommand{\rimply}[0] { \Rightarrow }
+\newcommand{\limply}[0] { \Leftarrow }
+\newcommand{\rlimply}[0] { \Leftrightarrow }
+\newcommand{\lrimply}[0] { \Leftrightarrow }
+
+\newcommand{\rarw}[0] { \rightarrow }
+\newcommand{\larw}[0] { \leftarrow }
+
+\newcommand{ \defeq }[0] { \colonequals }
+\newcommand{ \eqdef }[0] { \equalscolon }
+%\newcommand{ \cf }[1] { \chi_{_{#1}} }
+\newcommand{ \cf }[1] { \mathbf{1}_{#1} }
+\begin{document}
+\begin{center} 
+ { \bf Notes on Complex Measures, etc.} \end{center}\begin{center} 
+ Nick Maxwell\end{center}
+    \begin{flushleft}
+{\bf 
+            Preliminaries
+         }\end{flushleft}
+
+    
+    
+    \begin{flushleft} 
+ For $\A$ a $\sigma$-algebra, $E \in \A$, define $\partset{E, \A} \defeq \{ \{ E_k \in \A; k \in \nats \}; E = \cup_k E_k, E_i \cap E_j = \phi \;  \forall i \not = j \}$. Always $ \{ \phi, E \} \in \partset{E, \A}$, so $\partset{E, \A}$ is never empty, and also $\partset{\phi, \A} = \{ \phi \}$.\end{flushleft}
+    \begin{flushleft} 
+ 
+        For $\A$ a $\sigma$-algebra, define
+        \begin{equation} 
+ S^\pm(\A) \defeq \{ \sum_{k=1}^n c_k \, \cf{E_k}; \{c_k \in\reals; c_i \not = c_j \, \forall i \not = j\}, \{E_k \in \A; E_i \cap E_j = \phi \, \forall i \not = j \}, n \in \nats \}\end{equation}
+        \begin{equation} 
+ S^{+}(\A) \defeq \{ \sum_{k=1}^n c_k \, \cf{E_k}; \{c_k \in [0, \infty], c_i \not = c_j \, \forall i \not = j\}, \{E_k \in \A; E_i \cap E_j = \phi \, \forall i \not = j \}, n \in \nats \}\end{equation}
+    \end{flushleft}
+    \begin{flushleft}
+{\bf 
+            Main ideas
+         }\end{flushleft}
+
+\end{document}

@@ -1,0 +1,378 @@
+
+\break
+
+\begin{flushleft}
+Integration and differentiation on $\reals^n$.
+\end{flushleft}
+
+\begin{flushleft}
+\addvspace{5pt} \hrule
+\end{flushleft}	
+
+
+Notation:
+
+A measure defined on a Borel $\sigma$-algebra is called a Borel measure. Write $\M(\reals^n)$ for the Borel measures on $\reals^n$. If $E \subset \reals^n$, then $\M(E)$ are the borel measures on $E$, but $\M(E) \subset \M(\reals^n)$, by zero padding. \\
+
+Definition: a positive finite measure $\mu$ on $\reals^n$ is regular if
+
+\begin{enumerate}
+\item
+$\mu(E) = \inf \{ \mu(U) ; U \textrm{ open}, U \supset E \}$
+\item
+$\mu(E) = \sup \{ \mu(K) ; K \textrm{ compact}, K \subset E \}$
+\end{enumerate}
+
+Every positive finite measure on $\reals^n$ is regular. For every measure $\nu \in \M(\reals^n), \fall E \in \Bl(\reals^n)$, there exists a sequence of open sets $U_k \supset E$, and compact sets $K_n \subset E$ such that $\nu(U_n) \rarw \nu(E)$ and $\nu(K_n) \rarw \nu(E)$. \\
+
+\noindent
+Proof: ADD (add after looking at some topology, and reviewing metric space stuff)  \\
+
+Definition: we say a measure $\nu \in \M(\reals^n)$ is regular if each positive $\nu_k$, in the Jordan decomposition $\nu = \sum_{k=0}^3 i^k \, \nu_k$, is regular. By the last result, every $\nu \in \M(\reals^n)$ is regular and then the condition about sequences of sets holds. \\
+
+If $\nu \in \M(\reals)$, we define its distribution function by $F_\nu (x) = \nu((\infty,x])$. $\nu \mapsto F_\nu$ is injective and linear on $\M(\reals)$. \\
+
+\noindent
+Proof: Linearity is easy, to see that $\nu \mapsto F_\nu$ is surjective, suppose $F_\nu = 0$, this means that $F_\nu(x) = 0$ for all $x \in \reals$, so $\nu((-\infty, x]) = 0$ for all $x$, so $\nu((a,b]) = \nu((-\infty,b] \setminus (-\infty,a]) = 0 - 0 = 0$. Then because every open set in $\reals$ is a countable union of disjoint open invervals, and open intervals can written as a countable union of disjoint half open intervals, every open set in $\reals$ has $\nu$-measure zero, and then by Jordan decomposition, $\nu$ can be written as a sum of regular measures, which are then all zero measures, so $\nu$ is the zero measure. Thus Ker($\nu \mapsto F_\nu$) = \{ 0 \}, and so $\nu \mapsto F_\nu$ is surjective. \\
+
+
+$F: \reals \rarw \reals$ is of \emph{bounded variation}, BV, or say $F \in BV$, if $\Var(F) < \infty$, where $\Var(F) \defeq \sup\{ V_F(x); x \in \reals \}$, and $V_F(x)$ is the \emph{total variation function} of $F$,
+
+$$
+V_F(x) \defeq \sup \left\{  \sum_{k=1}^n |F(x_k) - F(x_{k-1})| ; \;  x_0    < x_1 < ... < x_n=x, ( x_k ) \in \reals, n \in \nats \right\}.
+$$
+
+Def: $F: \reals \rarw \reals$ is in $NBV$ if $F \in BV$, $F$ is right continuous at all $x \in \reals$, and $\lim_{x \rarw -\infty} F(x) = 0$; normalized $BV$.\\
+
+If $\nu \in \M(\reals, \Bl(\reals))$, then $F_\nu \in NBV$. \\
+
+\noindent
+Proof: Let $x_0 < x_1 < ... < x_n = x \in \reals$, then $\sum_{k=1}^n |F_\nu(x_k) - F_\nu(x_{k-1})| = \sum_{k=1}^n |\nu([x_{k-1}, x_{k}))| \le \sum_{k=1}^n |\nu|([x_{k-1}, x_{k})) = |\nu|([x_0,x_n)) \le |\nu|(\reals) = ||\nu|| < \infty$. \\
+
+
+
+
+$$
+V_{F_\nu}(x) = \sup \left\{  \sum_{k=1}^n | \nu(( x_{k-1},x_k ]) | ; \;  x_0    < x_1 < ... < x_n=x, ( x_k ) \in \reals, n \in \nats \right\} \le 
+$$
+
+$$
+\sup \left\{  \sum_{k=1}^n |\nu|(( x_{k-1},x_k ]) ; \;  x_0    < x_1 < ... < x_n=x, ( x_k ) \in \reals, n \in \nats \right\}  = V_{F_{|\nu|}}(x)  \le 
+$$
+
+$$ \sup \left\{  |\nu((-\infty,x_0])| + \sum_{k=1}^n | \nu | (( x_{k-1},x_k ]); \;  x_0    < x_1 < ... < x_n=x, ( x_k ) \in \reals, n \in \nats \right\} \le |\nu|((-\infty,x])
+$$  \\
+
+
+\noindent
+%because $|\nu|((-\infty,x])$ is the sup of such quantities, i.e. $ \{ (-\infty,x_0], ( x_{k-1},x_k ]; 1 \le k \le n \}$ are measurable , countable, disjoint partitions of $(-\infty,x]$. 
+
+so $ V_{F_\nu}(x) \le V_{F_{|\nu|}}(x)  \le  |\nu|((-\infty,x]) \le ||\nu|| < \infty$. So $V_{F_\nu}(x)$ is bounded by a constant in $x$, $||\nu||$, so $\sup(\{ V_{F_\nu}(x); x \in \reals \}) \le ||\nu||$, so $\Var{F_\nu|} \le ||\nu||$, so $F_\nu \in BV$.   \\
+
+For $x \in [-\infty,\infty)$, pick $x_n \searrow x$ , take Jordan decomposition of $\nu$, to get $\nu = \nu_+ - \nu_-$, with $\nu_\pm$ positive finite measures, then $\nu_\pm((-\infty,x_n]) \rarw \nu_\pm(\cap_{k \in \nats} (-\infty,x_k]) = \nu_\pm((-\infty,x]) $, by continuity from above, so $\nu_\pm((-\infty,x_n]) \rarw \nu((-\infty,x_n])$. Thus $\lim_n F_\nu(x_n) = F_\nu(x)$, so $F_\nu(-\infty) = 0$, and $F_\nu$ is right continuous by definition.  \\
+
+
+
+
+
+
+
+
+
+(Folland 3.28) If $F \in BV$ then $\lim_{x \rarw - \infty} V_F(x) = 0$ and $F \in BV \rimply V_F \in NBV$.
+
+\noindent
+Proof: ADD \\
+
+
+Properties of $BV$,
+
+\begin{enumerate}[1)]
+\item
+If $F,G: \reals \rarw \reals$, $c \in \reals$, then $V_{F+G}(x) \le V_F(x) + V_F(x)$ and $V_{cF}(x) = |c| V_F(x)$. Hence $BV$ is a vector space and if $F,G \in BV$, then $\Var(F+G) \le \Var(F) + \Var(G)$ and $\Var(cF) = |c| \Var(F)$. $NBV$ is a subspace of $BV$.
+\item
+If $F \in BV$, then $V_F(x)$ is an increasing function of $x$, bounded above by $\Var(F)$.
+\item
+\begin{enumerate}[a)]
+\item
+Moreover, if $x < y$, then $V_F(y)-V_F(x) = \sup \left( \left\{ \sum_{k=1}^n | F(x_k) - F(x_{k-1}) | ; x \le x_0 < x_1 < ... < x_{n} = y \right\} \right)$.
+\item
+special case: $|F(y) - F(x)| \le V_F(y) - V_F(x) \le V_F(y) \le \Var(F)$.
+\item
+consequence: $F \in BV \rimply F$ is bounded.
+\end{enumerate}
+\item
+An increasing $F: \reals \rarw \reals$ is in $BV$ iff $F$ is bounded.
+\item
+$F: \reals \rarw \reals \in BV$ iff $F =  F_1-F_2$, where $F_1,F_2: \reals \rarw \reals$ are bdd and increasing.
+\item
+$F: \reals \rarw \complexes \in BV$ iff $\Re F, \Im F \in BV$.
+\item
+$F \in BV \rimply F$ continuous except at countable many points, and for all $x \in \reals$, $F(x+) = \lim_{t \rarw x^+} F(t)$ and $F(x-) = \lim_{t \rarw x^-} F(t)$, and $\lim_{x \rarw +\infty} F(x)$ and $\lim_{x \rarw -\infty} F(x)$ all exist and are in $\reals$.
+\item
+ $F \in BV \lrimply F = F_1 - F_2 + i F_3 - i F_4$, where $F_k : \reals \rarw \reals$, increasing, bounded, right continuous, and $\lim_{x \rarw - \infty} F_k(x) = 0$ for all $k$.
+\end{enumerate}
+
+
+\noindent
+Proof: ADD \\
+
+
+The linear map $T = \nu \mapsto F_\nu$ from $\M(\reals)$ to $NBV$ is an isomorphism. Thus it is bijective and $\Var(F_\nu) = ||\nu||$ for all $\nu \in \M(\reals)$, which implies that $NBV$ is a Banach space with norm $||F|| = \Var(F)$, $||T(\nu)|| = ||\nu||$.  This also applies to $\M([a,b])$ and $NBV([a,b]()$, by zero padding $F(x)$ and replacing $\nu$ by $\nu_{[a,b]}(E) \defeq \nu(E \cap [a,b])$. \\
+
+
+\noindent
+Proof: ADD \\
+
+We say $F: \reals \rarw \reals$ is \emph{absolutely continuous}, or say $F \in AC$ if given $\eps>0$, there exists a $\delta>0$ such that $a_1 < b_1 < a_2 < b_2 < ... < a_n < b_n$ and $\sum_{k=1}^n (b_k-a_k) < \delta$ $\rimply \sum_{k=1}^n |F(b_k) - F(a_k)| < \eps$. If $n=1$ then this is uniformly continuous, so $F \in AC \rimply$ $F$ is uniformly continuous, also $AC \subset BV$. Define $NAC \defeq NBV \cap AC$. Again this can apply to $F: [a,b] \rarw \reals$. \\
+
+\noindent
+Proof: ADD \\
+
+$F \in NAC \lrimply \mu_F \ll \lambda$, where $\mu_F$ is the Lebesgue-Stieltjes measure from $F$, and $\lambda$ is the Lebesgue measure. \\
+
+
+\noindent
+Proof: ADD \\
+
+
+
+(a Vitali covering lemma) Suppose $W \subset \reals^k$, $W \subset \cup_{i=1}^n B(x_i, r_i)$, where $B(x,r)$ is the ball centered at $x \in \reals^k$, with readius $r>0$, then there exists $S \subset \{ 1,2,...,n\}$ such that:
+
+\begin{enumerate}[a)]
+\item
+$B(x_i, r_i) \cap B(x_j, r_j) = \phi$ if $i,j \in S$, $i \not = j$.
+\item
+$ W \subset \cup_{i \in S} \, B(x_i, 3 r_i)$
+\item
+$ \lambda(w) \le 3^k \sum_{i \in S} \lambda(B(x_i, r_i )) $
+\end{enumerate}
+
+
+\noindent
+Proof: ADD \\
+
+
+For $ \mu \in \M(\reals^k)$, $x \in \reals^k$, $r > 0$, define $(Q_r \mu)(x) = \frac{\mu(B(x,r)}{\lambda(B(x,r))}$. Call $ M_\mu(x) \defeq \sup \{ (Q_r|\mu|)(x); 0 < r < \infty \}$, the \emph{maximal function} of $\mu$, $M_\mu: \reals^k \rarw [0, \infty]$. A special case, for $F \in L^1(\reals^k, \lambda)$, $\mu(E) \defeq \int_E F \, d\lambda$, in this case write $M_F$ for $M_\mu$.  \\
+
+
+$F: \Om \rarw [-\infty, \infty]$ is called \emph{lower semi continuous} (lsc) if $F^{-1}((t,\infty])$ is open for all $t \in \reals$, this makes sense if $\Om$ is any topological space. \\
+
+$\mu \in \M(\reals^k) \rimply M_\mu$ is lower semi continuous.
+
+\noindent
+Proof: ADD \\
+
+(Hardy Littlewood theorem) If $\mu \in \M(\reals^k)$, $a < t < \infty$ then $\lambda(\{ x \in \reals^k; M_\mu(x) > t \} ) \le 3^k ||\mu|| \div t$.
+
+\noindent
+Proof: ADD \\
+
+A function $f : \reals^k \rarw \mathbb{F}$ is called \emph{locally integralbe}, or $f \in L^1_{loc.}(\reals^k, \lambda)$ if $F|_K \in L^1(K, \lambda)$ for all compact $K \subset \reals^k$.  \\
+
+If $f \in L^1_{loc.}(\reals^k, \lambda)$, $x \in \reals^k$ is called a \emph{lebesque point} for $f$ if
+
+$$
+\lim_{r \rarw 0} \frac{1}{ \lambda(B(x,r))} \int_{B(x,r)} |f(y)-f(x)| \, d \lambda(y) = 0.
+$$
+
+\noindent
+If $x$ is a Lebesgue point for $f$ then
+
+$$
+f(x) = \lim_{r \rarw 0} \frac{1}{ \lambda(B(x,r))} \int_{B(x,r)} f(y) \, d \lambda(y).
+$$
+
+
+\noindent
+Proof: ADD \\
+
+
+
+
+For $\mu \in \M(\reals^k)$, define the \emph{symmetric derivative} of $\mu$ as $D_\mu(x) = \lim_{r \rarw 0} \frac{\mu(B(x,r)}{\lambda(B(x,r))}$, wherever this limit exists, $x \in \reals^k$. \\
+
+
+
+Define 
+$$
+    f^*(x) = \limsup_{r \rarw 0} \frac{1}{ \lambda(B(x,r))} \int_{B(x,r)} |f(y)-f(x)| \, d \lambda(y) .
+$$
+
+\noindent
+then
+\begin{enumerate}[1)]
+\item
+$(f+g)^* \le \int f^* + g^*$ for all $f,g \in L^1(\reals^k, \lambda)$
+\item 
+If $g$ is continuous at $x$ then $g^*(x) = 0$.
+\item
+If $f,g \in L^1(\reals^k, \lambda)$, $g$ continuous then $f^* = (f^* - g + g) \le (f-g)^* + g^* = (f-g)^*$
+\item
+If $f \in L^1(\reals^k, \lambda)$ then $f^* \le |f| + M_f$.
+\end{enumerate} 
+
+
+\noindent
+Proof: ADD \\
+
+
+
+(Lebesue's theorem)
+\begin{enumerate}[a)]
+\item
+If $f \in L^1_{loc.}(\reals^k, \lambda)$, then a.e. $x \in \reals^k$ is a Lebesgue point.
+\item 
+$\mu \in \M(\reals^k)$, $\mu \ll \lambda$ $\rimply D_\mu = \frac{d\mu}{d\lambda}$, $\lambda$-a.e.
+\end{enumerate}
+
+
+\noindent
+Proof: ADD \\
+
+Corollary:
+If $[f] \in L^1_{loc.}(\reals^k, \lambda)$ then for any $g \in [f]$, $f(x) = g(x)$ for all Lebesgue points $x$ for $f$. Thus, for all $[f] \in L^1(\reals^k, \lambda)$, there is a cononical $\hat{f} \in [f]$ such that all points in $\reals^k$ are lebesgue points for $\hat{f}$.     \\
+
+\noindent
+Proof: ADD \\
+
+
+
+
+For $x \in \reals^k$, a sequence $(E_k)_{k=1}^\infty$ of measurable sets in $\reals^k$ is said to \emph{shrink nicely} to $x$ if there exists a $C>0$, scalars $r_k \searrow 0$ such that $E_k \subset B(x, r_k)$ and $ \lambda(B(x,r_k)) \le C \lambda(B(x, r_k))$ for all $k \in \nats$. In this case we write $E_k \overset{s.n.}{\rarw} x$. \\
+
+If $f \in L^1_{loc.}(\reals^k, \lambda)$, and $x$ is a lebesgue point of $f$ then 
+
+$$
+f(x) = \lim_{r \rarw 0} \frac{1}{ \lambda(E_k)} \int_{E_k} f(y) \, d \lambda(y).
+$$
+
+\noindent
+Proof: ADD \\
+
+
+\break
+
+
+(first fundamental theorem of calculus)  \\
+
+\noindent
+If $[g] \in L^1([a,b], \lambda )$ resp. $[g] \in L^1(\reals, \lambda)$, let $G(x) = \int_a^x g(t) \, dt = \int_{[a,b]} f \, d\lambda$ resp. $G(X) = \int_{-\infty}^x g(t) \, dt = \int_{(-\infty,x)} g \, d\lambda$, then $G \in NAC([a,b])$ resp. $F \in NAC$, and $G$ is differentialbe a.e. and $G' = g$ a.e. \\
+
+(second fundamental theorem of calculus, version 1)
+\begin{enumerate}[a)]
+\item
+$F \in AC \lrimply \left( \right.$  $F$ is diff'able a.e. on $[a,b]$ and $F' \in L^1([a,b], \lambda)$ and $F(x) - F(a) = \int_z^x F'(t)\, dt$ for all $x \in [a,b]$ $\left. \right)$.
+\item
+$F \in AC \lrimply \left( \right.$  $F$ is diff'able a.e. on $\reals$ and $F' \in L^1(\reals, \lambda)$ and $F(x) - F(a) = \int_z^x F'(t)\, dt$ for all $x \in \reals$ $\left. \right)$.
+\item
+$F \in NAC$ or $F \in NAC([a,b])$ then $F' = \frac{d\mu_F}{d\lambda}$.
+\end{enumerate}
+
+\vspace{0.5in}
+
+\noindent
+Proof: ADD \\
+
+
+\break
+
+
+
+
+If $\mu \in \M(\reals^k)$ then
+\begin{enumerate}[a)]
+\item
+$D_\mu(x)E$ exists for a.e. $x \in \reals^k$ and $D_\mu = \frac{d\mu_a}{d\lambda}$ $\lambda$-a.e., where $\mu_a$ is the absolutely continuous part in the LDT of $\mu$.
+\item
+If $\mu \perp \lambda$ Then $D_\mu(x) = 0$ $\lambda$-a.e. and for $\lambda$-a.e. $x$, $\lim_{k \rarw 0} \mu(E_k) / \lambda(E_k) = 0$ if $E_k \overset{s.n.}{\rarw} x$.
+\item
+For $\lambda$-a.e. $x$, $\lim_{k \rarw 0} \mu(E_k) / \lambda(E_k) = 0$ if $E_k \overset{s.n.}{\rarw} x$. ??? ADD.
+\end{enumerate}
+
+
+
+\noindent
+Proof: ADD \\
+
+Corollary: If $F \in NBV$ then $F' = \frac{d\mu_a}{d\lambda} = D_\mu$ $\lambda$-a.e. where $\mu \in \M(\reals)$ as $F(x) = \mu((-\infty,x])$. So a bigger class of functions is differentiable with this forumla.
+
+\noindent
+Proof: ADD \\
+
+
+
+If $\mu \in \M(\reals^k)$ then
+\begin{enumerate}[a)]
+\item
+If $F: \reals \rarw \reals$ is increasing, then $F$ is differentiable $\lambda$-a.e.
+\item
+if $F \in BV$, then $F$ is differentiable $\lambda$-a.e.
+\item
+if $F \in BV$  there exists a constant $c$, and $G \in NBV$ such that $F = C + G$ everywhere except at a countable number of points. May take $C = \lim_{x \rarw - \infty}  F(x)$ and $G(x) = \lim_{ y \rarw x^+} F(y) - C$ for all $x$. Then $F' = G' = D_\mu = \frac{d\mu_a}{d\lambda}$ a.e. where $\mu$ is the measure on $\reals$ associated to $G$.
+\end{enumerate}
+
+
+\noindent
+Proof: ADD \\
+
+
+If $H \in BV$, $H \ge 0$ for all $x$, $H = 0$ except on a countable set, then $H$ is differentiable a.e. and $H' = 0$ a.e.
+
+
+\noindent
+Proof: ADD \\
+
+Remark: A function $H: \reals \rarw \reals$ such that $H'=0$ a.e. is called a \emph{singular function}. Note: take any $\mu \in \M(\reals)$, $\mu \perp \lambda$, then defining $F_\mu(x) = \mu((-\infty,x])$, as usual, then $F_\mu \in NBV$, and $F' = \frac{d\mu_a}{d\lambda} = 0$ a.e. so $F_\mu$ is singular. Conversely, If $H \in NBV$ is singular,  ADD.
+
+
+\break
+
+
+\begin{flushleft}
+Homework 5, Real Variables, Nicholas Maxwell\\
+\end{flushleft}
+
+\begin{flushleft}
+\addvspace{5pt} \hrule
+\end{flushleft}	
+
+
+$F \in BV[a,b]$ \\
+
+\noindent
+5,1) $F \in AC[a,b]$, take $F(x) = 0$ for $x \not \in [a,b]$, then $\lim_{x \rarw - \infty} F(x) = 0$, and $F$ is continuous because it's uniformly continuous, and $F \in BV[a,b]$, so $AC[a,b] \subset NBV$, and so $\mu_F \ll \lambda$ by theorem 5.1.6. $\mu_F \ll \lambda \lrimply |\mu_F| \ll \lambda$ by prop 4.1.5.e. $F$ is not nescesarily in $AC[a,b]$ because $F(a)$ is not nescesarily 0. \\
+
+\noindent
+Now that $|\mu_F| = \mu_{V_F}$. let $\alpha = \nu \mapsto |\nu|, \beta = F \mapsto V_F, \gamma = F \mapsto \mu_F$, and $\gamma$ is invertible by 5.1.4. Want to show that $\alpha \circ \gamma = \gamma \circ \beta$, but then $ \gamma^{-1} \circ ( \alpha \circ \gamma) = \beta$, which says that $|\mu_F|((-\infty,x]) = V_F(x)$ for all $x$, which is true by last lines of proof of 5.1.4.\\
+
+
+So $|\mu_F| = \mu_{V_F} \ll \lambda$. $F \in NBV \rimply V_F \in NBV$  by lemma before 8 in 5.1.3, then again theorem 5.1.6 says that $\mu_{V_F} \ll \lambda \rimply  V_F \in NAC \rimply V_F \in AC$, and so $V_F \in AC[a,b]$. $\Box$ \\
+
+\noindent
+5,2) Suppose $F \in NBV[a,b],$ $F \ge 0$ and $F$ is increasing, $F(a)=0$. Let $\mu$ be the measure associated to $F$, then by corollary 5.2.5, $F' = \frac{d \mu_{F,a}}{d \lambda}$, where $\mu_{F} = \mu_{F,a} + \mu_{F,s}$, form the Lebesgue decomposition theorem, $\mu_{F,a} \ll \lambda$. By 5.1.4, $|\frac{d \mu_{F,a}}{d \lambda}| = \frac{d |\mu_{F,a}|}{d \lambda}$, so that $\int_{[a,b]} |F'| \, d\lambda = |\mu_{F,a}|((a,b])$. Now $F \ge 0 \rimply \mu_F \ge = 0 \rimply \mu_{F,a},\mu_{F,s} \ge 0$, by the lebesgue decomposition theorem, so $\mu_{F,a} \le \mu_F \rimply |\mu_{F,a}|(a,b) \le |\mu_F |(a,b)  = V_F(a,b)$. \\
+
+\noindent
+If $F \in BV[a,b]$, then by 5.2.6, $F(x) = F(a) + G(x)$, a.e. where $G \in NBV[a,b]$, and $F'=G'$ a.e. so that $\int_{[a,b]} |F'| \, d\lambda = \int_{[a,b]} |G'| \, d\lambda$. \\
+
+
+\noindent
+5,3) In 5.2, have $\int_{[a,b]} |F'| \, d\lambda = |\mu_{F,a}|((a,b])$, and $\mu_{F} = \mu_{F,a} + \mu_{F,s}$, but $\mu_{F,s} = 0 \lrimply \mu_{F} \ll \lambda \lrimply F \in NAC[a,b]$. \\
+
+\noindent
+5,4) If $F \in BV[a,b]$, then by 5.2.6, $F(x) = F(a) + G(x)$, a.e. where $G \in NBV[a,b]$, and $F'=G'$ a.e, so assume that $F \in NBV[a,b]$. In this case there is a $\mu \in \M(\reals)$ such that $\mu((-\infty,x]) = F(x)$ for all $x$. Apply lebesgue decomposition to obtain $\mu = \mu_a + \mu_s$, 5.2.6 says that $F' = \frac{d\mu_a}{d\lambda} = D_\mu$ a.e. So $|F'| = |D_\mu|= |\frac{d\mu_a}{d\lambda}| = \frac{d|\mu_a|}{d\lambda}$ by prop 1 in 4.1.7. Then again,
+
+
+$$
+|F'| = \frac{d|\mu_a|}{d\lambda} = D_{|\mu|} = \lim_{r \rarw 0} \frac{ |\mu_a|(B(x,r))}{ \lambda(B(x,r))} = \lim_{r \rarw 0} \frac{ V_F(x-r,x+r) }{2r}  = V_F'(x) \; \; \;  \lambda-\textrm{a.e.}
+$$ $\Box$ \\
+
+%By theorem 5.2.3, $D_{\mu_s} = 0$, $D_{\mu_a} = \frac{d\mu}{d\lambda}$ a.e., and by theorem 5.2.5, $D_\mu = \frac{d\mu}{d\lambda}$
+
+\noindent
+Folland 33) $F: \reals \rarw \reals$, By 5.2.6a $F$ is differentiable a.e.. Given $a<b \in \reals$, replace $F$ with $F \cf{[a,b]}$. By problem 4, $F'$ is measurable. If $F(x) < \infty$ then $F(y) < \infty$ for all $y \in [a,x]$ by $F$ increasing; if $F(x) = \infty$ some $x \in [a,b]$ then $F(b) - F(a) = \infty >= \int_{[a,b]} F' \, d\lambda \in [-\infty,\infty]$ so the equality holds. assume $F(x) \in \reals$ for all $x \in [a,b]$. Then $F$ is bounded by $F(b)$, so by 5.1.3b $F \in BV[a,b]$. By 5.2.6c $F(x) = F(a) + G(x)$ a.e. where $G \in NBV[a,b]$, and $G' = F'$ a.e., also then by problem 5,2) $\int_{[a,b]} |F'| \le V_F(a,b) < \infty$, so $G',F' \in L^1([a,b],\lambda)$. Let $\mu$ be the measure asssociated with $F$ and $G$. This is the same measure for both $F$, $G$, because it is defined as the inf of sums of the numbers of the form $F(b_k)-F(a_k)$, but $F(b_k)-F(a_k) = G(b_k) - G(a_k)$. Now $G(a) = 0$ and $G$ is increasing, so $G(x) \ge 0$ for $x \in [a,b]$, and $G \in NBV[a,b]$, so by the arguement in problem 5,2 , $\mu_{a} \le \mu$ and $F' = \frac{d \mu_a}{d\lambda}$ a.e., so $\int_{[a,b]} F' \, d\lambda = \mu_a([a,b])$. On the other hand, $F(b) - F(a) = \mu((a,b])$, and $ \mu \ge \mu_a$ from the lebesgue decomposition, i.e. $\mu = \mu_a + \mu_s$ and all these are positive finite measures, because $G \ge 0$. This gives $F(b) - F(a) = \mu((a,b]) \ge \mu_a([a,b])  = \int_{[a,b]} F' \, d\lambda$. $a,b$ are arbitrary so this holds for all $a,b \in \reals$. $\Box$
+
+
+
+
+
