@@ -13,6 +13,9 @@ macros:
     \newcommand{\E}[0] { \mathcal{E} }
     \newcommand{\F}[0] { \mathcal{F} }
     \newcommand{\G}[0] { \mathcal{G} }
+    \newcommand{\H}[0] { \mathcal{H} }
+
+
     \newcommand{\M}[0] { \mathcal{M} }
     \newcommand{\N}[0] { \mathcal{N} }
     \newcommand{\curlyO}[0] { \mathcal{O} }
@@ -242,148 +245,7 @@ document:
             By De Morgan's laws
 
     example:
-        In a metric space, $(X, d)$, $\overline{B}(x, \eps) = \{ y \in X; d(x,y) \le \eps \}$ is closed in the metric topology $\tau_d$.
-    
-        
-        
-    definition:
-        number:
-            1.2.8
-        
-        The \emph{closure}, $\overline{A}$, of $A$, is the intersection of all closed subsets of $X$, containing $A$.
-
-        Note, $\overline{A}$ is the smallest closed subset of $X$ containing $A$. $A$ closed $\lrimply A = \overline{A}$.
-        
-        
-    proposition:
-        name:
-            1
-        enumerate:
-            item:
-                $x \in \overline{A} \lrimply U \cap A = \phi \; \forall x \in U \in \tau$.
-            item:
-                If $\tau$ has a basis $\B$ then $x \in \overline{a} \lrimply U \cap A \not = \phi, \forall x \in U \in \B$.
-            item:
-                In a metric space $(X, d)$, $x \in \overline{A} \lrimply B(x, r) \cap A \not = \phi \; \forall r>0$.
-        
-        proof:
-            to do
-
-    definition:
-        The \emph{interior}, $A^o$ or $\textrm{int}(A)$ is the union of all upen sets contained inside $A$, which also equals the biggest open set inside $A$. Clearly $A$ open $\lrimply A = A^o$.
-
-    proposition:
-        name:
-            2
-        enumerate:
-            item:
-                $x \in A^o \lrimply \; \exists U \in \tau \st x \in U \subset A$
-            item:
-                If $\tau$ has a basis $\B$ then $x \in A^o \lrimply B \in \B \st x \in B \subset A$
-            item:
-                In a metric space, $x \in A^o \lrimply \; \exists \eps > 0 \st B(x, \eps) \subset A$
-
-        proof:
-            Ex.
-    
-
-    proposition:
-        name:
-            3
-        For all $A, B \subset X$
-        enumerate:
-            item:
-                $A \subset B \rimply \overline{A} \subset \overline{B}$, and $A^o \subset B^o$.
-            item:
-                $\overline{A \cup B} = \overline{A} \cup \overline{B}, ( A \cup B )^o \supset A^o \cup  B^o$
-            item:
-                $\overline{A \cap B} \subset \overline{A} \cap \overline{B}$ and $ (A \cap B)^o = A^o \cap B^o$.
-            item:
-                $(\overline{A})^c = (A^c)^o$ and $(A^o)^c = \overline{A^c}$
-        proof:
-            Ex.
-    
-    definition:
-        number:
-            1.2.9
-        Boundary and accumulation points: $\textrm{bdy}(A) = \partial A \defeq \overline{A} \setminus A^o$, $\overline{\phi} = \phi, \overline{x} = X$.
-        
-        An accumulation (or limit or cluster) point of $A$ is an element $x \in X$ such that every neighborhood of $x$ contains at least one point in $A \setminus \{ x \}$.
-        
-    proposition:
-        
-        For a non-empty set $A$ in a topological space $(X, \tau)$:
-        
-        enumerate:
-            token:
-                i
-            item:
-                $x \in \partial A \lrimply \forall $ open $U$ comtaining $x$, $U \cap A \not = \phi$, and $U \cap A^c \not = \phi$
-            item:
-                $\partial A = \partial (A ^c) = \overline{A} \cap \overline{A^c}$
-            item:
-                $\overline{A} = A \cup \partial A = A^o \cup \partial A$, $a^o = A \setminus \partial A = \overline{A} \setminus \partial A$
-            item:
-                $A$ open $\lrimply A \cap \partial A = \phi$, $A$ closed $\lrimply \partial A \subset A$.
-            
-        Let $A'$ be the set of accumulation points of $A$, By (i), $x \in A' \lrimply x \in \overline{ A \setminus \{ x \}}$. As we saw in undergraduate analysis, $\partial A \not \subset A'$ nor $A' \not \subset \partial A$, in general.
-
-
-    definition:
-        number:
-            1.2.10
-        $(X, \tau)$ a topological space and $Y$ a subset of $X$, the \emph{subspace} or \emph{relative topology} on $Y$ is $\tau_Y = \{ U \cap Y; U \in \tau \}$. This is called the \emph{topology induced on $Y$ from/by $X$}. Sets in $\tau_Y$ are called `relatively open' sets. We also say that $Y$ with its topology $\tau_Y$ is a \emph{subspace} of $X$. Similarily, a subset $A$ of $Y$ is \emph{relatively closed}, or \emph{closed in subspace topology} if $Y \setminus A$ is relatively open (= open in subspace topology).
-    
-        proof:
-            We need to show that $\tau_Y$ is a topology. $\phi = \phi \cap Y \in \tau_Y$, $Y = X \cap Y \in \tau_Y$, let $\{ U_1, ..., U_n \} \in \tau_Y$, then $\cap_{k=1}^n (U_k \cap Y) = \left( \cap_{k=1}^n U_k \right) \cap Y \in \tau_Y$, since $\cap_{k=1}^n U_k \in \tau$. Finally, if $\{ U_i; i \in I \} \subset \tau_Y$, then $\cup_{i \in I} ( U_i \cap Y) = \left( \cup_{i \in I} U_i \right) \cap Y \in \tau_Y$ since $\cup_{i \in I} U_i \in \tau$.
-    
-    example:
-        $[0,1)$ is an open set in $[0,2]$ if $[0,2]$ has a subspace topoogy. Because $[0,1) = [0,2] \cap (-1,1)$. It is relatively open in $[0,2]$. 
-    
-
-    lemma:
-        enumerate:
-            item:
-                If $A \subset Y \subset (X, \tau)$, then $A$ is relatively closed in $Y \lrimply A = Y \cap C, C$ closed in $X$.
-            item:
-                A subspace of a subspace of $(X, \tau)$ is a subspace of $(X, \tau)$.
-            item:
-                If $\B$ is a basis for $\tau$, on $X$, then $\{ U \cap Y; U \in \B \}$ is a basis for $\tau_Y$.
-            item:
-                If $A \subset Y \subset (X, \tau)$, then the closure of $A$ with respect to $\tau_Y$ equals $\overline{A} \cap Y$, where $\overline{A}$ is the closure with respect to $\tau$. 
-            item:
-                not finished.
-
-
-
-
-
-
-
-
-
-                
-        
-        
-        
-        
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        In a metric space, $(X, d)$, 
 
 
 
