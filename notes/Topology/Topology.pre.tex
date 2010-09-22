@@ -16,6 +16,7 @@ macros:
     \newcommand{\M}[0] { \mathcal{M} }
     \newcommand{\N}[0] { \mathcal{N} }
     \newcommand{\curlyO}[0] { \mathcal{O} }
+    \newcommand{\R}[0] { \mathcal{R} }
     \newcommand{\curlyS}[0] { \mathcal{S} }
     \newcommand{\U}[0] { \mathcal{U} }
     \newcommand{\V}[0] { \mathcal{V} }
@@ -356,25 +357,38 @@ document:
 
 
 
-
-
-
-
-
-
-                
-        
-        
-        
-        
-        
-
-
-
-
-
-
-
+    {\bf left off on page 13, picking up on page 16/17}
+    
+    section:
+        number:
+            1.3
+        name:
+            Convergence
+    
+    
+    definition:
+    First, let's discuss orderings on a set. A \emph{Binary relation} on $X$ is a subset $\R \subset X \times X$. We write $x \le y$ iff $(x,y) \in \R$. A \emph{Preordered set} is a set $X$ with a binary relation, $\le$ satisfying
+    
+    enumerate:
+        token:
+            i
+        item:
+            Reflexivity: $x \le x \; \forall x \in X$\
+        item:
+            Antisymmetry: $x \le y, y \le x \rimply x=y$
+        item:
+            Transitivity: $x \le y, y \le z \rimply x \le z$.
+    
+    A \emph{Partially ordrerd set} (poset) is a set which is preordred and antisymmetric, $x \le y \le x \rimply x=y$.
+    
+    A subset $Y$ of a preordered set $X$ is said to have an \emph{upper bound} in $X$ if $\exists \; x \in X \st y \le x \forall y \in Y$.
+    
+    A \emph{directed set} is a non-empty preordered set $X$ such that $\{x,y\}$ has an upper bound in $X$ for all $x,y \in X$.
+    
+    A \emph{totally ordered set} is a poset such that either $x \le y$ or $y \le x$ for all $x,y \in X$.
+    
+    A \emph{well ordered set} is a poset such that every non-empty $Y \subset X$ has a \emph{minimum:} $\exists y \in Y \st y \le x \; \forall x \in Y$.
+    
 
 
 
