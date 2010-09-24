@@ -263,38 +263,52 @@ Lemma 1.
 %start insert skipped section  --------
 
 
- { \bf Skipped some things here; left off at page 6, picking up at page 9.}\begin{flushleft} 
-
-
 \begin{flushleft} {\bf Lemma 2 } 
-Let $d_i$ be metrics on a set $X$, $i \in \{ 1,2\}$ then $\tau_{d_1} \subset \tau _{d_2} \lrimply \forall x \in X, \; \forall \eps > 0, \; \exists \delta > 0 \st B_{d_2}(x, \delta) \subset B_{d_2}(x, \eps)  $
+Let $d_i$ be metrics on a set $X$, $i \in \{ 1,2\}$ then $\tau_{d_1} \subset \tau _{d_2} \lrimply \forall x \in X, \; \forall \eps > 0, \; \exists \delta > 0 \st B_{d_2}(x, \delta) \subset B_{d_1}(x, \eps)  $
 
 \end{flushleft}
 
+\begin{flushleft} \emph{Proof.  } Do yourself, or see Munkres, p. 123.
+\end{flushleft}
+
+\begin{flushleft} {\bf Definition } We say $d_1 \le d_2$ if $d_1(x,y) \le C d_2(x,y) \; \forall x,y \in X$ for some $C \ge 0$. We say metrics are equivalent if $\exists C_1 >0, C_2>0 \st d_1 \le C_2 d_d, d_2 \le C_1 d_1$.
+\end{flushleft}
+
+\begin{flushleft} {\bf Corollary} If $d_1, d_2$ are metrics on $X$, such that there exists a constant $C>0 \st d_1 \le C d_2$ then $\tau_{d_2} \subset \tau_{d_1}$.
+\end{flushleft}
+
+\begin{flushleft} \emph{Proof.  } Choose $\delta = \eps / C$ in lemma 2: $y \in B_{d_2}(x, \delta) \rimply d_2(x,y) \le \delta = \eps / C \rimply d_1(x,y) \le C d_2(x,y) \le C \eps / C = \eps$ $\rimply y \in B_{d_1}(x, \eps)$ So by lemma 2, $\tau_{d_2} \le \tau_{d_1}$. The second assertion of the corollary follows from the first used twice: get $\tau_{d_2} \le \tau_{d_1}, \tau_{d_1} \le \tau_{d_2}$, so $\tau_{d_1} = \tau_{d_2}$. $\Box$
+\end{flushleft}
 
 
+\begin{flushleft} {\bf Example } On $\reals^n$, we have norms $||x||_p = \left( \sum_{i=1}^n |x_i|^p \right) ^{\frac{1}{p}}$, and associated metrics $d_p$, $1 \le p < \infty$, $||x||_\infty = \max ( \{ |x_i|; 1 \le i \le n \})$, $d_\infty(x,y) = ||x-y||_\infty$. $||x||_\infty \le || x || _p \; \forall p \in [1, \infty)$, $||x||_p \le C ||x||_p, C = n^\frac{1}{p}$. $ \left( \sum_{i=1}^n |x_i|^p \right) ^{\frac{1}{p}} \le  \left( \sum_{i=1}^n  \max ( \{ |x_i|^p; 1 \le i \le n \}) \right) ^{\frac{1}{p}} =   \left( n  \max ( \{ |x_i|^p; 1 \le i \le n \}) \right) ^{\frac{1}{p}} = n^\frac{1}{p} ||x||_\infty  $. So, $d_\infty \le d_p \; \forall p \in [1,\infty)$, and $d_p \le n^\frac{1}{p} d_\infty$, so all these metrics are equivalent.
+\end{flushleft}
 
+\begin{flushleft} {\bf 1.2.5 Definition } A collection $\A$ of subsets of a topological space $(X, \tau)$ is called a \emph{subbasis} for $\tau$ if (i) $\A \subset \tau$, (ii) $\tau$ is the coarset topology containing $\A$, and (iii) $\cup \{A \in \A \} = X$.
+\end{flushleft}
 
+\begin{flushleft} {\bf Proposition 1} If $\A$ is a subbasis for a topology $\tau$ on $X$, then $\tau$ is the set of unions of finite intersections of sets in $\A$, together with $\phi$. Indeed, the set of finite intersections of sets in $\A$ is a basis for $\tau$.
+\end{flushleft}
 
+\begin{flushleft} \emph{Proof.  } Let $\B = \{ \cap_{k=1}^n A_k; A_1, A_2, ..., A_n \in \A, n \in \nats \}$. Clearly $\A \subset \B \subset \tau$. We claim that $\B$ is the basis for a topology $\sigma$ on $X$. We have to check B1, B2. B1: if $x \in X$, then if $x \in A$, for some $a \in \A$, but $A \in \B$, so B1 holds. B2: notice $E_1, E_2 \in \B$ then $E_1 \cap E_2 \in \B$, clearly and when this holds, B2 is obvious, so $\B$ is the basis for a topology $\sigma$ on X. Since $\tau$ is the coarsest topology containing $\A$, and $\sigma \supset \A$, we mist have $\sigma \supset \tau$. On the otherhand, by an earlier result, $\sigma$ is just the sets which are unoins of sets in $\B$. And since $\B \subset \tau$, it follows that $\sigma \subset \tau$, so $\sigma = \tau$. $\Box$
+\end{flushleft}
 
+\begin{flushleft} {\bf Proposition 2} Any collection $\A$ of subsets of a set $X$, such that $\cup \A = X$ is the subbasis for a unique topology on $X$.
+\end{flushleft}
 
+\begin{flushleft} \emph{Proof.  } Part of the proof of prop 1 shows that $\A$ gives rise to a topology $\sigma = \{$ unions of finite intersections of sets in $\A \}$, and $\A \subset \sigma$. Clearly $\A$ is a subbasis for $\sigma$, since any topology containing $\A$ must contain  $\{$ unions of finite intersections of sets in $\A \}$, so contains $\sigma$. So $\sigma$ is the coarsest topology containing $\A$. The uniqueness is clear from the fact that $\tau = \sigma$ in the proof of prop 1. $\Box$
+\end{flushleft}
 
+\begin{flushleft} {\bf Example 1} $X = \reals$, $\A = \{ (a,\infty); a \in \reals \} \cup \{ (-\infty, b); b \in \reals \}$ is a subbasis for usual topology on $\reals$. 
+\end{flushleft}
 
-
-
-
-
-
-
+\begin{flushleft} {\bf Example 2} $X = \reals$, $\A = \{ (a, \infty); a \in \reals \} \rarw \tau = \A \cup \{ \phi \} \cup \{ \reals \} $.
+\end{flushleft}
 
 
 % end insert skipped section -----
 
-
-
- { \bf 1.2.6 Definition }A \emph{neighborhood} of a point $x$ in a topological space $(X, \tau)$ is an open set $U \in \tau$ containing $x$ (some authors define a neighborhood to be 
- any set containing an open set containing  $x$). The \emph{neighborhood basis} of $x$, written $\curlyO(x)$,  is $\{ U \in \tau :  x \in U\}$.
-
+\begin{flushleft} { \bf 1.2.6 Definition } A \emph{neighborhood} of a point $x$ in a topological space $(X, \tau)$ is an open set $U \in \tau$ containing $x$ (some authors define a neighborhood to be  any set containing an open set containing  $x$). The \emph{neighborhood basis} of $x$, written $\curlyO(x)$,  is $\{ U \in \tau :  x \in U\}$.
 \end{flushleft}
 
 
@@ -415,8 +429,8 @@ That is, $[0,1)$
   { \bf Definition } First, let's discuss orderings on a set. A \emph{Binary relation} on $X$ is a subset $\R \subset X \times X$. We write $x \le y$ iff $(x,y) \in \R$. A \emph{Preordered set} is a set $X$ with a binary relation, $\le$ satisfying\begin{enumerate}[i]
 \item
   Reflexivity: $x \le x \; \forall x \in X$\
-\item
-  Antisymmetry: $x \le y, y \le x \rimply x=y$
+%\item
+%  Antisymmetry: $x \le y, y \le x \rimply x=y$
 \item
   Transitivity: $x \le y, y \le z \rimply x \le z$.
 \end{enumerate}
