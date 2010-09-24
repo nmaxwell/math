@@ -217,33 +217,88 @@ $\exists r>0 \st B(z,r) \subset B(x,\eps)$.  Similarly, $\exists s>0 \st B(z,s) 
 {\bf  Summary:} Every metric space $(X, d)$ has an associated topology, called the \emph{metric topology}, write this as $\tau_d$. It has as basis the set of open balls $\{ B(x, r); x \in X, r>0 \}$. Putting this together with 
 Proposition 1, we see that every normed space, $(X, || \cdot ||)$, 
 has an associated topology, called the \emph{norm topology}: namely $\tau_d$, 
-where $d(x,y) = ||x-y||$.\end{flushleft}\begin{flushleft} 
+where $d(x,y) = ||x-y||$.\end{flushleft}
+
+\begin{flushleft} 
  { \bf Definition.}  A topological space $(X, \tau)$ is called \emph{metrizable}
  if $\tau = \tau_d$, for some metric $d$ on $X$. Because metric spaces are 
 `nice' or `well understood', in many cases it is of interest to show that a 
 topology is metrizable; we will mention some tests later. \end{flushleft}
+
+
+
 \begin{flushleft} 
- { \bf Proposition 4 } \ $U \in \tau_d \lrimply \forall x \in U \; \exists r>0 \st B(x,r) \subset U$.\begin{flushleft} 
+ { \bf Proposition 4 } \ $U \in \tau_d \lrimply \forall x \in U \; \exists r>0 \st B(x,r) \subset U$.
+\end{flushleft}
+
+\begin{flushleft} 
  \emph{Proof.  }Use the definition of $\tau$ in the proof of Lemma 2;
 we are  also using Proposition 3. $\Box$ \end{flushleft}
 
-\end{flushleft}\begin{flushleft} 
+
+
+
+\begin{flushleft} 
  Applying all of this to the usual Euclidian metrix in $\reals^n$, the $\tau_d$ 
 we get is precisely what we call the `open sets' in undergraduate analysis.
-\end{flushleft}\begin{flushleft} 
+\end{flushleft}
+
+
+\begin{flushleft} 
  { \bf 1.2.4 Lemma  1. }  If $\B_i$ is a basis for a topology $\tau_i$ on $X$,
 for 
  $i \in \{1,2\}$, then $\tau_1 \subset \tau_2 \lrimply \forall x \in X, \forall B \in \B_1$ with $x \in B, \exists C \in B_2 \st x \in C \subset B$. \\
-\end{flushleft} \begin{flushleft}  
+\end{flushleft} 
+
+
+\begin{flushleft}  
  \emph{Proof.  }($\limply$) if $U \in \tau_1, x \in U$, then $\exists B \in \B$ such that $x \in B \in U$. By hypothesis $\exists C \in \B_2$ such that
 $x \in C \subset B \subset U$. So $U \in \tau_2$, by 1.2.3 
 Lemma 1.
 
 ($\rimply$) Exercise.
  $\Box$
-\end{flushleft} { \bf Skipped some things here; left off at page 6, picking up at page 9.}\begin{flushleft} 
+\end{flushleft}
+
+%start insert skipped section  --------
+
+
+ { \bf Skipped some things here; left off at page 6, picking up at page 9.}\begin{flushleft} 
+
+
+\begin{flushleft} {\bf Lemma 2 } 
+Let $d_i$ be metrics on a set $X$, $i \in \{ 1,2\}$ then $\tau_{d_1} \subset \tau _{d_2} \lrimply \forall x \in X, \; \forall \eps > 0, \; \exists \delta > 0 \st B_{d_2}(x, \delta) \subset B_{d_2}(x, \eps)  $
+
+\end{flushleft}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% end insert skipped section -----
+
+
+
  { \bf 1.2.6 Definition }A \emph{neighborhood} of a point $x$ in a topological space $(X, \tau)$ is an open set $U \in \tau$ containing $x$ (some authors define a neighborhood to be 
- any set containing an open set containing  $x$). The \emph{neighborhood basis} of $x$, written $\curlyO(x)$,  is $\{ U \in \tau :  x \in U\}$.\end{flushleft}\begin{flushleft} 
+ any set containing an open set containing  $x$). The \emph{neighborhood basis} of $x$, written $\curlyO(x)$,  is $\{ U \in \tau :  x \in U\}$.
+
+\end{flushleft}
+
+
+\begin{flushleft} 
  { \bf 1.2.7 Definition }We say $A \subset X$ is \emph{closed} if $A^c$ is open.\end{flushleft}\begin{flushleft} 
  { \bf Proposition }\begin{enumerate}
 \item
@@ -389,7 +444,7 @@ In a topological space, $(X, \tau)$, $x \in X$, $\curlyO(x)$ is the set of neigh
 \begin{flushleft} {\bf 1.3.2 Definition} A \emph{net} or \emph{generalized sequence} in a set $X$ is a pair $(\Lambda, i)$, where $\Lambda$ is a directed set, and $i: \Lambda \rarw X$, is a function. Usually we write $x_\lambda$ for $i(\lambda)$ and write $(x_\lambda)$ or $(x_\lambda)_{\lambda \in \Lambda}$ for $(\Lambda, i)$. If $\Lambda = \nats$, then a net is a sequence.
 \end{flushleft}
 
-\begin{flushleft} {\bf 1.3.2 Definition} A new $(x_\lambda)_{\lambda \in \Lambda}$ in a topological space \emph{converges} with limit $x \in X$, if for every neighborhood $U \in \curlyO(x)$, $\exists \lambda_0 \st x_\lambda \in U \; \forall \lambda \ge \lambda_0$. In this case we write $x_\lambda \rarw x$ or $\lim_\lambda x_\lambda = x$.
+\begin{flushleft} {\bf Definition} A net $(x_\lambda)_{\lambda \in \Lambda}$ in a topological space \emph{converges} with limit $x \in X$, if for every neighborhood $U \in \curlyO(x)$, $\exists \lambda_0 \st x_\lambda \in U \; \forall \lambda \ge \lambda_0$. In this case we write $x_\lambda \rarw x$ or $\lim_\lambda x_\lambda = x$.
 \end{flushleft}
 
 \begin{flushleft} Note: if $(X, d)$ is a metric space, and $\Lambda = \nats$, 
@@ -413,7 +468,7 @@ $\Box$
 \begin{flushleft} {\bf 1.3.5 Theorem} If $(X, \tau)$ is Hausdorff, and $x_\lambda \rarw x$, $x_\lambda \rarw x'$, in $X$, then $x = x'$.
 \end{flushleft}
 
-\begin{flushleft} \emph{Proof. } By contradiction, suppose $x \not = x'$, then $\exists U, V \in \tau, U \cap V = \phi, x \in U, x' \in V$. $\exists \lambda_0, \lambda_1 \st x_\lambda \in U \; \forall \lambda \ge \lambda_0, x_\lambda \in V \; \forall \lambda \ge \lambda_1$. Because $\Lambda$ is directed, $\exists \lambda_2 \ge \lambda 0$, and $\lambda)2 \ge \lambda_1$, so $x_{\lambda_2} \in U \cap V = \phi$, a contradiction. $\Box$
+\begin{flushleft} \emph{Proof. } By contradiction, suppose $x \not = x'$, then $\exists U, V \in \tau, U \cap V = \phi, x \in U, x' \in V$. $\exists \lambda_0, \lambda_1 \st x_\lambda \in U \; \forall \lambda \ge \lambda_0, x_\lambda \in V \; \forall \lambda \ge \lambda_1$. Because $\Lambda$ is directed, $\exists \lambda_2 \ge \lambda_0$, and $\lambda_2 \ge \lambda_1$, so $x_{\lambda_2} \in U \cap V = \phi$, a contradiction. $\Box$
 \end{flushleft}
 
 \begin{flushleft} {\bf 1.3.6 Theorem} If $A$ is a non-empty subset of a topological space $(X, \tau)$, then $x \in \overline{A}$ iff there exists a net in $A$ with limit $x$
