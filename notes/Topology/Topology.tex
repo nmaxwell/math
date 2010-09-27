@@ -69,18 +69,27 @@
 \newcommand{\M}[0] { \mathcal{M} }
 \newcommand{\N}[0] { \mathcal{N} }
 \newcommand{\curlyO}[0] { \mathcal{O} }
+\newcommand{\curlyP}[0] { \mathcal{P} }
 \newcommand{\R}[0] { \mathcal{R} }
 \newcommand{\curlyS}[0] { \mathcal{S} }
 \newcommand{\U}[0] { \mathcal{U} }
 \newcommand{\V}[0] { \mathcal{V} }
 \newcommand{\W}[0] { \mathcal{W} }
 \newcommand{\Bl}[0] { \mathcal{B} \ell }
-\newcommand{\Ell}[0] { \mathcal{L} }\begin{document}
+\newcommand{\Ell}[0] { \mathcal{L} }
+
+
+
+
+\begin{document}
 
 \begin{center}
 { \bf Topology, Fall 2010} \end{center}\begin{center}
-Dr. Blecher\end{center}\begin{flushleft}
-{\bf 1.2 }{\bf Topology }\end{flushleft}
+Dr. Blecher\end{center}
+
+\begin{flushleft} {\bf 1.2 }{\bf Topology }\end{flushleft} 
+
+
 \begin{flushleft}
 { \bf 1.2.1 Definition }A {\em topology} on a set $X$ is a collection
 of  subsets of $X$ such that:\begin{enumerate}[i]
@@ -455,9 +464,10 @@ called the \emph{topology induced on $Y$ from/by $X$}. Sets in $\tau_Y$ are
 called `relatively open' sets. We also say that $Y$ with its topology $\tau_Y$ is a \emph{subspace} of $X$.
 
 Similarily, a subset $A$ of $Y$ is \emph{relatively closed}, or \emph{closed in subspace topology} if $Y \setminus A$ is relatively open (= open in subspace topology).\begin{flushleft}
+
  \emph{Proof that $\tau_Y$ is a topology:}  First,
  $\phi = \phi \cap Y \in \tau_Y$, and $Y = X \cap Y \in \tau_Y$.
-If  $\{ U_1, ..., U_n \} \in \tau_Y$, then $\cap_{k=1}^n (U_k \cap Y) = \left( \cap_{k=1}^n U_k \right) \cap Y \in \tau_Y$, since $\cap_{k=1}^n U_k \in \tau$. Finally, if $\{ U_i; i \in I \} \subset \tau_Y$, then $\cup_{i \in I} ( U_i \cap Y) = \left( \cup_{i \in I} U_i \right) \cap Y \in \tau_Y$ since $\cup_{i \in I} U_i \in \tau$.\end{flushleft}\end{flushleft}\begin{flushleft}
+If  $\{ U_1, ..., U_n \} \in \tau$, then $\cap_{k=1}^n (U_k \cap Y) = \left( \cap_{k=1}^n U_k \right) \cap Y \in \tau_Y$, since $\cap_{k=1}^n U_k \in \tau$. Finally, if $\{ U_i; i \in I \} \subset \tau$, then $\cup_{i \in I} ( U_i \cap Y) = \left( \cup_{i \in I} U_i \right) \cap Y \in \tau_Y$ since $\cup_{i \in I} U_i \in \tau$.\end{flushleft}\end{flushleft}\begin{flushleft}
  { \bf Example. \ }$[0,1)$ is an open set in $[0,2]$ if $[0,2]$ has a subspace topoogy,
 because $[0,1) = [0,2] \cap (-1,1)$.
 That is, $[0,1)$
@@ -688,7 +698,7 @@ not a subsequence.
  subnet of $(x_\lambda)$ converges to $x$.
 \end{flushleft}
 
-\begin{flushleft} \emph{Proof. } Suppose $x_\lambda \rarw x, (x_\lambda)_{\mu \in M}$
+\begin{flushleft} \emph{Proof. } Suppose $x_\lambda \rarw x, (x_{\lambda_\mu})_{\mu \in M}$
  is a subnet, let $U \in \curlyO(x)$, then $\exists \lambda_0 \st x_\lambda \in U \;
   \forall \lambda \ge \lambda_0$. By $(*)$, $\exists \mu_0 \in M \st \lambda_{\mu_0}
   \ge \lambda_0$. If $\mu \ge \mu_0$, then $\lambda_\mu \ge \lambda_{\mu_0}
@@ -735,38 +745,86 @@ $\Lambda = \curlyO(x)$ with the `reverse inclusion' ordering. By
  \underset{1.3.6}{\overset{\textrm{prop.} }{=}} \{ x \in X :  \; \exists \textrm{ net} \in A \textrm{ with limit } x\} $. $\Box$
 \end{flushleft}
 
-{\bf   1.3.7
- Nets in $\reals$ or $\Cdb$.}  Nets in $\reals$ or $\Cdb$
-behave as you would expect.   ADD That is, suppose that  $x_\lambda
-\to x$ and $y_\lambda \to y$ in $\reals$ or $\Cdb$. Then $x_\lambda
-+ y_\lambda \to x + y$.  A similar assertion holds with $+$ replaced
-by $-$ or `times' or `divide'; for the latter one needs $y \neq 0$.
-If $x_\lambda \leq y_\lambda$ then $x \leq y$. If $x_\lambda \leq
-z_\lambda \leq y_\lambda$ and $x = y$, then $z_\lambda \to x$ too.
-Also, $x_\lambda \to x$ iff $|x_\lambda - x| \to 0$. An increasing
-bounded net converges to its supremum. All of the just mentioned
-facts are proved just as we prove the analoguous facts for sequences
-in $\reals$, and are left to the reader.  We will include one sample
-proof below.    Beware though: a convergent net of real or complex
-  numbers need not
+{\bf   1.3.7 Nets in $\reals$ or $\Cdb$.}
+Nets in $\reals$ or $\Cdb$; let $\scalars = \reals$ or $\Cdb$. If $X_\lambda \rarw x, y_\lambda \rarw y \in \scalars$, and $c \in \scalars$, then
+
+\begin{enumerate}[1)]
+\item $x_\lambda + y_\lambda \rarw x + y$
+\item $c x_\lambda \rarw c x$
+\item $x_\lambda y_\lambda \rarw xy$
+\item $\frac{x_\lambda}{y_\lambda} \rarw \frac{x}{y}$ if $y \not = 0$
+\item $x_\lambda \le y_\lambda \rimply x\le y$, $\scalars = \reals$
+\item $x_\lambda \le z_\lambda \le y_\lambda \in \reals$, and $x = y$ then $z_\lambda \rarw x$
+\item $z \rarw z \lrimply |z_\lambda - z| \rarw 0$
+\item An increasing bounded net converges to its supremum.
+\item If there exists a net $(a_\lambda) \in [0,\infty) \st |z_\lambda - z| \le a_\lambda$ and $a_\lambda \rarw 0$ then $z_\lambda \rarw z$
+
+%behave as you would expect.   ADD That is, suppose that  $x_\lambda
+%\to x$ and $y_\lambda \to y$ in $\reals$ or $\Cdb$. Then $x_\lambda
+%+ y_\lambda \to x + y$.  A similar assertion holds with $+$ replaced
+%by $-$ or `times' or `divide'; for the latter one needs $y \neq 0$.
+%If $x_\lambda \leq y_\lambda$ then $x \leq y$. If $x_\lambda \leq
+%z_\lambda \leq y_\lambda$ and $x = y$, then $z_\lambda \to x$ too.
+%Also, $x_\lambda \to x$ iff $|x_\lambda - x| \to 0$.
+
+\end{enumerate}
+
+
+\begin{itemize}
+
+\item Beware though: a convergent net of real or complex numbers need not
 be bounded (however it is {\em eventually bounded}: that is there is
 a constant $M \geq 0$, and $\lambda_0 \in \Lambda$, such that
-$|x_\lambda| \leq M$ for all $\lambda \geq \lambda_0$). Note too
-that if $s_t \to 0$ and $(r_t)$ is eventually bounded, then $s_t r_t
+$|x_\lambda| \leq M$ for all $\lambda \geq \lambda_0$).
+\item Note too that if $s_t \to 0$ and $(r_t)$ is eventually bounded, then $s_t r_t
 \to 0$. Indeed, if  $|r_t| \leq M$ for $t \geq t_0$, and $\epsilon >
 0$ is given, choose $t_1 \geq t_0$ such that $|s_t - 0| <
 \epsilon/M$ for $t \geq t_1$. Then for $t \geq t_1$ we have: $|s_t
 r_t | \leq M \epsilon/M = \epsilon$.
 
+\end{itemize}
+
+All of the just mentioned facts are proved just as we prove the analoguous facts for sequences
+in $\reals$, and are left to the reader.  We will include one sample
+proof below.
+
+\begin{flushleft} \emph{ Proof of 6. }
+Given $\eps > 0$, $\exists \lambda_0 \st |x_\lambda - x| < \eps / 2 \; \forall \lambda \ge \lambda_0$ and $\exists \lambda_1 \st |y_\lambda - x| < \eps / 2$ for $\lambda \ge \lambda_1$. 
+Let $\lambda_2 \ge \lambda_0, \lambda_2 \ge \lambda_1$, 
+then if $\lambda \ge \lambda_2$ then  $\lambda \ge \lambda_0$ and $\lambda \ge \lambda_1$,
+ so $-\eps / 2 < x_\lambda - x \le z_\lambda - x \le y_\lambda - x < \eps / 2 $.
+\end{flushleft}
+
+
+
+
+
+
 \begin{flushleft} {\bf Definition 1.3.8} An \emph{accumulation point of a net} $(x_\lambda)_{\lambda \in \Lambda}$ in a topological space $(X, \tau)$ is a point $x \in X \st \; \forall U \in \curlyO(x)$, and $\forall \lambda_0 \in \Lambda, \; \exists \lambda \ge \lambda_0 \st x_\lambda \in U$.
 \end{flushleft}
 
 
-\begin{flushleft} {\bf Theorem 1.3.9} $x$ is an accumulation point of a net $(x_\lam)_{\lam \in \Lam}$
+\begin{flushleft} {\bf Theorem 1.3.9} $x$ is an accumulation point of a net $(x_\lam)_{\lam \in \Lam}$ iff $\exists$ subnet of $(x_\lambda)_{\lambda \in \Lambda}$ with limit $x$.
 \end{flushleft}
 
 \begin{flushleft} \emph{Proof. } { \bf ADD }
 \end{flushleft}
+
+
+\begin{flushleft} {\bf Example }
+We've met nets the definition of the Riemann integral. The ordered $\curlyP$ of all partitoins $P = \{ x_0, x_1, ..., x_n \}$ of $[a,b]$, $a = x_0 < x_1 < ... < x_n = b$. Then $(L(f, P))_{P \in \curlyP}$ and $(U(f,P))_{P \in \curlyP}$ are nets, $x_{k-1} \le t_k \le x_k \; \forall k=1,2,..., n$ ordered by $(\{ t_k \} , P ) \le ( \{ s_k \}, Q)$ iff $Q \subset P$. The directed set for that last net is $\{ \{ t_k \} _{k-1}^n, P \}$, $P \in \curlyP$ and $t_k$ as above. The integral $\int_a^b f \, dx$ is the limit of any one of htese 3 nets. 
+\end{flushleft}
+
+\begin{flushleft} {\bf Example }
+Another important example of convergence of nets is if we want to add more than countably many numbers (or elements of a normed space). So if $I$ is any set, what does $\sum_{i \in I} x_i$ mean? There $x_i \in \scalars = \reals$ or $x_i \in X$, where $X$ is a normed space. We define $\sum_{i \in I} x_i$ as follows. We say this sum converges if the nets $(S_J)_{J \in \Lambda}$ converges (in $\scalars$ or $X$, with metric norm topology), where $\Lambda = \{ $ finite subsets $J \subset I \}$ ordered by usual inclusion $J_1 \le J_2 \lrimply J_1 \subset J_2$ and $S_J = \sum_{i \in J} x_i$ for $J \in \Lambda$. In this case we write $\sum_{i \in I} x_i$ for the limit of the above net, and call this the sum of the series. \\
+
+You can prove: if $x_i  \in \scalars = \reals $ or $\Cdb$ then $\sum_{i \in I} x_i$ converges $\lrimply$ $\sum_{i \in I} |x_i| < \infty \underset{\textrm{def}}{\lrimply} \sum_{J \in \Lambda} \{ \sum_{i \in I} |x_i|  \} < \infty$, and in this case, all but a countable number of the $x_i$ are zero. If we label the non zero ones as $x_{i_1}, x_{i_2}, ... $ then the sum of the series is $\sum_{k=1}^\infty x_{i_k}$, where the later sum is in the sense of calculus 2. In particular, if $I = \nats$, then the series $\sum_{i \in \nats} x_i$ converges in new sense iff $ \sum_{i \in I} |x_i|$ converges in sense of calculus 2, and the ``new sum'' equals the calculus 2 sum $\sum_{i \in I}^\infty x_i$. Thus if $x_i \ge 0 \; \forall i \in \nats$, then $\sum_{i \in \nats} x_i$ means exactly what it meant in calculus 2. This is assuming $x_i \in \nats$ or $\Cdb \; \forall i$, if $x_i \in X$ for a normed space $X$. 
+
+?? The above are not all true, but nonetheless basic properties of the sums follow, eg. $\sum_{i \in I}  (x_i + y_i) = \sum_{i \in I} x_i + \sum_{i \in I} y_i$ if the last two sums converge.
+\end{flushleft}
+
+
+\begin{flushleft} {\bf 1.2 }{\bf Continuous Functions }\end{flushleft} 
 
 
 
