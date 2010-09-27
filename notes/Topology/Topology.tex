@@ -45,6 +45,7 @@
 \newcommand{\nats}[0] { \mathbb{N}}
 \newcommand{\reals}[0] { \mathbb{R}}
 \newcommand{\scalars}[0] { \mathbb{F}}
+\newcommand{\Cdb}[0] { \mathbb{C}}
 
 \newcommand{\eps}[0] {  \epsilon }
 \newcommand{\lam}[0] {  \lambda }
@@ -76,58 +77,58 @@
 \newcommand{\Bl}[0] { \mathcal{B} \ell }
 \newcommand{\Ell}[0] { \mathcal{L} }\begin{document}
 
-\begin{center} 
-{ \bf Topology, Fall 2010} \end{center}\begin{center} 
+\begin{center}
+{ \bf Topology, Fall 2010} \end{center}\begin{center}
 Dr. Blecher\end{center}\begin{flushleft}
 {\bf 1.2 }{\bf Topology }\end{flushleft}
-\begin{flushleft} 
-{ \bf 1.2.1 Definition }A {\em topology} on a set $X$ is a collection 
+\begin{flushleft}
+{ \bf 1.2.1 Definition }A {\em topology} on a set $X$ is a collection
 of  subsets of $X$ such that:\begin{enumerate}[i]
 \item
                 $\tau$ is closed under arbitrary unions (that is
-if $\{ U_i : i \in I \} \subset \tau$ then $\cup_{i \in I} \, U_i 
+if $\{ U_i : i \in I \} \subset \tau$ then $\cup_{i \in I} \, U_i
 \in \tau$),  \item
                 the intersection of two sets in $\tau$ is in $\tau$
 (or equivalently, $\tau$ is closed under `finite intersections';
- that is,  
+ that is,
 if $U_1, U_2, \cdots , U_n \in \tau$, for $n \in \nats$, then
-$\cap_{k=1}^n \, U_k \in \tau$),  
+$\cap_{k=1}^n \, U_k \in \tau$),
             \item
                 $\phi, X \in \tau$.
             \end{enumerate}We say that $(X, \tau)$ is a {\em topological space}.
- A subset $U \subset X$ is called {\em open} iff $U \in \tau$. A subset $C \subset X$ is called 
-{\em closed} iff $C^c \in \tau$.\end{flushleft}\begin{flushleft} 
+ A subset $U \subset X$ is called {\em open} iff $U \in \tau$. A subset $C \subset X$ is called
+{\em closed} iff $C^c \in \tau$.\end{flushleft}\begin{flushleft}
  { \bf Examples }\begin{enumerate}[i]
 \item
             Let $X$ be any nonempty set.  The discrete topology
 on $X$ is  $\tau = \pset{X}$,
 the {\em power set} of $X$, that is
-the set of all subsets of $X$.  
+the set of all subsets of $X$.
 Here every subset of $X$ is  {\em clopen} (closed and open)
             \item
 Let $X$ be any nonempty set.  The indiscrete topology on $X$ is
  $\tau = \{ \phi, X \}$.
  \item
-                $X = \{ 1 \}$ has one topology, $\{ \phi, \{ 1\} \}$ (discrete and indiscrete are the same). 
+                $X = \{ 1 \}$ has one topology, $\{ \phi, \{ 1\} \}$ (discrete and indiscrete are the same).
 However $Y = \{1, 2\}$ has four topologies: discrete, indiscrete, $\{ \phi , \{1,2\}, \{1\}\}$, and $\{ \phi, \{1,2\}, \{2\}\}$.
             \item
                 $(\reals^n, \tau)$, with $\tau$ what we called the `open sets'
 in 3333/3334.  That is, $\tau = \{ U \subset \reals^n; \; \forall x \in U \; \exists \eps>0 \st B(x,\eps) \subset U \}$. Here $B(x, \eps) = \{ y \in \reals^n; ||x-y|| < \eps \}$.
          The fact that this satisfies items (i) and (ii) in the Definition
 1.2.1 was a theorem in 3333/3334.
-    \end{enumerate}\end{flushleft}\begin{flushleft} 
- { \bf Definition }For two topologies, $\sigma, \tau$ on a set $X$, we say $\sigma$ is {\em finer} 
-than $\tau$ if $\sigma \supset \tau$, in this case we also say $\tau$ is {\em 
- coarser} than $\sigma$.\end{flushleft}\begin{flushleft} 
- { \bf 1.2.2 Definition }Let $(X, \tau)$ be a topological space. A subset $\B \subset \tau$ is called a {\em basis} for $\tau$, if for all $x \in X$, 
-and for all $U \in \tau$ with $x \in  U, \; \exists B \in \B \st x \in B \subset U$.\end{flushleft}\begin{flushleft} 
+    \end{enumerate}\end{flushleft}\begin{flushleft}
+ { \bf Definition }For two topologies, $\sigma, \tau$ on a set $X$, we say $\sigma$ is {\em finer}
+than $\tau$ if $\sigma \supset \tau$, in this case we also say $\tau$ is {\em
+ coarser} than $\sigma$.\end{flushleft}\begin{flushleft}
+ { \bf 1.2.2 Definition }Let $(X, \tau)$ be a topological space. A subset $\B \subset \tau$ is called a {\em basis} for $\tau$, if for all $x \in X$,
+and for all $U \in \tau$ with $x \in  U, \; \exists B \in \B \st x \in B \subset U$.\end{flushleft}\begin{flushleft}
  { \bf Example }\begin{enumerate}[i]
 \item
               Any topology $\tau$ has as basis    $\B = \tau$.
             \item
-                $X = \reals^n, \tau$ as in Example 4 in 1.2.1, then 
+                $X = \reals^n, \tau$ as in Example 4 in 1.2.1, then
 $\B = \{ B(x, r); \; x \in X, r>0 \}$ is clearly a basis.
-            \end{enumerate}\end{flushleft}\begin{flushleft} 
+            \end{enumerate}\end{flushleft}\begin{flushleft}
  { \bf Lemma 1 } \  Let $(X, \tau)$ be a topological space, with basis $\B$. If $U \in \tau$, then TFAE (the following are equivalent):
 \begin{enumerate}[i]
 \item
@@ -136,31 +137,31 @@ $\B = \{ B(x, r); \; x \in X, r>0 \}$ is clearly a basis.
                 $U$ is a union of elements in $\B$.
             \item
                 For all $x \in U$, $\exists B \in \B \st x \in B \subset U$.
-            \end{enumerate}\begin{flushleft} 
+            \end{enumerate}\begin{flushleft}
  \emph{Proof.  } (ii) $\rimply$ (i) \ Since $\B \subset \tau$, and by (i)
  in the definition of a topology.
 
-  (i)  $\rimply$ (iii) \ By definition of a basis. 
+  (i)  $\rimply$ (iii) \ By definition of a basis.
 
  (iii) $\rimply$ (ii) \ By (iii), for all $x \in U$  there exists a set $B_x \in \B \st x \in B_x \subset U $.  So $U = \cup_{x \in U} \{x\} \subset \cup_{x \in U} B_x \subset \cup_{x \in U} U = U$.  That is,  $U = \cup_{x \in U}$. $ \Box$\end{flushleft}\end{flushleft}Notice, that if $\B$ is a basis for a topology $\tau$ on a set $X$, then we have:\begin{itemize}
-\item[] 
+\item[]
             (B1) for all $x \in X \; \exists B \in \B \st x \in B$ \\
             (B2) for all $B_1, B_2 \in \B$ and for all $x \in B_1 \cap B_2$ $\exists B_3 \in \B \st x \in B_3 \subset B_1 \cap B_2$.
-        \end{itemize}\begin{flushleft} 
- \emph{Proof.  } (B1) follows from the definition of a basis, with $U = X$ 
+        \end{itemize}\begin{flushleft}
+ \emph{Proof.  } (B1) follows from the definition of a basis, with $U = X$
 Item  (B2) follows from the definition of a basis, with $U = B_1 \cap B_2$.
-$ \Box$  \end{flushleft}\begin{flushleft} 
- { \bf Lemma 2 } \ Conversely, if $X$ is any set, $\B \subset \pset{X}$, with $\B$ satisfying (B1) and (B2) above, then there exists a unique topology $\tau$ such that $\B$ is a basis for $\tau$.\begin{flushleft} 
- \emph{Proof.  }(Uniqueness) \ This follows from Lemma 1 (ii), the topology is forced to be the union of sets in $\B$. \\ 
+$ \Box$  \end{flushleft}\begin{flushleft}
+ { \bf Lemma 2 } \ Conversely, if $X$ is any set, $\B \subset \pset{X}$, with $\B$ satisfying (B1) and (B2) above, then there exists a unique topology $\tau$ such that $\B$ is a basis for $\tau$.\begin{flushleft}
+ \emph{Proof.  }(Uniqueness) \ This follows from Lemma 1 (ii), the topology is forced to be the union of sets in $\B$. \\
 
 (Existence) Define $\tau = \{ U \subset X Z: \; \forall x \in U \; \exists B \in \B \st x \in B \subset U \}$.
-Notice that  $\phi \in \tau$ trivially, and $X \in \tau$ by (B1). 
+Notice that  $\phi \in \tau$ trivially, and $X \in \tau$ by (B1).
 Suppose that $U_i \in \tau, \; \forall i \in I$.  If $x \in \cup_{i \in I} U_i$,
 then there exists $j \in I \st x \in U_j  \underset{\tau}{\overset{\textrm{def of} }{\rimply}} \exists B \in \B \st$ $ x \in B \subset U_i \subset \cup_{i \in I} U_i$.  Hence  $\cup_{i \in I} U_i \in \tau$.
 So $\tau$ is closed under arbitrary unions. Let $U, V \in \tau, x \in U \cap V$.
 By definition of $\tau$, $\exists B_1, B_2 \in \B \st x \in B_1 \subset U, x \in B_2 \subset V$, so $x \in B_1 \cap B_2$.  By (B2) $\exists B_3 \in \B \st$ $ x \in B_3 \subset B_1 \cap B_2 \subset U \cap V$.
-That is, $U \cap V \in \tau$, so $\tau$ is closed under finite intersections. 
-Finally, $\B$ is a basis for $\tau$, by the definition of $\tau$ and by the definition of a basis. $\Box$\end{flushleft}\end{flushleft}\begin{flushleft} 
+That is, $U \cap V \in \tau$, so $\tau$ is closed under finite intersections.
+Finally, $\B$ is a basis for $\tau$, by the definition of $\tau$ and by the definition of a basis. $\Box$\end{flushleft}\end{flushleft}\begin{flushleft}
 { \bf 1.2.3  Examples of bases.  }\begin{enumerate}
 \item
                 Let $\B = \{ (a,b); a,b \in \reals, a<b \}$.  It is
@@ -168,7 +169,7 @@ easy to check (B1) and (B2), so $\B$ is a basis for a topology
 on $\reals$ (we already knew this from 3333).
   \item
                 Let $\B = \{ B(x, \eps); x \in \reals^n, \eps>0 \}$, subsets
-of $\reals^n$.  Again (B1) is clear, and we will momentarily 
+of $\reals^n$.  Again (B1) is clear, and we will momentarily
  check (B2) in a more general setting.  So $\B$ is a basis for a topology
 on $\reals^n$  (we already knew this from 3334).    \item
                 Metric spaces.  A {\em metric space} is a set $X$,
@@ -194,66 +195,66 @@ all scalars $\lambda$ and $x \in X$,
 for all $x, y \in X$,
 \end{itemize}
 
-            \end{enumerate}\end{flushleft}\begin{flushleft} 
+            \end{enumerate}\end{flushleft}\begin{flushleft}
  { \bf Proposition  1 } \ Every normed space is a metric space with metric
- $d(x,y) = ||x-y||$.\begin{flushleft} 
+ $d(x,y) = ||x-y||$.\begin{flushleft}
  \emph{Proof.  }(i) \ $ d(x,y)=0 \lrimply ||x-y||=0 \lrimply x-y = 0 \lrimply x=y$.
 
- (ii) \ $d(x,y) = ||x-y|| = ||(-1)(y-x)|| = ||y-x|| = d(y,x)$. 
+ (ii) \ $d(x,y) = ||x-y|| = ||(-1)(y-x)|| = ||y-x|| = d(y,x)$.
 
- (iii) \ $d(x,z) = ||x-z|| = ||(x-y)+(y-z)|| \le ||x-y|| + ||y - z|| = d(x,y) + d(y,z)$. $\Box$ \end{flushleft}\end{flushleft}\begin{flushleft} 
+ (iii) \ $d(x,z) = ||x-z|| = ||(x-y)+(y-z)|| \le ||x-y|| + ||y - z|| = d(x,y) + d(y,z)$. $\Box$ \end{flushleft}\end{flushleft}\begin{flushleft}
  { \bf Proposition  2 } \ In a metric space,
 $\forall y \in B(x,r) \; \exists s > 0 \st B(y,s) \subset B(x,r)$\begin{flushleft}.
 
  \emph{Proof.  }Take $s = r - d(x,y)$, then for all $z \in B(y, s)$, we have
-$$d(x,z) \le d(x,y) + d(y,z) < d(x,y) + s = d(x,y) + r - d(x,y) = r .$$ 
+$$d(x,z) \le d(x,y) + d(y,z) < d(x,y) + s = d(x,y) + r - d(x,y) = r .$$
 So if  $d(x,z) < r$ then $z \in B(x,r)$.  That is, $B(y,s) \subset B(x,r)$.
-\end{flushleft}\end{flushleft}\begin{flushleft} 
- { \bf Proposition 3 } \ $\{ B(x, r) :  x \in X, r>0 \}$ forms a basis for a topology on a metric space $(X, d)$.\begin{flushleft} 
- \emph{Proof.  }We have to check (B1), (B2). (B1) is trivial, because $x \in B(x,r)$. For (B2), 
- if $ z \in B(x,\eps) \cap B(y,\delta)$ then by Proposition 2 
+\end{flushleft}\end{flushleft}\begin{flushleft}
+ { \bf Proposition 3 } \ $\{ B(x, r) :  x \in X, r>0 \}$ forms a basis for a topology on a metric space $(X, d)$.\begin{flushleft}
+ \emph{Proof.  }We have to check (B1), (B2). (B1) is trivial, because $x \in B(x,r)$. For (B2),
+ if $ z \in B(x,\eps) \cap B(y,\delta)$ then by Proposition 2
 $\exists r>0 \st B(z,r) \subset B(x,\eps)$.  Similarly, $\exists s>0 \st B(z,s) \subset B(y,\delta)$. Then $z \in B(z, \min(r,s)) \subset B(x,\eps) \cap B(y,\delta)$.  So (B2) holds, and we are done by Lemma 2. $\Box$
-\end{flushleft}\end{flushleft}\begin{flushleft} 
-{\bf  Summary:} Every metric space $(X, d)$ has an associated topology, called the \emph{metric topology}, write this as $\tau_d$. It has as basis the set of open balls $\{ B(x, r); x \in X, r>0 \}$. Putting this together with 
-Proposition 1, we see that every normed space, $(X, || \cdot ||)$, 
-has an associated topology, called the \emph{norm topology}: namely $\tau_d$, 
+\end{flushleft}\end{flushleft}\begin{flushleft}
+{\bf  Summary:} Every metric space $(X, d)$ has an associated topology, called the \emph{metric topology}, write this as $\tau_d$. It has as basis the set of open balls $\{ B(x, r); x \in X, r>0 \}$. Putting this together with
+Proposition 1, we see that every normed space, $(X, || \cdot ||)$,
+has an associated topology, called the \emph{norm topology}: namely $\tau_d$,
 where $d(x,y) = ||x-y||$.\end{flushleft}
 
-\begin{flushleft} 
+\begin{flushleft}
  { \bf Definition.}  A topological space $(X, \tau)$ is called \emph{metrizable}
- if $\tau = \tau_d$, for some metric $d$ on $X$. Because metric spaces are 
-`nice' or `well understood', in many cases it is of interest to show that a 
+ if $\tau = \tau_d$, for some metric $d$ on $X$. Because metric spaces are
+`nice' or `well understood', in many cases it is of interest to show that a
 topology is metrizable; we will mention some tests later. \end{flushleft}
 
 
 
-\begin{flushleft} 
+\begin{flushleft}
  { \bf Proposition 4 } \ $U \in \tau_d \lrimply \forall x \in U \; \exists r>0 \st B(x,r) \subset U$.
 \end{flushleft}
 
-\begin{flushleft} 
+\begin{flushleft}
  \emph{Proof.  }Use the definition of $\tau$ in the proof of Lemma 2;
 we are  also using Proposition 3. $\Box$ \end{flushleft}
 
 
 
 
-\begin{flushleft} 
- Applying all of this to the usual Euclidian metrix in $\reals^n$, the $\tau_d$ 
+\begin{flushleft}
+ Applying all of this to the usual Euclidian metrix in $\reals^n$, the $\tau_d$
 we get is precisely what we call the `open sets' in undergraduate analysis.
 \end{flushleft}
 
 
-\begin{flushleft} 
+\begin{flushleft}
  { \bf 1.2.4 Lemma  1. }  If $\B_i$ is a basis for a topology $\tau_i$ on $X$,
-for 
+for
  $i \in \{1,2\}$, then $\tau_1 \subset \tau_2 \lrimply \forall x \in X, \forall B \in \B_1$ with $x \in B, \exists C \in B_2 \st x \in C \subset B$. \\
-\end{flushleft} 
+\end{flushleft}
 
 
-\begin{flushleft}  
+\begin{flushleft}
  \emph{Proof.  }($\limply$) if $U \in \tau_1, x \in U$, then $\exists B \in \B$ such that $x \in B \in U$. By hypothesis $\exists C \in \B_2$ such that
-$x \in C \subset B \subset U$. So $U \in \tau_2$, by 1.2.3 
+$x \in C \subset B \subset U$. So $U \in \tau_2$, by 1.2.3
 Lemma 1.
 
 ($\rimply$) Exercise.
@@ -263,48 +264,96 @@ Lemma 1.
 %start insert skipped section  --------
 
 
-\begin{flushleft} {\bf Lemma 2 } 
-Let $d_i$ be metrics on a set $X$, $i \in \{ 1,2\}$ then $\tau_{d_1} \subset \tau _{d_2} \lrimply \forall x \in X, \; \forall \eps > 0, \; \exists \delta > 0 \st B_{d_2}(x, \delta) \subset B_{d_1}(x, \eps)  $
-
+\begin{flushleft} {\bf Lemma 2 }
+Let $d_i$ be metrics on a set $X$, $i \in \{ 1,2\}$ then $\tau_{d_1} \subset \tau _{d_2} \lrimply \forall x \in X, \; \forall \eps > 0, \; \exists \delta > 0 \st B_{d_2}(x, \delta) \subset B_{d_1}(x, \eps).$
 \end{flushleft}
 
 \begin{flushleft} \emph{Proof.  } Do yourself, or see Munkres, p. 123.
 \end{flushleft}
 
-\begin{flushleft} {\bf Definition } We say $d_1 \le d_2$ if $d_1(x,y) \le C d_2(x,y) \; \forall x,y \in X$ for some $C \ge 0$. We say metrics are equivalent if $\exists C_1 >0, C_2>0 \st d_1 \le C_2 d_d, d_2 \le C_1 d_1$.
+\begin{flushleft} {\bf Definition.} We say $d_1 \le d_2$ if
+there is a $C > 0$ with  $d_1(x,y) \le C d_2(x,y) \; \forall x,y \in X$.
+ We say metrics are {\em equivalent} if $\exists C_1 >0, C_2>0 \st d_1 \le C_2 d_2, $ and
+$d_2 \le C_1 d_1$.
 \end{flushleft}
 
 \begin{flushleft} {\bf Corollary} If $d_1, d_2$ are metrics on $X$, such that there exists a constant $C>0 \st d_1 \le C d_2$ then $\tau_{d_2} \subset \tau_{d_1}$.
+Also two equivalent metrics induce the same topology.
 \end{flushleft}
 
-\begin{flushleft} \emph{Proof.  } Choose $\delta = \eps / C$ in lemma 2: $y \in B_{d_2}(x, \delta) \rimply d_2(x,y) \le \delta = \eps / C \rimply d_1(x,y) \le C d_2(x,y) \le C \eps / C = \eps$ $\rimply y \in B_{d_1}(x, \eps)$ So by lemma 2, $\tau_{d_2} \le \tau_{d_1}$. The second assertion of the corollary follows from the first used twice: get $\tau_{d_2} \le \tau_{d_1}, \tau_{d_1} \le \tau_{d_2}$, so $\tau_{d_1} = \tau_{d_2}$. $\Box$
+\begin{flushleft} \emph{Proof.  } Choose $\delta = \eps / C$ in Lemma 2.
+Then  $y \in B_{d_2}(x, \delta)$ implies $d_2(x,y) < \delta = \eps / C$,
+so that $d_1(x,y) \le C d_2(x,y) <  C \frac{\eps}{C}
+ = \eps$, hence  $y \in B_{d_1}(x, \eps)$.
+ So by Lemma 2, $\tau_{d_2} \subset \tau_{d_1}$. The second assertion of the corollary follows from the first used twice: get $\tau_{d_2} \subset \tau_{d_1}, \tau_{d_1} \subset
+ \tau_{d_2}$, so $\tau_{d_1} = \tau_{d_2}$. $\Box$
 \end{flushleft}
 
 
-\begin{flushleft} {\bf Example } On $\reals^n$, we have norms $||x||_p = \left( \sum_{i=1}^n |x_i|^p \right) ^{\frac{1}{p}}$, and associated metrics $d_p$, $1 \le p < \infty$, $||x||_\infty = \max ( \{ |x_i|; 1 \le i \le n \})$, $d_\infty(x,y) = ||x-y||_\infty$. $||x||_\infty \le || x || _p \; \forall p \in [1, \infty)$, $||x||_p \le C ||x||_p, C = n^\frac{1}{p}$. $ \left( \sum_{i=1}^n |x_i|^p \right) ^{\frac{1}{p}} \le  \left( \sum_{i=1}^n  \max ( \{ |x_i|^p; 1 \le i \le n \}) \right) ^{\frac{1}{p}} =   \left( n  \max ( \{ |x_i|^p; 1 \le i \le n \}) \right) ^{\frac{1}{p}} = n^\frac{1}{p} ||x||_\infty  $. So, $d_\infty \le d_p \; \forall p \in [1,\infty)$, and $d_p \le n^\frac{1}{p} d_\infty$, so all these metrics are equivalent.
+\begin{flushleft} {\bf Example } On $\reals^n$, we have norms $||x||_p = \left( \sum_{i=1}^n |x_i|^p \right) ^{\frac{1}{p}}$, and associated metrics $d_p$, $1 \le p < \infty$.
+Set  $||x||_\infty = \max  \{ |x_i|; 1 \le i \le n \}$, $d_\infty(x,y) = ||x-y||_\infty$.
+Then $||x||_\infty \le || x || _p \; \forall p \in [1, \infty)$ (check this).  Also,
+ $||x||_p \le C ||x||_\infty,$ where $C = n^\frac{1}{p}$, as we now show:
+$$ \left( \sum_{i=1}^n |x_i|^p \right) ^{\frac{1}{p}} \le  \left( \sum_{i=1}^n  \max
+ \{ |x_i|^p; 1 \le i \le n \} \right)^{\frac{1}{p}} =   \left( n  \max  \{ |x_i|^p; 1 \le i \le n \} \right) ^{\frac{1}{p}} = n^\frac{1}{p} ||x||_\infty. $$
+So, $d_\infty \le d_p \; \forall p \in [1,\infty)$, and $d_p \le n^\frac{1}{p} d_\infty$.
+Hence all these metrics are equivalent.
 \end{flushleft}
 
-\begin{flushleft} {\bf 1.2.5 Definition } A collection $\A$ of subsets of a topological space $(X, \tau)$ is called a \emph{subbasis} for $\tau$ if (i) $\A \subset \tau$, (ii) $\tau$ is the coarset topology containing $\A$, and (iii) $\cup \{A \in \A \} = X$.
+\begin{flushleft} {\bf 1.2.5 Definition } A collection $\A$ of subsets of a topological space $(X, \tau)$ is called a \emph{subbasis} for $\tau$ if (i) \ $\A \subset \tau$,
+(ii) \  $\tau$ is the coarsest topology containing $\A$, and
+(iii) \ $\cup \{ A : A \in \A \} = X$.
 \end{flushleft}
 
-\begin{flushleft} {\bf Proposition 1} If $\A$ is a subbasis for a topology $\tau$ on $X$, then $\tau$ is the set of unions of finite intersections of sets in $\A$, together with $\phi$. Indeed, the set of finite intersections of sets in $\A$ is a basis for $\tau$.
+\begin{flushleft} {\bf Proposition 1. } If $\A$ is a subbasis for a topology $\tau$ on $X$, then $\tau$ is the set of unions of finite intersections of sets in $\A$, together with $\phi$. Indeed, the set of finite intersections of sets in $\A$ is a basis for $\tau$.
 \end{flushleft}
 
-\begin{flushleft} \emph{Proof.  } Let $\B = \{ \cap_{k=1}^n A_k; A_1, A_2, ..., A_n \in \A, n \in \nats \}$. Clearly $\A \subset \B \subset \tau$. We claim that $\B$ is the basis for a topology $\sigma$ on $X$. We have to check B1, B2. B1: if $x \in X$, then if $x \in A$, for some $a \in \A$, but $A \in \B$, so B1 holds. B2: notice $E_1, E_2 \in \B$ then $E_1 \cap E_2 \in \B$, clearly and when this holds, B2 is obvious, so $\B$ is the basis for a topology $\sigma$ on X. Since $\tau$ is the coarsest topology containing $\A$, and $\sigma \supset \A$, we mist have $\sigma \supset \tau$. On the otherhand, by an earlier result, $\sigma$ is just the sets which are unoins of sets in $\B$. And since $\B \subset \tau$, it follows that $\sigma \subset \tau$, so $\sigma = \tau$. $\Box$
+\begin{flushleft} \emph{Proof.  } Let $\B = \{ \cap_{k=1}^n A_k :
+: A_1, A_2, ..., A_n \in \A, n \in \nats \}$. Clearly $\A \subset \B \subset \tau$. We claim that $\B$ is the basis for a topology $\sigma$ on $X$. We have to check (B1)
+and (B2):
+
+(B1):  \ if $x \in X$, then if $x \in A$, for some $A \in \A$, but $A \in \B$, so  (B1)
+holds.
+
+(B2):  \ Notice $E_1, E_2 \in \B$ implies $E_1 \cap E_2 \in \B$, clearly,
+ and whenever this holds, (B2) is obvious.
+
+Thus $\B$ is the basis for a topology $\sigma$ on $X$.
+Since $\tau$ is the coarsest topology containing $\A$, and $\sigma \supset \A$, we must have $\sigma \supset \tau$. On the otherhand, by an earlier result, $\sigma$ is just the sets which are
+ unons of sets in $\B$.  Since $\B \subset \tau$,
+it follows that $\sigma \subset \tau$, so $\sigma = \tau$. $\Box$
 \end{flushleft}
 
-\begin{flushleft} {\bf Proposition 2} Any collection $\A$ of subsets of a set $X$, such that $\cup \A = X$ is the subbasis for a unique topology on $X$.
+\begin{flushleft} {\bf Proposition 2.} Any collection $\A$ of subsets of a set $X$, such that $\cup \{ A : A \in \A \} = X$, is the subbasis for a unique topology on $X$.
 \end{flushleft}
 
-\begin{flushleft} \emph{Proof.  } Part of the proof of prop 1 shows that $\A$ gives rise to a topology $\sigma = \{$ unions of finite intersections of sets in $\A \}$, and $\A \subset \sigma$. Clearly $\A$ is a subbasis for $\sigma$, since any topology containing $\A$ must contain  $\{$ unions of finite intersections of sets in $\A \}$, so contains $\sigma$. So $\sigma$ is the coarsest topology containing $\A$. The uniqueness is clear from the fact that $\tau = \sigma$ in the proof of prop 1. $\Box$
+\begin{flushleft} \emph{Proof.  } Part of the proof of
+Proposition 1 shows that $\A$ gives rise to a topology
+$\sigma = \{$ unions of finite intersections of sets in $\A \}$, and $\A \subset \sigma$. Clearly $\A$ is a subbasis for $\sigma$, since any topology containing $\A$ must
+contain  unions of finite intersections of sets in $\A$, so contains $\sigma$.
+So $\sigma$ is the coarsest topology containing $\A$. The uniqueness is
+ clear from the fact that $\tau = \sigma$ in the proof of Proposition 1. $\Box$
 \end{flushleft}
 
-\begin{flushleft} {\bf Example 1} $X = \reals$, $\A = \{ (a,\infty); a \in \reals \} \cup \{ (-\infty, b); b \in \reals \}$ is a subbasis for usual topology on $\reals$. 
+Proposition 2 is a powerful way to {\em construct} topologies.  For example:
+
+\begin{flushleft} {\bf Example 1.} \  $X = \reals$, $\A = \{ (a,\infty)
+:  a \in \reals \} \cup \{ (-\infty, b) :  b \in \reals \}$ is a subbasis for usual topology on $\reals$.
 \end{flushleft}
 
-\begin{flushleft} {\bf Example 2} $X = \reals$, $\A = \{ (a, \infty); a \in \reals \} \rarw \tau = \A \cup \{ \phi \} \cup \{ \reals \} $.
+\begin{flushleft} {\bf Example 2.} $X = \reals$, $\A = \{ (a, \infty) :
+ a \in \reals \}$ is a subbasis for
+the topology $\tau = \A \cup \{ \phi \} \cup \{ \reals \} $.
 \end{flushleft}
 
+\begin{flushleft} {\bf Example 3.}  Recall the homework problem
+of constructing topologies on a 3 point set $X = \{ 1 , 2, 3 \}$.
+Heres one way to do it: take any sets in $X$ whose union contains
+$X$, such as $\A = \{ \{ 1, 2 \} , \{ 1 , 3 \} \}$.  Then
+the unions of finite intersections of sets in $\A \}$ is a topology
+(in this example the topology is $\{ \emptyset , X ,
+\{ 1, 2 \} , \{ 1 , 3 \} \{ 1 \} \}$).
+\end{flushleft}
 
 % end insert skipped section -----
 
@@ -312,8 +361,8 @@ Let $d_i$ be metrics on a set $X$, $i \in \{ 1,2\}$ then $\tau_{d_1} \subset \ta
 \end{flushleft}
 
 
-\begin{flushleft} 
- { \bf 1.2.7 Definition }We say $A \subset X$ is \emph{closed} if $A^c$ is open.\end{flushleft}\begin{flushleft} 
+\begin{flushleft}
+ { \bf 1.2.7 Definition }We say $A \subset X$ is \emph{closed} if $A^c$ is open.\end{flushleft}\begin{flushleft}
  { \bf Proposition }\begin{enumerate}
 \item
                 Arbitrary intersections of closed sets are closed.
@@ -321,52 +370,52 @@ Let $d_i$ be metrics on a set $X$, $i \in \{ 1,2\}$ then $\tau_{d_1} \subset \ta
                 Finite unions of closed sets are closed.
             \item
                 $\phi, X$ are closed.
-            \end{enumerate}\begin{flushleft} 
- \emph{Proof.  } These follow from the definition of a 
+            \end{enumerate}\begin{flushleft}
+ \emph{Proof.  } These follow from the definition of a
 topology by De Morgan's laws. $\Box$
-  \end{flushleft}\end{flushleft}\begin{flushleft} 
+  \end{flushleft}\end{flushleft}\begin{flushleft}
  { \bf Example.} In a metric space $(X, d)$, the set
-$\overline{B}(x, \eps) = \{ y \in X :  d(x,y) \le \eps \}$ is 
+$\overline{B}(x, \eps) = \{ y \in X :  d(x,y) \le \eps \}$ is
 closed in the metric topology $\tau_d$. Here $x \in X$ and $\eps > 0$.
-\end{flushleft} 
+\end{flushleft}
 
 \emph{Proof.  }  Try this as an exercise (just as in 3334).  For example,
 you could show the complement of this set is open, using 1.2.3 Proposition 4,
 using calculations similar in spirit to the proof of 1.2.3 Proposition 2.
 $\Box$
 
-\begin{flushleft} 
+\begin{flushleft}
  { \bf 1.2.8 Definition }The \emph{closure}, $\overline{A}$, of $A$, is the intersection of all closed subsets of $X$, containing $A$.
    We take  $\overline{\phi} = \phi, \overline{X} = X$.
      Note that
- $\overline{A}$ is the smallest closed subset of $X$ containing $A$. 
-Also $A$ is closed $\lrimply A = \overline{A}$.\end{flushleft}\begin{flushleft} 
+ $\overline{A}$ is the smallest closed subset of $X$ containing $A$.
+Also $A$ is closed $\lrimply A = \overline{A}$.\end{flushleft}\begin{flushleft}
  { \bf Proposition 1 } \ Let $A$ be a subset of a topological space $(X,\tau)$.
 \begin{enumerate}
 \item
-                $x \in \overline{A} \lrimply U \cap A \neq \phi \; 
+                $x \in \overline{A} \lrimply U \cap A \neq \phi \;
 \forall  U \in \tau$ with $x \in U$.
             \item
-                If $\tau$ has a basis $\B$ then $x \in \overline{A} 
+                If $\tau$ has a basis $\B$ then $x \in \overline{A}
 \lrimply U \cap A \not = \phi, \forall U \in \B$ with $x \in U$.
             \item
                 In a metric space $(X, d)$, $x \in \overline{A} \lrimply B(x, r) \cap A \not = \phi \; \forall r>0$.
-            \end{enumerate}\begin{flushleft} 
- \emph{Proof.  }  Exercise or see online notes.   $\Box$ 
-\end{flushleft}\end{flushleft}\begin{flushleft} 
+            \end{enumerate}\begin{flushleft}
+ \emph{Proof.  }  Exercise or see online notes.   $\Box$
+\end{flushleft}\end{flushleft}\begin{flushleft}
  { \bf Definition }The \emph{interior}, $A^o$ or $\textrm{int}(A)$,
- is the union of all 
-open sets contained inside $A$, which also equals the biggest open set inside $A$. Clearly $A$ open $\lrimply A = A^o$.\end{flushleft}\begin{flushleft} 
+ is the union of all
+open sets contained inside $A$, which also equals the biggest open set inside $A$. Clearly $A$ open $\lrimply A = A^o$.\end{flushleft}\begin{flushleft}
  { \bf Proposition 2 } \ \begin{enumerate}
 \item
                 $x \in A^o \lrimply \; \exists U \in \tau \st x \in U \subset A$
             \item
-                If $\tau$ has a basis $\B$ then $x \in A^o \lrimply  \; \exists 
+                If $\tau$ has a basis $\B$ then $x \in A^o \lrimply  \; \exists
 B \in \B \st x \in B \subset A$
             \item
                 In a metric space, $x \in A^o \lrimply \; \exists \eps > 0 \st B(x, \eps) \subset A$
-            \end{enumerate}\begin{flushleft} 
- \emph{Proof.  }Exercise or see online notes. $\Box$ \end{flushleft}\end{flushleft}\begin{flushleft} 
+            \end{enumerate}\begin{flushleft}
+ \emph{Proof.  }Exercise or see online notes. $\Box$ \end{flushleft}\end{flushleft}\begin{flushleft}
  { \bf Proposition  3 } \  For all $A, B \subset X$\begin{enumerate}
 \item
                 $A \subset B \rimply \overline{A} \subset \overline{B}$, and $A^o \subset B^o$.
@@ -376,13 +425,13 @@ B \in \B \st x \in B \subset A$
                 $\overline{A \cap B} \subset \overline{A} \cap \overline{B}$ and $ (A \cap B)^o = A^o \cap B^o$.
             \item
                 $(\overline{A})^c = (A^c)^o$ and $(A^o)^c = \overline{A^c}$
-            \end{enumerate}\begin{flushleft} 
- \emph{Proof.  }Exercise or see online notes. $\Box$ 
-\end{flushleft}\end{flushleft}\begin{flushleft} 
+            \end{enumerate}\begin{flushleft}
+ \emph{Proof.  }Exercise or see online notes. $\Box$
+\end{flushleft}\end{flushleft}\begin{flushleft}
  { \bf 1.2.9 Definition (Boundary and accumulation points):} We write
  $\textrm{bdy}(A)$ or $\partial A$ for the set
-$\overline{A} \setminus A^o$.  
-\end{flushleft}\begin{flushleft} 
+$\overline{A} \setminus A^o$.
+\end{flushleft}\begin{flushleft}
  { \bf Proposition. }For a non-empty set $A$ in a topological space $(X, \tau)$:\begin{enumerate}[i]
 \item
                 $x \in \partial A \lrimply \forall $ open $U$ comtaining $x$, $U \cap A \not = \phi$, and $U \cap A^c \not = \phi$
@@ -391,68 +440,216 @@ $\overline{A} \setminus A^o$.
             \item
                 $\overline{A} = A \cup \partial A = A^o \cup \partial A$, $A^o = A \setminus \partial A = \overline{A} \setminus \partial A$
             \item
-                $A$ is open $\lrimply A \cap \partial A = \phi$.  
+                $A$ is open $\lrimply A \cap \partial A = \phi$.
 Also, $A$ is closed $\lrimply \partial A \subset A$.
             \end{enumerate}
 An {\em accumulation} (or limit or cluster) point of $A$ is an
 element $x \in X$ such that every neighborhood of $x$ contains at least one point in $A \setminus \{ x \}$.
-Let $A'$ be the set of accumulation points of $A$, By Proposition 1.2.8 
-(i), $x \in A' \lrimply x \in \overline{ A \setminus \{ x \}}$. As we saw in undergraduate analysis, $\partial A \not \subset A'$ nor $A' \not \subset \partial A$, in general.\end{flushleft}\begin{flushleft} 
+Let $A'$ be the set of accumulation points of $A$, By Proposition 1.2.8
+(i), $x \in A' \lrimply x \in \overline{ A \setminus \{ x \}}$. As we saw in undergraduate analysis, $\partial A \not \subset A'$ nor $A' \not \subset \partial A$, in general.\end{flushleft}\begin{flushleft}
 
- { \bf 1.2.10 Definition. } \ Let $(X, \tau)$ a topological space and $Y$ a 
-subset of $X$.  The \emph{subspace} or \emph{relative topology} on $Y$ is 
-$\tau_Y = \{ U \cap Y: U \in \tau \}$. This is also 
-called the \emph{topology induced on $Y$ from/by $X$}. Sets in $\tau_Y$ are 
-called `relatively open' sets. We also say that $Y$ with its topology $\tau_Y$ is a \emph{subspace} of $X$. 
+ { \bf 1.2.10 Definition. } \ Let $(X, \tau)$ a topological space and $Y$ a
+subset of $X$.  The \emph{subspace} or \emph{relative topology} on $Y$ is
+$\tau_Y = \{ U \cap Y: U \in \tau \}$. This is also
+called the \emph{topology induced on $Y$ from/by $X$}. Sets in $\tau_Y$ are
+called `relatively open' sets. We also say that $Y$ with its topology $\tau_Y$ is a \emph{subspace} of $X$.
 
-Similarily, a subset $A$ of $Y$ is \emph{relatively closed}, or \emph{closed in subspace topology} if $Y \setminus A$ is relatively open (= open in subspace topology).\begin{flushleft} 
- \emph{Proof that $\tau_Y$ is a topology:}  First, 
+Similarily, a subset $A$ of $Y$ is \emph{relatively closed}, or \emph{closed in subspace topology} if $Y \setminus A$ is relatively open (= open in subspace topology).\begin{flushleft}
+ \emph{Proof that $\tau_Y$ is a topology:}  First,
  $\phi = \phi \cap Y \in \tau_Y$, and $Y = X \cap Y \in \tau_Y$.
-If  $\{ U_1, ..., U_n \} \in \tau_Y$, then $\cap_{k=1}^n (U_k \cap Y) = \left( \cap_{k=1}^n U_k \right) \cap Y \in \tau_Y$, since $\cap_{k=1}^n U_k \in \tau$. Finally, if $\{ U_i; i \in I \} \subset \tau_Y$, then $\cup_{i \in I} ( U_i \cap Y) = \left( \cup_{i \in I} U_i \right) \cap Y \in \tau_Y$ since $\cup_{i \in I} U_i \in \tau$.\end{flushleft}\end{flushleft}\begin{flushleft} 
- { \bf Example }$[0,1)$ is an open set in $[0,2]$ if $[0,2]$ has a subspace topoogy. Because $[0,1) = [0,2] \cap (-1,1)$. 
-That is, $[0,1)$ 
- is relatively open in $[0,2]$.\end{flushleft}\begin{flushleft} 
+If  $\{ U_1, ..., U_n \} \in \tau_Y$, then $\cap_{k=1}^n (U_k \cap Y) = \left( \cap_{k=1}^n U_k \right) \cap Y \in \tau_Y$, since $\cap_{k=1}^n U_k \in \tau$. Finally, if $\{ U_i; i \in I \} \subset \tau_Y$, then $\cup_{i \in I} ( U_i \cap Y) = \left( \cup_{i \in I} U_i \right) \cap Y \in \tau_Y$ since $\cup_{i \in I} U_i \in \tau$.\end{flushleft}\end{flushleft}\begin{flushleft}
+ { \bf Example. \ }$[0,1)$ is an open set in $[0,2]$ if $[0,2]$ has a subspace topoogy,
+because $[0,1) = [0,2] \cap (-1,1)$.
+That is, $[0,1)$
+ is relatively open in $[0,2]$.\end{flushleft}\begin{flushleft}
+
+
  { \bf Lemma }\begin{enumerate}
 \item If $A \subset Y \subset (X, \tau)$, then $A$ is relatively closed in $Y \lrimply A = Y \cap C, C$ closed in $X$.
 \item A subspace of a subspace of $(X, \tau)$ is a subspace of $(X, \tau)$.
-\item If $\B$ is a basis for $\tau$ on $X$, then $\{ U \cap Y; U \in \B \}$ is a basis for $\tau_Y$.
-\item If $A \subset Y \subset (X, \tau)$, then the closure of $A$ with respect to $\tau_Y$ equals $\overline{A} \cap Y$, where $\overline{A}$ is the closure with respect to $\tau$. 
-\item not finished.
+\item If $\B$ is a basis for $\tau$ on $X$, then $\{ U \cap Y :
+ U \in \B \}$ is a basis for $\tau_Y$.
+\item If $A \subset Y \subset (X, \tau)$, then the closure of $A$ with respect to $\tau_Y$ equals $\overline{A} \cap Y$, where $\overline{A}$ is the closure with respect to $\tau$.
+\item  If $A \subset Y \subset (X, \tau)$, and if $Y \in \tau$ then
+$A \in \tau_Y$ iff $A \in \tau$.
+\item If $A \subset Y \subset (X, \tau)$, and if $Y$ is closed in $X$
+then $A$ is relatively closed in $Y$ iff $A$ is closed in $X$.
 \end{enumerate}\end{flushleft}
-{\bf left off on page 13, picking up on page 16/17}
+
+\begin{flushleft}
+ \emph{Proof.  } 1) \ $A$ is  relatively closed in $Y$ iff
+$Y \setminus A = U \cap Y, U \in \tau$.  This holds iff
+$$A = Y \setminus (Y \setminus A) = Y \setminus (U \cap Y)
+= Y \setminus U = Y \cap U^c$$
+for some $U \in \tau$.  That is, iff
+$A = Y \cap C, C$ closed in $X$.
+
+2) \ If $Z \subset Y \subset (X, \tau)$, and $Y$ has the subspace topology
+$\tau_Y$, then the
+subspace topology of $Z$ as a subspace of $(Y,\tau_Y)$ is
+$\{ (U \cap Y) \cap Z : U \in \tau \}$.
+The subspace topology of $Z$ as a subspace of $(X, \tau)$
+is $\{ U \cap  Z : U \in \tau \}$.  These are clearly equal.
+
+3) \ Use the definition of basis: if $y \in Y, V \in \tau_Y, y \in V$ then
+there exists $U \in \tau$ with $V = U \cap Y$, so $y \in U$.
+By definition of `basis', there exists $B \in \B$ such that
+$y \in B \subset U$.  So $y \in B \cap Y \subset V  \cap Y = U$.
+So $\{ B  \cap Y: B \in \B \}$ is a basis.
+
+4) \ The closure of $A$ with respect to $\tau_Y$ is the intersection
+of all the relatively closed sets $C$ in $Y$ with $A \subset C$.
+Such  sets $C$ are just the sets $K \cap Y$ for $K$ closed in $X$ and
+$A \subset K \cap Y$.  The intersections of all such $K \cap Y$ is
+$Y \cap \cap \{ K : K^c \in \tau , A \subset K \} = Y \cap \bar{A}$.
+
+5) \ If $Y \in \tau$ then $U \cap Y \in \tau$ for all $U \in \tau$,
+so $\tau_Y \subset \tau$.  If $V \in \tau, V \subset Y$ then
+$V = V \cap Y \in \tau_Y$.
+
+6) \ Exercise.  $\Box$
+\end{flushleft}
+
+\begin{flushleft}
+ { \bf 1.2.11. \ Subspaces of metric spaces}  If $(X,d)$ is a metric space,
+and $Y$ is a subset of $X$, then the restriction $d'$ of $d$ to $Y$
+is a metric on $Y$ clearly.  So $d'$ induces a metric topology $\tau_{d'}$ on $Y$.
+\end{flushleft}
+
+\begin{flushleft}
+{\bf Proposition.}  In the notation above $\tau_{d'} = (\tau_d)_Y$, that is
+$\tau_{d'}$ is the relative topology of $Y$ as a subspace of $(X, \tau_d)$.
+\end{flushleft}
+ \emph{Proof.  }   We show that these two topologies have the same basis.
+A basis for $\tau_{d'}$ are the open balls
+$B = \{ y \in Y : d(y,x) < \epsilon \}$, for $x \in Y$.
+By Lemma 1.2.10 (3), a basis for $(\tau_d)_Y$ are sets of form
+$C = \{ z \in Y : d(z,x)  < \epsilon \}$, for $x \in X$.
+To see that the sets of form $B$ above, are a basis for $(\tau_d)_Y$,
+it is enough to show that for the set $C$ above, and $z \in C$,
+there is a $\delta > 0$ such that
+$B =  \{ y \in Y : d(y,z) < \epsilon \}$  is contained in $C$.
+This is identical to the proof in
+1.2.3 Proposition 2.    $\Box$
+
+\begin{flushleft}
+ { \bf 1.2.12. \ Definition.}  A topological space $(X , \tau)$ is called {\em Hausdorff},
+if for all $x,y \in X, x \neq y$, there exist $U, V \in \tau, U \cap V = \emptyset,
+x \in U, y \in V$.
+
+For much of topology to `work', we need the space to be Hausdorff.  Non-Hausdorff
+spaces are usually considered to be pathological.
+\end{flushleft}
+
+\begin{flushleft}
+
+{\bf Proposition.}   Metric spaces are Hausdorff (with the metric topology).
+
+\emph{Proof.  }  If $x,y \in X, x \neq y$, let $\epsilon =
+d(x,y)/2$.  Then $B(x,\epsilon) \cap B(y,\epsilon) = \emptyset$
+since if $z \in B(x,\epsilon) \cap B(y,\epsilon)$ then  we get the
+contradiction $d(x,y) \leq d(x,z) + d(z,y) < \epsilon + \epsilon =
+d(x,y) .$   $\Box$
+\end{flushleft}
+
+\begin{flushleft}
+
+{\bf Corollary.}  There exist nonmetrizable topological spaces.
+
+
+\emph{Proof.  }  Find a topology on the three point set in Homework 2 which
+is not Hausdorff, and use the last Proposition.
+ $\Box$
+\end{flushleft}
+
+
+\begin{flushleft}
+
+{\bf Lemma.}  In a Hausdorff space, finite sets are closed.
+
+
+
+\emph{Proof.  }  Sice finite unions of closed sets are closed it
+suffices to show that a singleton set $\{ x \}$ is closed.  If $y
+\in \{ x \}^c$, there exist $U, V \in \tau, U \cap V = \emptyset, x
+\in U, y \in V$.  Since  $y \in V \subset \{ x \}^c$, we have proved
+that every point in $\{ x \}^c$ is an interior point of that set. So
+$\{ x \}^c$ is open, hence $\{ x \}$ is closed.
+ $\Box$
+\end{flushleft}
 
 \begin{flushleft}
 {\bf 1.3 }{\bf Convergence }
 \end{flushleft}
 
-\begin{flushleft} 
-  { \bf Definition } First, let's discuss orderings on a set. A \emph{Binary relation} on $X$ is a subset $\R \subset X \times X$. We write $x \le y$ iff $(x,y) \in \R$. A \emph{Preordered set} is a set $X$ with a binary relation, $\le$ satisfying\begin{enumerate}[i]
-\item
-  Reflexivity: $x \le x \; \forall x \in X$\
-%\item
-%  Antisymmetry: $x \le y, y \le x \rimply x=y$
-\item
-  Transitivity: $x \le y, y \le z \rimply x \le z$.
-\end{enumerate}
-A \emph{Partially ordrerd set} (poset) is a set which is preordred and antisymmetric, $x \le y \le x \rimply x=y$.
-A subset $Y$ of a preordered set $X$ is said to have an \emph{upper bound} in $X$ if $\exists \; x \in X \st y \le x \forall y \in Y$.
-A \emph{directed set} is a non-empty preordered set $X$ such that $\{x,y\}$ has an upper bound in $X$ for all $x,y \in X$.
-A \emph{totally ordered set} is a poset such that either $x \le y$ or $y \le x$ for all $x,y \in X$.
-A \emph{well ordered set} is a poset such that every non-empty $Y \subset X$ has a \emph{minimum:} $\exists y \in Y \st y \le x \; \forall x \in Y$. \\
-
-
-The \emph{well ordering principle:} every non-empty set has a well ordering.
-The \emph{axiom of choice:} (AC) if $X$ is a non-empty set, then there exists a function $C: \pset{X} \setminus \{ \phi \} \rarw X$ with $C(A) \in A \; \; \forall A \not = \phi \subset X$.
-\emph{Zorn's lemma} statues tat if $(X, \le)$ is a poset, in which every chain (a well ordered subset) has a minimum upper bound in $X$. Then $X$ has a \emph{minimal element} ( $\exists x \in X \st  y \in X, y\ge x \rimply y=x$). Warning: maximal is not the same as maximum, in general. Any one of these principles/axioms implies the other; we assume them all.
-\end{flushleft}
-
-
-\begin{flushleft} {\bf Example} 
-In a topological space, $(X, \tau)$, $x \in X$, $\curlyO(x)$ is the set of neighbourhoods of $x$, wiht every $U \le V$ iff $U \supset V$, the reverse containment ordering.
-\end{flushleft}
-
 \begin{flushleft}
-\emph{Proof.} Ex.
+  { \bf 1.3.1
+ Orderings.}
+\end{flushleft}
+\begin{itemize}
+
+\item A binary relation on a set $X$ is a subset ${\mathcal R} \subset X \times X$.  We write
+$x \leq y$ if $(x,y) \in {\mathcal R}$.
+
+\item A {\em preordered set} is a set $X$ with a  binary relation $\leq$ which is
+ {\em transitive} (that is $x \leq y$ and $y \leq z$ implies $x \leq z$), and
+{\em reflexive} (that is $x \leq x$ for all $x \in X$).
+
+
+\item  A {\em partially ordered (p.o.) set} is a preordered set $(X, \leq)$
+whose ordering is also {\em antisymmetric}, that is $x \leq y$ and
+$y \leq x$ implies $x = y$.
+
+\item  A subset $Y$ of a preordered set $(X, \leq)$ is said to have an
+{\em upper bound} in $X$, if there exists an element $x \in X$ with
+$y \leq x$ for all $y \in Y$.
+
+
+\item  A {\em directed set} is  a nonempty preordered set $(X, \leq)$
+in which any two elements $\{ x,y \} $ in $X$ have an upper bound in
+$X$.
+
+
+\item  A partially ordered set is {\em totally ordered (t.o.)}
+if $x,y \in X$ implies that  $x \leq y$ or $y \leq x$.
+
+\item  A partially ordered set is {\em well ordered (w.o.)} if
+every nonempty subset has a minimum (that is, there exists an
+element $x \in Y$ such that $x \leq y$ for all $y \in Y$). Clearly a
+w.o.\ set is t.o.
+
+\item  The {\em well ordering principle} says that any nonempty set has
+a well ordering $\leq$.
+
+\item  The {\em axiom of choice (AC)} says that if $X$ is a nonempty set
+then there exists a function $c : {\mathcal P}(X) \setminus \{
+\emptyset \} \to X$ with $c(A) \in A$ for every $\emptyset \neq A
+\subset X$.   Here ${\mathcal P}(X)$ is the power set of $X$, that
+is the set of subsets of $X$.
+
+
+\item {\em Zorn's lemma} states that if $(X, \leq)$ is a
+partially ordered set for which every {\em chain} (that is, t.\ o.\
+subset) has an upper bound in $X$, then $X$ has a {\em maximal}
+element.  That is, there exists an element $x \in X$ such that if $y
+\in X, y \geq x$ then $y = x$.
+
+
+\item Warning: {\em maximal} is not the same as  {\em maximum}.  There may be many
+elements incomparable to  a maximal element.
+
+
+\item The well ordering principle, the axiom of choice, and Zorn's lemma
+are mathematically equivalent.  That is, any one of these implies
+the other. In functional analysis we use them all without comment.
+ \end{itemize}
+
+
+\begin{flushleft} {\bf Example. \ }
+In a topological space, $(X, \tau)$, $\curlyO(x)$ is the set of
+neighborhoods of  a point $x \in X$.  A good example of a directed
+set, which we use frequently, is $\curlyO(x)$ with  the reverse
+containment ordering $U \le V$ iff $U \supset V$.
 \end{flushleft}
 
 \begin{flushleft} {\bf 1.3.2 Definition} A \emph{net} or \emph{generalized sequence} in a set $X$ is a pair $(\Lambda, i)$, where $\Lambda$ is a directed set, and $i: \Lambda \rarw X$, is a function. Usually we write $x_\lambda$ for $i(\lambda)$ and write $(x_\lambda)$ or $(x_\lambda)_{\lambda \in \Lambda}$ for $(\Lambda, i)$. If $\Lambda = \nats$, then a net is a sequence.
@@ -461,50 +658,105 @@ In a topological space, $(X, \tau)$, $x \in X$, $\curlyO(x)$ is the set of neigh
 \begin{flushleft} {\bf Definition} A net $(x_\lambda)_{\lambda \in \Lambda}$ in a topological space \emph{converges} with limit $x \in X$, if for every neighborhood $U \in \curlyO(x)$, $\exists \lambda_0 \st x_\lambda \in U \; \forall \lambda \ge \lambda_0$. In this case we write $x_\lambda \rarw x$ or $\lim_\lambda x_\lambda = x$.
 \end{flushleft}
 
-\begin{flushleft} Note: if $(X, d)$ is a metric space, and $\Lambda = \nats$, 
-then to say $x_\lambda \rarw x \in X$ is saying that for all open 
-$U \ni x, \; \exists N \in \nats \st x_n \in U \; \forall n \ge N$, which is equivalent to saying $\forall \eps > 0 \; \exists N \in \nats \st x_n \in B(x,\eps) \; \forall n \ge N$, or $\forall \eps > 0 \; \exists N \in \nats \st d(x_n, x) < \eps \; \forall n \ge N$, which are the usual definitions of convergence of sequences.
+\begin{flushleft} Note: if $(X, d)$ is a metric space, and $\Lambda = \nats$,
+then to say $x_\lambda \rarw x \in X$ is saying that for all open $U
+\ni x,$ $\exists N \in \nats$ such that  $x_n \in U \; \forall n \ge
+N$, which is equivalent to saying $\forall \eps > 0 \; \exists N \in
+\nats$ such that  $x_n \in B(x,\eps)$ whenever $n \ge N$, or
+$\forall \eps
+> 0 \; \exists N \in \nats$ such that  $d(x_n, x) < \eps \; \forall n \ge N$,
+which is the usual definition of convergence of sequences.
 \end{flushleft}
 
-\begin{flushleft} {\bf 1.3.3 Definition} A \emph{subnet} of a net $(\Lambda, i)$ is a net $(M, j)$, where $M$ is a directed set, $j: M \rarw X$, together with a  monotone function $g: M \rarw \Lambda \st j = i \circ g$, and such that $\forall \lambda \in \Lambda, \; \exists \mu \in M \st g(\mu) \ge \lambda \; (*)$. The last, starred, condition is sometimes refered to as `co final', and here monotone means that $\lambda_1 \le \lambda_2 \rimply g(\lambda_1) \le g(\lambda_2)$. In practice we use a different notation; we write the subnet of $(x_\lambda)_{\lambda \in \Lambda}$ above as $(x_{\lambda_\mu}) _{\mu \in M}$, where $\lambda_\mu = g(\mu)$. In this notation, we can rewrite out definition of a subnet as: a subnet of $(x_\lambda)_{\lambda \in \Lambda}$ is a net $(x_{\lambda_\mu})_{\mu \in M}$ where $M$ is a new directed set, and $\mu \mapsto \lambda_\mu: M \rarw \Lambda$ is monotone, and for all $\lambda \in \Lambda, \; \exists \mu \in M \st \lambda_\mu \ge \mu (*)$. Warning: A sequnce is a net, but a subnet of a sequence is usually not a subsequence.
+\begin{flushleft} {\bf 1.3.3 Definition} A \emph{subnet} of a net $(\Lambda, i)$ is
+a net $(M, j)$, where $M$ is a directed set, $j: M \rarw X$, together with a  monotone
+function $g: M \rarw \Lambda \st j = i \circ g$, and such that $\forall \lambda \in
+ \Lambda, \; \exists \mu \in M \st g(\mu) \ge \lambda \; (*)$. Here monotone means that
+ $\lambda_1 \le \lambda_2 \rimply g(\lambda_1) \le g(\lambda_2)$. In practice we use a
+ different notation; we write the subnet of $(x_\lambda)_{\lambda \in \Lambda}$ above as
+  $(x_{\lambda_\mu}) _{\mu \in M}$, where $\lambda_\mu = g(\mu)$. In this notation, we
+   can rewrite out definition of a subnet as: a subnet of $(x_\lambda)_{\lambda \in
+   \Lambda}$ is a net $(x_{\lambda_\mu})_{\mu \in M}$ where $M$ is a new directed set,
+   and $\mu \mapsto \lambda_\mu: M \rarw \Lambda$ is monotone, and for all $\lambda \in
+   \Lambda, \; \exists \mu \in M \st \lambda_\mu \ge \mu \; \; (*)$.
 \end{flushleft}
 
+Warning: A sequence is a net, but a subnet of a sequence is usually
+not a subsequence.
 
-
-\begin{flushleft} {\bf 1.3.4 Theorem} If $x_\lambda \rarw x$ in $(X, \tau)$, then every subnet of $(x_\lambda)$ converges to $x$.
+\begin{flushleft} {\bf 1.3.4 Theorem} If $x_\lambda \rarw x$ in $(X, \tau)$, then every
+ subnet of $(x_\lambda)$ converges to $x$.
 \end{flushleft}
 
-\begin{flushleft} \emph{Proof. } Suppose $x_\lambda \rarw x, (x_\lambda)_{\mu \in M}$ is a subnet, let $U \in \curlyO(x)$, then $\exists \lambda_0 \st x_\lambda \in U \; \forall \lambda \ge \lambda_0$. By $(*)$, $\exists \mu_0 \in M \st \lambda_{\mu_0} \ge \lambda_0$. If $\mu \ge \mu_0$, then $\lambda_\mu \ge \lambda_{\mu_0} \ge \lambda$, so $x_{\lambda_\mu} \in U \; \forall \mu \ge \mu_0,$ so $x_{\lambda_\mu} \rarw x$. 
+\begin{flushleft} \emph{Proof. } Suppose $x_\lambda \rarw x, (x_\lambda)_{\mu \in M}$
+ is a subnet, let $U \in \curlyO(x)$, then $\exists \lambda_0 \st x_\lambda \in U \;
+  \forall \lambda \ge \lambda_0$. By $(*)$, $\exists \mu_0 \in M \st \lambda_{\mu_0}
+  \ge \lambda_0$. If $\mu \ge \mu_0$, then $\lambda_\mu \ge \lambda_{\mu_0}
+  \ge \lambda$, so $x_{\lambda_\mu} \in U \; \forall \mu \ge \mu_0.$
+   Hence
+  $x_{\lambda_\mu} \rarw x$.
 $\Box$
 \end{flushleft}
 
 
-\begin{flushleft} {\bf 1.3.5 Theorem} If $(X, \tau)$ is Hausdorff, and $x_\lambda \rarw x$, $x_\lambda \rarw x'$, in $X$, then $x = x'$.
+\begin{flushleft} {\bf 1.3.5 Proposition} If $(X, \tau)$ is Hausdorff, and $x_\lambda \rarw x$, $x_\lambda \rarw x'$, in $X$, then $x = x'$.
 \end{flushleft}
 
-\begin{flushleft} \emph{Proof. } By contradiction, suppose $x \not = x'$, then $\exists U, V \in \tau, U \cap V = \phi, x \in U, x' \in V$. $\exists \lambda_0, \lambda_1 \st x_\lambda \in U \; \forall \lambda \ge \lambda_0, x_\lambda \in V \; \forall \lambda \ge \lambda_1$. Because $\Lambda$ is directed, $\exists \lambda_2 \ge \lambda_0$, and $\lambda_2 \ge \lambda_1$, so $x_{\lambda_2} \in U \cap V = \phi$, a contradiction. $\Box$
+\begin{flushleft} \emph{Proof. } By contradiction, suppose $x \not = x'$, then $\exists
+ U, V \in \tau,$ $U \cap V = \phi,$ $x \in U, x' \in V$. Now $\exists \lambda_0,
+ \lambda_1$ such that $x_\lambda \in U \; \forall \lambda \ge \lambda_0, x_\lambda \in V \; \forall \lambda \ge \lambda_1$. Because $\Lambda$ is directed, $\exists \lambda_2 \ge \lambda_0$, and $\lambda_2 \ge \lambda_1$, so $x_{\lambda_2} \in U \cap V = \phi$, a contradiction. $\Box$
 \end{flushleft}
 
-\begin{flushleft} {\bf 1.3.6 Theorem} If $A$ is a non-empty subset of a topological space $(X, \tau)$, then $x \in \overline{A}$ iff there exists a net in $A$ with limit $x$
+\begin{flushleft} {\bf 1.3.6 Proposition} If $A$ is a non-empty subset of a topological
+space $(X, \tau)$, then $x \in \overline{A}$ iff there exists a net in $A$ with limit
+ $x$.
 \end{flushleft}
 
-\begin{flushleft} \emph{Proof. } ($\limply$) Suppose $x_\lambda \rarw x \in X$, $x_\lambda \in A \; \forall \lambda$, if $x \in U \in \tau$, then $\exists \lambda_0 \st x_\lambda \in U \; \forall \lambda \ge \lambda_0$. So $x_{\lambda_0} \in U \cap A$, so $U \cap A \not = 0$. By 1.2.8 Prop 1, $x \in \overline{A}$.  \\
-($\rimply 1$) If $x \in \overline{A}$, consider the directed set $\Lambda = \curlyO(x)$ with the `reverse inclusion' ordering. 
-By 1.2.8 prop 1, if $U \in \curlyO(x), \exists x \in U \cap A$, call this $x$ by the name $x_U$. 
-We claim that $x_U \rarw x$: if $V \in \tau, x \in V$,
+\begin{flushleft} \emph{Proof. } ($\limply$) Suppose $x_\lambda \rarw x \in X$,
+ and $x_\lambda \in A \; \forall \lambda$.  If $x \in U \in \tau$, then $\exists
+ \lambda_0 \st x_\lambda \in U \; \forall \lambda \ge \lambda_0$. So
+  $x_{\lambda_0} \in U \cap A$, so $U \cap A \not = \emptyset$. By 1.2.8 Proposition 1,
+  $x \in \overline{A}$.  \\
+($\rimply$) If $x \in \overline{A}$, consider the directed set
+$\Lambda = \curlyO(x)$ with the `reverse inclusion' ordering. By
+1.2.8 Proposition 1, if $U \in \curlyO(x), \exists x \in U \cap A$.
+  Call this $x$ by the name $x_U$. Then $(x_U) _ { U \in \curlyO(x)}$ is a net.
+  We claim that $x_U \rarw x$: if $V
+\in \tau, x \in V$,
  let $\lambda_0 = V$, if $U \in \Lambda, U  \ge \lambda_0$,
- then $U \le V$, so $x_U \in U \subset V$. $\Box$ \\
-($\rimply 2$) For all $U \in \curlyO(x)$, by 1.2.8 proposition 1 (i), $U \cap A \not = \phi$. Define $x_U$ to be an element of $U \cap A$. Then $(x_U) _ { U \in \curlyO(x)}$ is a net. Claim, $x_U \rarw x$. Since, if $U$ is a neighbourhood of $x$, set $\lambda_0 = U$ If $\lambda \ge \lambda_0, \lambda \in \curlyO(x)$, then $\lambda$ is a neighbourhood of $x$, contained in $U$, so $x_\lambda \in \lambda \subset U$. $\Box$
+ then $U \subset  V$, so $x_U \in U \subset V$. $\Box$
 \end{flushleft}
 
 
 \begin{flushleft} {\bf Corollary} A set $A$ in $(X, \tau)$ is closed iff $A$ contains the limits in $(X, \tau)$ of all convergent nets whose terms are in $A$. That is, $A$ is closed iff $A = \{ x \in X; \; \exists \textrm{ net } (x_\lambda) \in A \st x_\lambda \rarw x \}$.
 \end{flushleft}
 
-\begin{flushleft} \emph{Proof. } $A$ is closed $\lrimply A = \overline{A}  \underset{1.3.6}{\overset{\textrm{prop.} }{=}} \{ x \in X; \; \exists \textrm{ net} \in A \textrm{ with limit } x\} $. $\Box$
+\begin{flushleft} \emph{Proof. } $A$ is closed $\lrimply A = \overline{A}
+ \underset{1.3.6}{\overset{\textrm{prop.} }{=}} \{ x \in X :  \; \exists \textrm{ net} \in A \textrm{ with limit } x\} $. $\Box$
 \end{flushleft}
 
-{ \bf  skipped some thigns here, 1.3.7 }
+{\bf   1.3.7
+ Nets in $\reals$ or $\Cdb$.}  Nets in $\reals$ or $\Cdb$
+behave as you would expect.   ADD That is, suppose that  $x_\lambda
+\to x$ and $y_\lambda \to y$ in $\reals$ or $\Cdb$. Then $x_\lambda
++ y_\lambda \to x + y$.  A similar assertion holds with $+$ replaced
+by $-$ or `times' or `divide'; for the latter one needs $y \neq 0$.
+If $x_\lambda \leq y_\lambda$ then $x \leq y$. If $x_\lambda \leq
+z_\lambda \leq y_\lambda$ and $x = y$, then $z_\lambda \to x$ too.
+Also, $x_\lambda \to x$ iff $|x_\lambda - x| \to 0$. An increasing
+bounded net converges to its supremum. All of the just mentioned
+facts are proved just as we prove the analoguous facts for sequences
+in $\reals$, and are left to the reader.  We will include one sample
+proof below.    Beware though: a convergent net of real or complex
+  numbers need not
+be bounded (however it is {\em eventually bounded}: that is there is
+a constant $M \geq 0$, and $\lambda_0 \in \Lambda$, such that
+$|x_\lambda| \leq M$ for all $\lambda \geq \lambda_0$). Note too
+that if $s_t \to 0$ and $(r_t)$ is eventually bounded, then $s_t r_t
+\to 0$. Indeed, if  $|r_t| \leq M$ for $t \geq t_0$, and $\epsilon >
+0$ is given, choose $t_1 \geq t_0$ such that $|s_t - 0| <
+\epsilon/M$ for $t \geq t_1$. Then for $t \geq t_1$ we have: $|s_t
+r_t | \leq M \epsilon/M = \epsilon$.
 
 \begin{flushleft} {\bf Definition 1.3.8} An \emph{accumulation point of a net} $(x_\lambda)_{\lambda \in \Lambda}$ in a topological space $(X, \tau)$ is a point $x \in X \st \; \forall U \in \curlyO(x)$, and $\forall \lambda_0 \in \Lambda, \; \exists \lambda \ge \lambda_0 \st x_\lambda \in U$.
 \end{flushleft}
@@ -518,6 +770,65 @@ We claim that $x_U \rarw x$: if $V \in \tau, x \in V$,
 
 
 
+ A function $f : X \to Y$ between
+topological spaces is continuous at $x \in X$ iff whenever $(x_t)$
+is a net in $X$ converging to $x$, then $f(x_t) \to f(x)$. It is
+continuous on $X$ if it is continuous at every point, and this is
+equivalent to $f^{-1}(U)$ being open in $X$ for all open $U \subset
+Y$. A homeomorphism is a continuous one-to-one surjective function
+whose inverse is also continuous (which is the same as $f$ being an
+{\em open} map, that is $f(U)$ is open in $Y$ for all open $U
+\subset X$).
+
+[Initial topologies] If $X$ is a set, and ${\mathcal F}$ is a
+collection of functions from $X$ into various Hausdorff topological
+spaces, then the {\em initial topology} induced by ${\mathcal F}$ on
+$X$ is the weakest (coarsest) topology on $X$ making all the
+functions in ${\mathcal F}$ continuous. It is easy to see that this
+topology consists of unions of finite intersections of sets of the
+form $f^{-1}(U)$, for $f \in {\mathcal F}$ and $U$ an open set in
+the space $f$ maps into.  Indeed the set of finite intersections of
+such sets is easily checked to satisfy the simple criterion from
+topology for being the basis of some topology, and this topology is
+clearly contained in every other topology on $X$ making all the
+functions in ${\mathcal F}$ continuous. There are only three things
+that can be said about initial topologies, and their proofs are
+simple.  Fact 1: a net $x_\lambda \to x$ in $X$ in this topology iff
+$f(x_\lambda) \to f(x)$ for all $f \in {\mathcal F}$.  From this
+Fact 2 is clear: a function $g : Z \to X$ from a topological space
+$Z$ is continuous iff $f \circ g$ is continuous for all $f \in
+{\mathcal F}$.  Fact 3: this topology on $X$ is Hausdorff if
+whenever $x \neq y$ in $X$, then there exists an $f \in {\mathcal
+F}$ such that $f(x) \neq f(y)$.
+
+Let us prove these three facts.  One direction of Fact 1 is obvious
+from \ref{fthc}.  For the other, suppose that $f(x_\lambda) \to
+f(x)$ for all $f \in {\mathcal F}$.  If $V$ is an open set in this
+topology containing $x$, then we can find a basic open set $B$ with
+$x \in B \subset V$.  As we said above, $B$ is a finite intersection
+of sets of the form $f_k^{-1}(U)$, for $f_k \in {\mathcal F}$ and
+$U$ an open set in the space $f$ maps into.  Write $f$ for $f_k$.
+Since $f(x) \in U$ and $f(x_\lambda) \to f(x)$, there is  a
+$\lambda_k$ such that $f(x_\lambda) \in U$ if $\lambda \geq
+\lambda_k$.   Choose $\lambda_0 \geq \lambda_k$ for all (the finite
+number of) $k$.  Then if $\lambda \geq \lambda_0$, we have
+$x_\lambda \in \cap_k \; f_k^{-1}(U) = B \subset V$.  That is,
+$x_\lambda \to x$.
+
+
+One direction of Fact 2 is obvious, since each $f \in {\mathcal F}$
+is continuous, and the composition of two continuous functions is
+continuous.   For the other  direction, if $z_t \to z$ in $Z$, then
+$f(g(z_t)) \to f(g(z))$ for all $f \in {\mathcal F}$ by \ref{fthc}.
+Hence $g(z_t)  \to g(z)$ by
+ Fact 1, and so $g$ is continuous by \ref{fthc}.
+
+Finally, to prove Fact 3, note that if $x \neq y$ in $X$, then by
+assumption there exists an $f \in {\mathcal F}$ such that $f(x) \neq
+f(y)$.  Suppose that $U, V$ are open in the space $f$ maps into,
+with $U \cap V = \emptyset, f(x) \in U, f(y) \in V$.    Then
+$f^{-1}(U)$ and $f^{-1}(V)$ are open in the initial topology on $X$,
+these sets are disjoint, and they contain $x$ and $y$ respectively.
 
 
 
